@@ -1,0 +1,7 @@
+# Package Managers
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Don't try to reformat generated code as it'll just get overwritten and break the Prettier check step
+prisma/generated/

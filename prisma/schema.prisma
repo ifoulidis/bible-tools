@@ -1,0 +1,47 @@
+// Docs: https://pris.ly/d/prisma-schema
+// Use the Prisma extension for VS Code
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+generator zod {
+  provider = "zod-prisma-types"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model UserRole {
+  userId String @id
+  role   Role
+}
+
+enum Role {
+  Admin
+  Staff
+}
+
+model Character {
+  id                    Int      @id @default(autoincrement())
+  createdAt             DateTime @default(now())
+  updatedAt             DateTime? @updatedAt
+  name                  String   @db.Text
+  lengthOfReign         String
+  startOfReign          Int
+  endOfReign            Int
+  relationToPredecessor String?
+  kingdom                String
+  keyPassages           BiblePassage[]
+}
+
+model BiblePassage {
+  id            Int      @id @default(autoincrement())
+  book          String
+  chapter       String
+  verses        String
+  character    Character @relation(fields: [characterId], references: [id])
+  characterId  Int
+}

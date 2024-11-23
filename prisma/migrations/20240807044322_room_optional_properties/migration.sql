@@ -1,0 +1,3 @@
+-- AlterTable
+ALTER TABLE "Room" ALTER COLUMN "ttlockId" DROP NOT NULL,
+ALTER COLUMN "pmsId" DROP NOT NULL;

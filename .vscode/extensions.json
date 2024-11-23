@@ -1,0 +1,23 @@
+{
+  // List of extensions which should be recommended for users of this workspace.
+  "recommendations": [
+    "formulahendry.auto-close-tag",
+    "formulahendry.auto-rename-tag",
+    "mikestead.dotenv",
+    "vincaslt.highlight-matching-tag",
+    "wayou.vscode-todo-highlight",
+    "naumovs.color-highlight",
+    "dbaeumer.vscode-eslint",
+    "oderwat.indent-rainbow",
+    "SirTori.indenticator",
+    "Zignd.html-css-class-completion",
+    "esbenp.prettier-vscode",
+    "YoavBls.pretty-ts-errors",
+    "Prisma.prisma",
+    "stylelint.vscode-stylelint",
+    "bradlc.vscode-tailwindcss",
+    "svelte.svelte-vscode"
+  ],
+  // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+  "unwantedRecommendations": []
+}
