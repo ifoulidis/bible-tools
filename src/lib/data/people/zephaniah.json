@@ -1,0 +1,63 @@
+{
+  "id": "zephaniah",
+  "name": "Zephaniah",
+  "altNames": [],
+  "summary": "Descendant of Hezekiah who proclaimed the coming \"day of the LORD\" against Judah's idolatry and the nations.",
+  "ministry": {
+    "audience": ["judah", "nations"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 635,
+        "to": 625,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Zeph",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["josiah"]
+        },
+        {
+          "kind": "inference",
+          "note": "The open Baal worship he condemns (Zeph 1:4\u20136) suggests a date before Josiah's reform of 622."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Cushi"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Zeph",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 3,
+        "verse": 20
+      },
+      "kind": "book"
+    }
+  ]
+}

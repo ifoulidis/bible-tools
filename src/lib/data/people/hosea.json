@@ -1,0 +1,90 @@
+{
+  "id": "hosea",
+  "name": "Hosea",
+  "altNames": [],
+  "summary": "Married Gomer at God's command as a living picture of Israel's unfaithfulness and the LORD's persistent love.",
+  "ministry": {
+    "audience": ["israel"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 755,
+        "to": 715,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Hos",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["azariah", "jotham", "ahaz", "hezekiah", "jeroboam-ii"]
+        },
+        {
+          "kind": "inference",
+          "note": "Hos 1:4 speaks of Jehu's house as still reigning, so his ministry began before Zechariah's death in 752."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "stuart-1987"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Beeri"
+    },
+    {
+      "relation": "spouse",
+      "name": "Gomer"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Hos",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 9
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 2,
+        "verse": 15
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Rom",
+      "from": {
+        "chapter": 9,
+        "verse": 25
+      },
+      "to": {
+        "chapter": 9,
+        "verse": 26
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

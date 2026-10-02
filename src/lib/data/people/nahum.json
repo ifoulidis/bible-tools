@@ -1,0 +1,50 @@
+{
+  "id": "nahum",
+  "name": "Nahum",
+  "altNames": [],
+  "summary": "Foretold the fall of Nineveh, the Assyrian capital, as judgment on its cruelty.",
+  "ministry": {
+    "audience": ["nations", "judah"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 663,
+        "to": 612,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "inference",
+          "note": "Nah 3:8\u201310 refers to the fall of Thebes (No-amon) as past; Assyria sacked Thebes in 663."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian Chronicle (ABC 3)",
+          "note": "Records the fall of Nineveh in 612, which Nahum predicts as future."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "grayson-1975"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Nah",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 3,
+        "verse": 19
+      },
+      "kind": "book"
+    }
+  ]
+}

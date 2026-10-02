@@ -9,14 +9,31 @@ generator zod {
   provider = "zod-prisma-types"
 }
 
+// The connection URL lives in prisma.config.ts
 datasource db {
   provider = "postgresql"
-  url      = env("DATABASE_URL")
 }
 
-model UserRole {
-  userId String @id
-  role   Role
+model User {
+  id           String    @id @default(uuid())
+  email        String    @unique
+  /// scrypt hash with its salt, see src/lib/server/password.ts; never the password itself
+  passwordHash String
+  /// null for ordinary users; set Admin/Staff directly in the database
+  role         Role?
+  createdAt    DateTime  @default(now())
+  sessions     Session[]
+}
+
+model Session {
+  /// SHA-256 of the token in the session cookie, so a leaked table can't be used to log in
+  id        String   @id
+  user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId    String
+  expiresAt DateTime
+  createdAt DateTime @default(now())
+
+  @@index([userId])
 }
 
 enum Role {
@@ -24,24 +41,113 @@ enum Role {
   Staff
 }
 
-model Character {
-  id                    Int      @id @default(autoincrement())
-  createdAt             DateTime @default(now())
-  updatedAt             DateTime? @updatedAt
-  name                  String   @db.Text
-  lengthOfReign         String
-  startOfReign          Int
-  endOfReign            Int
-  relationToPredecessor String?
-  kingdom                String
-  keyPassages           BiblePassage[]
+// King and prophet data. The source of truth is the JSON in src/lib/data, copied in by
+// `npx prisma db seed`; edit the JSON rather than these tables.
+
+model Person {
+  id       String         @id
+  name     String
+  altNames String[]
+  summary  String
+  reign    Reign?
+  ministry Ministry?
+  datings  Dating[]
+  family   FamilyMember[]
+  passages Passage[]
 }
 
-model BiblePassage {
-  id            Int      @id @default(autoincrement())
-  book          String
-  chapter       String
-  verses        String
-  character    Character @relation(fields: [characterId], references: [id])
-  characterId  Int
+model Reign {
+  person                Person  @relation(fields: [personId], references: [id], onDelete: Cascade)
+  personId              String  @id
+  kingdom               String
+  predecessorId         String?
+  successorId           String?
+  relationToPredecessor String?
+}
+
+model Ministry {
+  person   Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+  personId String   @id
+  audience String[]
+  hasBook  Boolean
+}
+
+/// One row per dating: position 0 is the primary dating for that role, later ones are alternatives
+model Dating {
+  id            String     @id
+  person        Person     @relation(fields: [personId], references: [id], onDelete: Cascade)
+  personId      String
+  role          String
+  position      Int
+  label         String?
+  spanFrom      Int
+  spanTo        Int
+  approx        Boolean
+  coregencyFrom Int?
+  confidence    String
+  notes         String?
+  evidence      Evidence[]
+  citations     Citation[]
+
+  @@unique([personId, role, position])
+}
+
+model Evidence {
+  id              String   @id
+  dating          Dating   @relation(fields: [datingId], references: [id], onDelete: Cascade)
+  datingId        String
+  position        Int
+  kind            String
+  book            String?
+  fromChapter     Int?
+  fromVerse       Int?
+  toChapter       Int?
+  toVerse         Int?
+  note            String?
+  artifact        String?
+  contemporaryIds String[]
+}
+
+model Source {
+  id        String     @id
+  author    String
+  title     String
+  year      Int
+  kind      String
+  publisher String?
+  url       String?
+  citations Citation[]
+}
+
+model Citation {
+  id       String  @id
+  dating   Dating  @relation(fields: [datingId], references: [id], onDelete: Cascade)
+  datingId String
+  source   Source  @relation(fields: [sourceId], references: [id])
+  sourceId String
+  pages    String?
+}
+
+model Passage {
+  id          String  @id
+  person      Person  @relation(fields: [personId], references: [id], onDelete: Cascade)
+  personId    String
+  position    Int
+  book        String
+  fromChapter Int
+  fromVerse   Int?
+  toChapter   Int?
+  toVerse     Int?
+  kind        String
+  note        String?
+}
+
+model FamilyMember {
+  id              String  @id
+  person          Person  @relation(fields: [personId], references: [id], onDelete: Cascade)
+  personId        String
+  position        Int
+  relation        String
+  name            String
+  relatedPersonId String?
 }

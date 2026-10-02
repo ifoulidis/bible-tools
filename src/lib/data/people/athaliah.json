@@ -1,0 +1,99 @@
+{
+  "id": "athaliah",
+  "name": "Athaliah",
+  "altNames": [],
+  "summary": "Daughter of Ahab and the only reigning queen of Judah. Seized power by killing the royal family; her grandson Joash was hidden and later crowned.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 841,
+        "to": 835,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 11,
+              "verse": 3
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Joash was hidden in the temple six years while Athaliah reigned."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "ahaziah-of-judah",
+    "successor": "joash-of-judah",
+    "relationToPredecessor": "Mother; usurped the throne"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Ahab",
+      "personId": "ahab"
+    },
+    {
+      "relation": "spouse",
+      "name": "Jehoram",
+      "personId": "jehoram-of-judah"
+    },
+    {
+      "relation": "son",
+      "name": "Ahaziah",
+      "personId": "ahaziah-of-judah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 8,
+        "verse": 18
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 8,
+        "verse": 26
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 11,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 11,
+        "verse": 20
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 22,
+        "verse": 10
+      },
+      "to": {
+        "chapter": 23,
+        "verse": 21
+      },
+      "kind": "narrative"
+    }
+  ]
+}

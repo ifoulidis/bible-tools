@@ -1,0 +1,62 @@
+{
+  "id": "jahaziel",
+  "name": "Jahaziel",
+  "altNames": [],
+  "summary": "Levite on whom the Spirit came, promising Jehoshaphat that the LORD would fight Moab and Ammon for Judah.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 853,
+        "to": 849,
+        "approx": true
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 20,
+              "verse": 14
+            },
+            "to": {
+              "chapter": 20,
+              "verse": 17
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehoshaphat"]
+        },
+        {
+          "kind": "inference",
+          "note": "The invasion is undated within Jehoshaphat's reign; most place it after Ahab's death (2 Chr 19–20)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 20,
+        "verse": 14
+      },
+      "to": {
+        "chapter": 20,
+        "verse": 17
+      },
+      "kind": "narrative"
+    }
+  ]
+}

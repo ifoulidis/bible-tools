@@ -1,0 +1,89 @@
+{
+  "id": "jehoahaz-of-judah",
+  "name": "Jehoahaz (Judah)",
+  "altNames": ["Shallum"],
+  "summary": "Made king by the people after Josiah's death; deposed by Necho after three months and taken to Egypt.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 609,
+        "to": 609,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 23,
+              "verse": 31
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Twenty-three years old; reigned three months."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "josiah",
+    "successor": "jehoiakim",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Josiah",
+      "personId": "josiah"
+    },
+    {
+      "relation": "mother",
+      "name": "Hamutal daughter of Jeremiah of Libnah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 23,
+        "verse": 30
+      },
+      "to": {
+        "chapter": 23,
+        "verse": 34
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 36,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 36,
+        "verse": 4
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 22,
+        "verse": 10
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 12
+      },
+      "kind": "narrative"
+    }
+  ]
+}

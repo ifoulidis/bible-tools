@@ -1,0 +1,134 @@
+{
+  "id": "saul",
+  "name": "Saul",
+  "altNames": [],
+  "summary": "First king of Israel, anointed by Samuel. Died with his sons at Mount Gilboa fighting the Philistines.",
+  "reign": {
+    "kingdom": "united",
+    "dating": {
+      "span": {
+        "from": 1050,
+        "to": 1010,
+        "approx": true
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "1Sam",
+            "from": {
+              "chapter": 13,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "The Hebrew text of his age and reign length is damaged (\"Saul was … years old … and reigned … two years\")."
+        },
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "Acts",
+            "from": {
+              "chapter": 13,
+              "verse": 21
+            },
+            "kind": "nt-reference"
+          },
+          "note": "Paul gives Saul forty years."
+        },
+        {
+          "kind": "inference",
+          "note": "Counted back from the start of David's reign (c. 1010) using the forty years of Acts 13:21."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "kitchen-2003"
+        }
+      ],
+      "notes": "The reign length is unrecoverable from 1 Samuel itself; many scholars prefer a much shorter reign."
+    },
+    "alternatives": [
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 1020,
+            "to": 1000,
+            "approx": true
+          },
+          "confidence": "disputed",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Assumes a shorter reign of about twenty years before David's accession c. 1000."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "successor": "david"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Kish"
+    },
+    {
+      "relation": "son",
+      "name": "Jonathan"
+    },
+    {
+      "relation": "son",
+      "name": "Ish-bosheth",
+      "personId": "ish-bosheth"
+    },
+    {
+      "relation": "daughter",
+      "name": "Michal"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Sam",
+      "from": {
+        "chapter": 9,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 31,
+        "verse": 13
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Chr",
+      "from": {
+        "chapter": 10,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 10,
+        "verse": 14
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 13,
+        "verse": 21
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

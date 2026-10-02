@@ -1,0 +1,193 @@
+{
+  "id": "hezekiah",
+  "name": "Hezekiah",
+  "altNames": [],
+  "summary": "Reforming king who rebelled against Assyria. Jerusalem survived Sennacherib's siege in 701, as Isaiah promised.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 716,
+        "to": 687,
+        "approx": false
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 18,
+              "verse": 2
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Twenty-five years old; reigned twenty-nine years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 18,
+              "verse": 13
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Sennacherib invaded in his 14th year."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Sennacherib's annals (Taylor and Oriental Institute prisms)",
+          "note": "Date the campaign against Judah to 701 and describe Hezekiah shut up in Jerusalem \"like a bird in a cage\", putting his 14th year in 701."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 18,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Also says he began in the 3rd year of Hoshea (c. 729), which does not fit 716 without a coregency."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "kitchen-2003"
+        }
+      ],
+      "notes": "The 701 anchor is firm; whether Hezekiah also had an earlier coregency is disputed."
+    },
+    "alternatives": [
+      {
+        "label": "McFall (coregency from 729)",
+        "dating": {
+          "span": {
+            "from": 716,
+            "to": 687,
+            "approx": false
+          },
+          "coregencyFrom": 729,
+          "confidence": "probable",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Takes 2 Kgs 18:1 at face value as the start of a coregency with Ahaz."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "mcfall-1991"
+            }
+          ]
+        }
+      },
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 715,
+            "to": 687,
+            "approx": false
+          },
+          "confidence": "probable",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Counts back fourteen years from 701 with no coregency."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "ahaz",
+    "successor": "manasseh",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Ahaz",
+      "personId": "ahaz"
+    },
+    {
+      "relation": "mother",
+      "name": "Abi daughter of Zechariah"
+    },
+    {
+      "relation": "son",
+      "name": "Manasseh",
+      "personId": "manasseh"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 18,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 20,
+        "verse": 21
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 29,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 32,
+        "verse": 33
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Isa",
+      "from": {
+        "chapter": 36,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 39,
+        "verse": 8
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Prov",
+      "from": {
+        "chapter": 25,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 26,
+        "verse": 18
+      },
+      "to": {
+        "chapter": 26,
+        "verse": 19
+      },
+      "kind": "mention"
+    }
+  ]
+}

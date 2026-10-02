@@ -1,0 +1,70 @@
+{
+  "id": "azariah-son-of-oded",
+  "name": "Azariah son of Oded",
+  "altNames": [],
+  "summary": "Urged Asa to seek the LORD after his victory over Zerah, prompting a covenant renewal in Jerusalem.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 896,
+        "to": 896,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 15,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 15,
+              "verse": 8
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["asa"]
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 15,
+              "verse": 10
+            },
+            "kind": "superscription"
+          },
+          "note": "The assembly that followed was in the 15th year of Asa."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 15,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 8
+      },
+      "kind": "narrative"
+    }
+  ]
+}

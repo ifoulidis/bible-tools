@@ -1,11 +1,7 @@
 import { trpcContext } from './context'
-import { createKing, listKings, updateKing } from './queries/kings'
 
-export const router = trpcContext.router({
-  createKing,
-  updateKing,
-  listKings,
-})
+// No procedures yet: king and prophet data is read from the JSON in $lib/data
+export const router = trpcContext.router({})
 
 export const createCaller = trpcContext.createCallerFactory(router)
 

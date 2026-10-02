@@ -1,0 +1,158 @@
+{
+  "id": "jehoiachin",
+  "name": "Jehoiachin",
+  "altNames": ["Jeconiah", "Coniah"],
+  "summary": "Surrendered Jerusalem to Nebuchadnezzar after three months and was taken to Babylon, where he was released from prison 37 years later.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 598,
+        "to": 597,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 24,
+              "verse": 8
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Eighteen years old; reigned three months."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 24,
+              "verse": 12
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Taken in the 8th year of the king of Babylon."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian Chronicle (ABC 5)",
+          "note": "Nebuchadnezzar captured Jerusalem on 2 Adar of his 7th year (16 March 597) and appointed a king of his choice."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian ration tablets",
+          "note": "Record oil rations for \"Ya'ukin king of Judah\" and his sons in Babylon."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "grayson-1975"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "jehoiakim",
+    "successor": "zedekiah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoiakim",
+      "personId": "jehoiakim"
+    },
+    {
+      "relation": "mother",
+      "name": "Nehushta daughter of Elnathan"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 24,
+        "verse": 6
+      },
+      "to": {
+        "chapter": 24,
+        "verse": 17
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 25,
+        "verse": 27
+      },
+      "to": {
+        "chapter": 25,
+        "verse": 30
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 36,
+        "verse": 8
+      },
+      "to": {
+        "chapter": 36,
+        "verse": 10
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 22,
+        "verse": 24
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 30
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 52,
+        "verse": 31
+      },
+      "to": {
+        "chapter": 52,
+        "verse": 34
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Ezek",
+      "from": {
+        "chapter": 1,
+        "verse": 2
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 1,
+        "verse": 11
+      },
+      "to": {
+        "chapter": 1,
+        "verse": 12
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

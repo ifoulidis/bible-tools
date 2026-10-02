@@ -2,8 +2,8 @@ import type { RequestEvent } from '@sveltejs/kit'
 import { initTRPC } from '@trpc/server'
 
 export async function createContext(event: RequestEvent) {
-  const { user, role } = event.locals
-  return { event, user, role }
+  const { user } = event.locals
+  return { event, user, role: user?.role ?? null }
 }
 
 export type Context = Awaited<ReturnType<typeof createContext>>

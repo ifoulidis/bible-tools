@@ -13,19 +13,20 @@
     "lint:only": "eslint .",
     "db:gui": "npx prisma studio",
     "format": "prettier --write .",
-    "prettier:check": "prettier --check ."
+    "prettier:check": "prettier --check .",
+    "db:generate": "rm -rf prisma/generated/zod && prisma generate"
   },
   "dependencies": {
-    "@prisma/client": "^5.16.1",
-    "@supabase/ssr": "^0.4.0",
-    "@supabase/supabase-js": "^2.45.1",
+    "@prisma/adapter-pg": "^7.10.0",
+    "@prisma/client": "^7.10.0",
     "@trpc/client": "^10.45.2",
     "@trpc/server": "^10.45.2",
     "svelte-sonner": "^0.3.28",
     "tippy.js": "^6.3.7",
     "trpc-sveltekit": "^3.6.2",
     "uuid": "^10.0.0",
-    "zod-prisma-types": "^3.1.8"
+    "zod": "^4.6.5",
+    "zod-prisma-types": "^3.3.11"
   },
   "devDependencies": {
     "@sveltejs/adapter-auto": "^3.0.0",
@@ -36,9 +37,11 @@
     "@types/node": "^20.14.10",
     "@types/uuid": "^10.0.0",
     "autoprefixer": "^10.4.19",
+    "dotenv": "^18.0.5",
     "eslint": "^9.0.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-plugin-svelte": "^2.45.1",
+    "eslint-plugin-unused-imports": "^4.4.1",
     "flowbite": "^2.5.2",
     "flowbite-svelte": "^0.47.3",
     "flowbite-svelte-icons": "^2.0.2",
@@ -47,17 +50,17 @@
     "prettier": "^3.1.1",
     "prettier-plugin-svelte": "^3.2.6",
     "prettier-plugin-tailwindcss": "^0.6.5",
-    "prisma": "^5.18.0",
+    "prisma": "^7.10.0",
     "svelte": "^5.0.0",
     "svelte-check": "^4.0.0",
     "sveltekit-superforms": "^2.20.0",
     "tailwindcss": "^3.4.7",
     "tslib": "^2.4.1",
+    "tsx": "^4.23.15",
     "typescript": "^5.5.0",
     "typescript-eslint": "^8.0.0-alpha.20",
     "vite": "^5.4.4",
-    "vitest": "^1.2.0",
-    "zod": "^3.23.8"
+    "vitest": "^1.2.0"
   },
   "type": "module"
 }

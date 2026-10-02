@@ -1,0 +1,164 @@
+{
+  "id": "zedekiah",
+  "name": "Zedekiah",
+  "altNames": ["Mattaniah"],
+  "summary": "Last king of Judah, installed by Nebuchadnezzar. Rebelled despite Jeremiah's warnings; Jerusalem and the temple were destroyed.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 597,
+        "to": 586,
+        "approx": false
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 24,
+              "verse": 18
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Twenty-one years old; reigned eleven years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 25,
+              "verse": 8
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Jerusalem burned in the 19th year of Nebuchadnezzar."
+        },
+        {
+          "kind": "inference",
+          "note": "Eleven years from his appointment in 597 under Judah's autumn-to-autumn regnal year gives 586."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Whether Jerusalem fell in 587 or 586 depends on how Judah's regnal years are aligned with Babylon's."
+    },
+    "alternatives": [
+      {
+        "label": "Albright (587)",
+        "dating": {
+          "span": {
+            "from": 597,
+            "to": 587,
+            "approx": false
+          },
+          "confidence": "probable",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Uses a spring regnal year, putting Nebuchadnezzar's 19th year in 587."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "jehoiachin",
+    "relationToPredecessor": "Uncle; installed by Nebuchadnezzar"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Josiah",
+      "personId": "josiah"
+    },
+    {
+      "relation": "mother",
+      "name": "Hamutal daughter of Jeremiah of Libnah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 24,
+        "verse": 17
+      },
+      "to": {
+        "chapter": 25,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 36,
+        "verse": 10
+      },
+      "to": {
+        "chapter": 36,
+        "verse": 21
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 21,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 37,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 39,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 52,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 52,
+        "verse": 11
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Ezek",
+      "from": {
+        "chapter": 17,
+        "verse": 11
+      },
+      "to": {
+        "chapter": 17,
+        "verse": 21
+      },
+      "kind": "narrative"
+    }
+  ]
+}

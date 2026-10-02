@@ -1,0 +1,112 @@
+{
+  "id": "azariah",
+  "name": "Azariah",
+  "altNames": ["Uzziah"],
+  "summary": "Long and prosperous reign. Struck with leprosy for burning incense in the temple, so his son Jotham governed for him.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 767,
+        "to": 740,
+        "approx": false
+      },
+      "coregencyFrom": 792,
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 27th year of Jeroboam II; reigned fifty-two years."
+        },
+        {
+          "kind": "inference",
+          "note": "Fifty-two years only fit if they are counted from a coregency with Amaziah, likely begun when Amaziah was captured by Jehoash."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Coregency with Amaziah from 792; sole reign from 767."
+    },
+    "alternatives": [],
+    "predecessor": "amaziah",
+    "successor": "jotham",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Amaziah",
+      "personId": "amaziah"
+    },
+    {
+      "relation": "mother",
+      "name": "Jecoliah of Jerusalem"
+    },
+    {
+      "relation": "son",
+      "name": "Jotham",
+      "personId": "jotham"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 26,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 26,
+        "verse": 23
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Isa",
+      "from": {
+        "chapter": 6,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Amos",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Zech",
+      "from": {
+        "chapter": 14,
+        "verse": 5
+      },
+      "kind": "mention"
+    }
+  ]
+}

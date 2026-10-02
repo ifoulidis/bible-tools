@@ -1,0 +1,79 @@
+{
+  "id": "micaiah",
+  "name": "Micaiah son of Imlah",
+  "altNames": [],
+  "summary": "The lone prophet who foretold Ahab's death at Ramoth-gilead against four hundred court prophets.",
+  "ministry": {
+    "audience": ["israel", "judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 853,
+        "to": 853,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 22,
+              "verse": 8
+            },
+            "to": {
+              "chapter": 22,
+              "verse": 28
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["ahab", "jehoshaphat"]
+        },
+        {
+          "kind": "inference",
+          "note": "The battle at Ramoth-gilead is the year of Ahab's death, 853 (see Ahab)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Imlah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 22,
+        "verse": 8
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 28
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 18,
+        "verse": 7
+      },
+      "to": {
+        "chapter": 18,
+        "verse": 27
+      },
+      "kind": "narrative"
+    }
+  ]
+}

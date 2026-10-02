@@ -1,0 +1,162 @@
+{
+  "id": "jehoiakim",
+  "name": "Jehoiakim",
+  "altNames": ["Eliakim"],
+  "summary": "Installed by Necho, then submitted to Nebuchadnezzar after Carchemish. Burned Jeremiah's scroll and later rebelled against Babylon.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 609,
+        "to": 598,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 23,
+              "verse": 36
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Twenty-five years old; reigned eleven years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 46,
+              "verse": 2
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Carchemish was fought in his 4th year."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 25,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "His 4th year was the 1st year of Nebuchadnezzar."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian Chronicle (ABC 5)",
+          "note": "Dates the battle of Carchemish and Nebuchadnezzar's accession to 605."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "grayson-1975"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "jehoahaz-of-judah",
+    "successor": "jehoiachin",
+    "relationToPredecessor": "Brother; installed by Pharaoh Necho"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Josiah",
+      "personId": "josiah"
+    },
+    {
+      "relation": "mother",
+      "name": "Zebidah daughter of Pedaiah of Rumah"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoiachin",
+      "personId": "jehoiachin"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 23,
+        "verse": 34
+      },
+      "to": {
+        "chapter": 24,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 36,
+        "verse": 4
+      },
+      "to": {
+        "chapter": 36,
+        "verse": 8
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 22,
+        "verse": 18
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 23
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 26,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 26,
+        "verse": 23
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 36,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 36,
+        "verse": 32
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Dan",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 1,
+        "verse": 2
+      },
+      "kind": "narrative"
+    }
+  ]
+}

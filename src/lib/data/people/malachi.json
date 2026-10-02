@@ -1,0 +1,70 @@
+{
+  "id": "malachi",
+  "name": "Malachi",
+  "altNames": [],
+  "summary": "Last of the Old Testament prophets. Challenged a disillusioned community over corrupt worship, unfaithfulness in marriage and withheld tithes.",
+  "ministry": {
+    "audience": ["returnees"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 500,
+        "to": 430,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "inference",
+          "note": "The rebuilt temple is functioning (Mal 1:10; 3:1, 10), so after 515."
+        },
+        {
+          "kind": "inference",
+          "note": "A Persian \"governor\" is in charge (Mal 1:8)."
+        },
+        {
+          "kind": "inference",
+          "note": "The abuses he names (mixed marriages, neglected tithes) are those Nehemiah tackled (Neh 13), so before or around c. 433."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "hill-1998"
+        }
+      ],
+      "notes": "Most date Malachi to the Persian period between the temple's rebuilding and Nehemiah's reforms; exactly where is debated."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Mal",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 4,
+        "verse": 6
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 11,
+        "verse": 10
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Rom",
+      "from": {
+        "chapter": 9,
+        "verse": 13
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

@@ -1,0 +1,108 @@
+{
+  "id": "jehu-son-of-hanani",
+  "name": "Jehu son of Hanani",
+  "altNames": [],
+  "summary": "Announced the downfall of Baasha's house, and decades later rebuked Jehoshaphat for helping Ahab.",
+  "ministry": {
+    "audience": ["israel", "judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 890,
+        "to": 850,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 16,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 16,
+              "verse": 7
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["baasha"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 19,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 19,
+              "verse": 3
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehoshaphat"]
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Hanani",
+      "personId": "hanani"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 12
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 19,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 19,
+        "verse": 3
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 20,
+        "verse": 34
+      },
+      "kind": "mention"
+    }
+  ]
+}

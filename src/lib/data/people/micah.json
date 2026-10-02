@@ -1,0 +1,101 @@
+{
+  "id": "micah",
+  "name": "Micah",
+  "altNames": [],
+  "summary": "Prophet from Moresheth who denounced the corruption of Samaria and Jerusalem and foretold a ruler from Bethlehem.",
+  "ministry": {
+    "audience": ["judah", "israel"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 735,
+        "to": 700,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Mic",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["jotham", "ahaz", "hezekiah"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 26,
+              "verse": 18
+            },
+            "to": {
+              "chapter": 26,
+              "verse": 19
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["hezekiah"]
+        },
+        {
+          "kind": "inference",
+          "note": "Mic 1:6 predicts the fall of Samaria, so at least part of his ministry came before 723/722."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "allen-1976"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Mic",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 7,
+        "verse": 20
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 26,
+        "verse": 18
+      },
+      "to": {
+        "chapter": 26,
+        "verse": 19
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 2,
+        "verse": 5
+      },
+      "to": {
+        "chapter": 2,
+        "verse": 6
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

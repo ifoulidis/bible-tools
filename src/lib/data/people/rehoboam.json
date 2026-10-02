@@ -1,0 +1,145 @@
+{
+  "id": "rehoboam",
+  "name": "Rehoboam",
+  "altNames": [],
+  "summary": "Solomon's son. His refusal to lighten the people's burdens split the kingdom; Shishak of Egypt invaded in his fifth year.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 931,
+        "to": 913,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 14,
+              "verse": 21
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Forty-one years old when he began; reigned seventeen years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 14,
+              "verse": 25
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Shishak of Egypt attacked Jerusalem in his fifth year."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Karnak relief of Shoshenq I",
+          "note": "Lists the towns of Shoshenq's Levant campaign, usually dated c. 926/925 BC."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "kitchen-2003"
+        }
+      ]
+    },
+    "alternatives": [
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 922,
+            "to": 915,
+            "approx": false
+          },
+          "confidence": "firm",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Division dated to 922, and the seventeen years shortened."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "solomon",
+    "successor": "abijam",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Solomon",
+      "personId": "solomon"
+    },
+    {
+      "relation": "mother",
+      "name": "Naamah the Ammonite"
+    },
+    {
+      "relation": "son",
+      "name": "Abijam",
+      "personId": "abijam"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 11,
+        "verse": 43
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 12,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 24
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 14,
+        "verse": 21
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 31
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 10,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 16
+      },
+      "kind": "narrative"
+    }
+  ]
+}

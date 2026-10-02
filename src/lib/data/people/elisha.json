@@ -1,0 +1,127 @@
+{
+  "id": "elisha",
+  "name": "Elisha",
+  "altNames": [],
+  "summary": "Elijah's successor. Worked many miracles, advised kings of Israel through the wars with Aram, and set Jehu's revolution in motion.",
+  "ministry": {
+    "audience": ["israel"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 852,
+        "to": 798,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 3,
+              "verse": 11
+            },
+            "to": {
+              "chapter": 3,
+              "verse": 19
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["joram-of-israel", "jehoshaphat"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 9,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 9,
+              "verse": 3
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehu"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 13,
+              "verse": 14
+            },
+            "to": {
+              "chapter": 13,
+              "verse": 20
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehoash-of-israel"]
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. Called under Ahab (1 Kgs 19:19); died early in the reign of Jehoash of Israel."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Shaphat"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 19,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 19,
+        "verse": 21
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 2,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 9,
+        "verse": 3
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 13,
+        "verse": 14
+      },
+      "to": {
+        "chapter": 13,
+        "verse": 21
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Luke",
+      "from": {
+        "chapter": 4,
+        "verse": 27
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

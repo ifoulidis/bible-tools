@@ -1,0 +1,86 @@
+{
+  "id": "haggai",
+  "name": "Haggai",
+  "altNames": [],
+  "summary": "Urged the returned exiles to finish rebuilding the temple, in four dated messages over four months.",
+  "ministry": {
+    "audience": ["returnees"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 520,
+        "to": 520,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Hag",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "First message: 1st day of the 6th month, 2nd year of Darius (29 August 520)."
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Hag",
+            "from": {
+              "chapter": 2,
+              "verse": 20
+            },
+            "kind": "superscription"
+          },
+          "note": "Last message: 24th day of the 9th month (18 December 520)."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Persian regnal chronology",
+          "note": "The accession of Darius I in 522 is fixed by Babylonian business documents dated by his reign."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "parker-dubberstein-1956"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Hag",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 2,
+        "verse": 23
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Ezra",
+      "from": {
+        "chapter": 5,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Ezra",
+      "from": {
+        "chapter": 6,
+        "verse": 14
+      },
+      "kind": "mention"
+    }
+  ]
+}

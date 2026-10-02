@@ -1,0 +1,82 @@
+{
+  "id": "amon",
+  "name": "Amon",
+  "altNames": [],
+  "summary": "Son of Manasseh who continued his idolatry. Killed by his servants after two years.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 643,
+        "to": 641,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 21,
+              "verse": 19
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Twenty-two years old; reigned two years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "manasseh",
+    "successor": "josiah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Manasseh",
+      "personId": "manasseh"
+    },
+    {
+      "relation": "mother",
+      "name": "Meshullemeth daughter of Haruz of Jotbah"
+    },
+    {
+      "relation": "son",
+      "name": "Josiah",
+      "personId": "josiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 21,
+        "verse": 19
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 26
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 33,
+        "verse": 21
+      },
+      "to": {
+        "chapter": 33,
+        "verse": 25
+      },
+      "kind": "narrative"
+    }
+  ]
+}

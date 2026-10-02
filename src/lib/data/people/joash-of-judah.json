@@ -1,0 +1,83 @@
+{
+  "id": "joash-of-judah",
+  "name": "Joash (Judah)",
+  "altNames": ["Jehoash"],
+  "summary": "Crowned at seven by the priest Jehoiada. Repaired the temple, but after Jehoiada died had his son Zechariah stoned.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 835,
+        "to": 796,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 12,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 7th year of Jehu; reigned forty years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Judah generally used accession-year dating (the partial first year is \"year 0\"), unlike Israel."
+    },
+    "alternatives": [],
+    "predecessor": "athaliah",
+    "successor": "amaziah",
+    "relationToPredecessor": "Grandson; restored the Davidic line"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Ahaziah",
+      "personId": "ahaziah-of-judah"
+    },
+    {
+      "relation": "mother",
+      "name": "Zibiah of Beersheba"
+    },
+    {
+      "relation": "son",
+      "name": "Amaziah",
+      "personId": "amaziah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 11,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 21
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 22,
+        "verse": 11
+      },
+      "to": {
+        "chapter": 24,
+        "verse": 27
+      },
+      "kind": "narrative"
+    }
+  ]
+}

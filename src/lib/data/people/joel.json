@@ -1,0 +1,95 @@
+{
+  "id": "joel",
+  "name": "Joel",
+  "altNames": [],
+  "summary": "Called Judah to repentance after a devastating locust plague, and promised the outpouring of God's Spirit (quoted at Pentecost).",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 515,
+        "to": 400,
+        "approx": true
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "inference",
+          "note": "No king is named; elders and priests lead the community (Joel 1:13\u201314; 2:16\u201317)."
+        },
+        {
+          "kind": "inference",
+          "note": "The temple is standing and its offerings are in place (Joel 1:9, 13), suggesting after its rebuilding in 515."
+        },
+        {
+          "kind": "inference",
+          "note": "Mentions trade in slaves with the Greeks (Joel 3:6)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "allen-1976"
+        }
+      ],
+      "notes": "The book has no superscription date, and scholarly proposals range over four centuries."
+    },
+    "alternatives": [
+      {
+        "label": "Early view (reign of Joash)",
+        "dating": {
+          "span": {
+            "from": 835,
+            "to": 796,
+            "approx": true
+          },
+          "confidence": "disputed",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Its place among the early prophets in the Hebrew canon, and enemies (Philistia, Tyre, Egypt, Edom) rather than Assyria or Babylon. The absence of a king could fit Joash's minority under Jehoiada."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "stuart-1987"
+            }
+          ],
+          "notes": "Position surveyed in the cited commentary."
+        }
+      }
+    ]
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Pethuel"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Joel",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 3,
+        "verse": 21
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 2,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 2,
+        "verse": 21
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

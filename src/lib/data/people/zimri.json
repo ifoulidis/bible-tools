@@ -1,0 +1,55 @@
+{
+  "id": "zimri",
+  "name": "Zimri",
+  "altNames": [],
+  "summary": "Chariot commander who killed Elah and reigned seven days before the army made Omri king. Burned the palace over himself.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 885,
+        "to": 885,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 16,
+              "verse": 15
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Reigned seven days in the 27th year of Asa."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "elah",
+    "successor": "omri",
+    "relationToPredecessor": "Usurper (assassinated Elah)"
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 9
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 20
+      },
+      "kind": "narrative"
+    }
+  ]
+}

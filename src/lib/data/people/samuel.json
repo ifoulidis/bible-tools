@@ -1,0 +1,147 @@
+{
+  "id": "samuel",
+  "name": "Samuel",
+  "altNames": [],
+  "summary": "Last of the judges and first of the prophets. Anointed Saul and then David as king.",
+  "ministry": {
+    "audience": ["united"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 1060,
+        "to": 1015,
+        "approx": true
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Sam",
+            "from": {
+              "chapter": 9,
+              "verse": 15
+            },
+            "to": {
+              "chapter": 10,
+              "verse": 1
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["saul"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Sam",
+            "from": {
+              "chapter": 16,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 16,
+              "verse": 13
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["david"]
+        },
+        {
+          "kind": "inference",
+          "note": "Died before Saul's last battle (1 Sam 25:1; 28:3), so before c. 1010."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. The start of his career is not dated in the text."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Elkanah"
+    },
+    {
+      "relation": "mother",
+      "name": "Hannah"
+    },
+    {
+      "relation": "son",
+      "name": "Joel"
+    },
+    {
+      "relation": "son",
+      "name": "Abijah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Sam",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 25,
+        "verse": 1
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Sam",
+      "from": {
+        "chapter": 28,
+        "verse": 3
+      },
+      "to": {
+        "chapter": 28,
+        "verse": 25
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Chr",
+      "from": {
+        "chapter": 6,
+        "verse": 28
+      },
+      "kind": "genealogy"
+    },
+    {
+      "book": "Ps",
+      "from": {
+        "chapter": 99,
+        "verse": 6
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 15,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 3,
+        "verse": 24
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Heb",
+      "from": {
+        "chapter": 11,
+        "verse": 32
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

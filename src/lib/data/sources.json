@@ -1,0 +1,80 @@
+[
+  {
+    "id": "thiele-1983",
+    "author": "Edwin R. Thiele",
+    "title": "The Mysterious Numbers of the Hebrew Kings (new revised edition)",
+    "year": 1983,
+    "kind": "book",
+    "publisher": "Zondervan"
+  },
+  {
+    "id": "mcfall-1991",
+    "author": "Leslie McFall",
+    "title": "A Translation Guide to the Chronological Data in Kings and Chronicles, Bibliotheca Sacra 148",
+    "year": 1991,
+    "kind": "article"
+  },
+  {
+    "id": "galil-1996",
+    "author": "Gershon Galil",
+    "title": "The Chronology of the Kings of Israel and Judah",
+    "year": 1996,
+    "kind": "book",
+    "publisher": "Brill"
+  },
+  {
+    "id": "albright-1945",
+    "author": "W. F. Albright",
+    "title": "The Chronology of the Divided Monarchy of Israel, Bulletin of the American Schools of Oriental Research 100",
+    "year": 1945,
+    "kind": "article"
+  },
+  {
+    "id": "kitchen-2003",
+    "author": "K. A. Kitchen",
+    "title": "On the Reliability of the Old Testament",
+    "year": 2003,
+    "kind": "book",
+    "publisher": "Eerdmans"
+  },
+  {
+    "id": "grayson-1975",
+    "author": "A. K. Grayson",
+    "title": "Assyrian and Babylonian Chronicles",
+    "year": 1975,
+    "kind": "book",
+    "publisher": "J. J. Augustin"
+  },
+  {
+    "id": "parker-dubberstein-1956",
+    "author": "Richard A. Parker and Waldo H. Dubberstein",
+    "title": "Babylonian Chronology 626 B.C.–A.D. 75",
+    "year": 1956,
+    "kind": "book",
+    "publisher": "Brown University Press"
+  },
+  {
+    "id": "stuart-1987",
+    "author": "Douglas Stuart",
+    "title": "Hosea–Jonah (Word Biblical Commentary 31)",
+    "year": 1987,
+    "kind": "book",
+    "publisher": "Word"
+  },
+  {
+    "id": "allen-1976",
+    "author": "Leslie C. Allen",
+    "title": "The Books of Joel, Obadiah, Jonah and Micah (NICOT)",
+    "year": 1976,
+    "kind": "book",
+    "publisher": "Eerdmans"
+  },
+  {
+    "id": "hill-1998",
+    "author": "Andrew E. Hill",
+    "title": "Malachi (Anchor Bible 25D)",
+    "year": 1998,
+    "kind": "book",
+    "publisher": "Doubleday"
+  }
+]

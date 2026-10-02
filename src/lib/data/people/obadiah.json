@@ -1,0 +1,73 @@
+{
+  "id": "obadiah",
+  "name": "Obadiah",
+  "altNames": [],
+  "summary": "The shortest book of the Old Testament: an oracle against Edom for gloating over and joining in Jerusalem's fall.",
+  "ministry": {
+    "audience": ["nations", "judah"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 586,
+        "to": 550,
+        "approx": true
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "inference",
+          "note": "Obad 11\u201314 describes Edom standing by, looting and handing over fugitives as Jerusalem fell, best matching 586 (compare Ps 137:7; Lam 4:21\u201322)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "allen-1976"
+        },
+        {
+          "sourceId": "stuart-1987"
+        }
+      ],
+      "notes": "The book has no superscription date."
+    },
+    "alternatives": [
+      {
+        "label": "Early view (reign of Jehoram)",
+        "dating": {
+          "span": {
+            "from": 848,
+            "to": 841,
+            "approx": true
+          },
+          "confidence": "disputed",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Links the oracle to the Philistine and Arab raid on Jerusalem and the revolt of Edom under Jehoram (2 Kgs 8:20\u201322; 2 Chr 21:16\u201317)."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "stuart-1987"
+            }
+          ],
+          "notes": "Position surveyed in the cited commentary."
+        }
+      }
+    ]
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Obad",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 1,
+        "verse": 21
+      },
+      "kind": "book"
+    }
+  ]
+}

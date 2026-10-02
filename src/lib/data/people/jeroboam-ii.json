@@ -1,0 +1,108 @@
+{
+  "id": "jeroboam-ii",
+  "name": "Jeroboam II",
+  "altNames": [],
+  "summary": "Restored Israel's borders as Jonah had foretold. Under him Israel prospered, and Amos and Hosea condemned its injustice.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 782,
+        "to": 753,
+        "approx": false
+      },
+      "coregencyFrom": 793,
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 14,
+              "verse": 23
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 15th year of Amaziah; reigned forty-one years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Azariah of Judah began in Jeroboam's 27th year, which only fits if Jeroboam's 41 years are counted from a coregency with his father."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Coregency with Jehoash from 793; sole reign from 782."
+    },
+    "alternatives": [],
+    "predecessor": "jehoash-of-israel",
+    "successor": "zechariah-king",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoash",
+      "personId": "jehoash-of-israel"
+    },
+    {
+      "relation": "son",
+      "name": "Zechariah",
+      "personId": "zechariah-king"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 14,
+        "verse": 23
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 29
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Hos",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Amos",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Amos",
+      "from": {
+        "chapter": 7,
+        "verse": 9
+      },
+      "to": {
+        "chapter": 7,
+        "verse": 11
+      },
+      "kind": "narrative"
+    }
+  ]
+}

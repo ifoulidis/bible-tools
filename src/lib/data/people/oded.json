@@ -1,0 +1,58 @@
+{
+  "id": "oded",
+  "name": "Oded",
+  "altNames": [],
+  "summary": "Prophet in Samaria who persuaded Israel's army to free the captives taken from Judah in Pekah's war against Ahaz.",
+  "ministry": {
+    "audience": ["israel"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 734,
+        "to": 732,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 28,
+              "verse": 9
+            },
+            "to": {
+              "chapter": 28,
+              "verse": 15
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["pekah", "ahaz"]
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. The war is the Syro-Ephraimite war (2 Kgs 16:5; Isa 7)."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 28,
+        "verse": 9
+      },
+      "to": {
+        "chapter": 28,
+        "verse": 15
+      },
+      "kind": "narrative"
+    }
+  ]
+}

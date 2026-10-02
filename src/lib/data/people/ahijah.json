@@ -1,0 +1,110 @@
+{
+  "id": "ahijah",
+  "name": "Ahijah the Shilonite",
+  "altNames": [],
+  "summary": "Tore his cloak into twelve pieces to give Jeroboam ten tribes, and later foretold the end of Jeroboam's house.",
+  "ministry": {
+    "audience": ["israel"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 935,
+        "to": 910,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 11,
+              "verse": 29
+            },
+            "to": {
+              "chapter": 11,
+              "verse": 39
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["solomon", "jeroboam-i"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 14,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 14,
+              "verse": 18
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jeroboam-i"]
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 11,
+        "verse": 29
+      },
+      "to": {
+        "chapter": 11,
+        "verse": 39
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 14,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 18
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 29
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 9,
+        "verse": 29
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 10,
+        "verse": 15
+      },
+      "kind": "mention"
+    }
+  ]
+}

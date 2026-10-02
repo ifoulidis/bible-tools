@@ -1,0 +1,186 @@
+{
+  "id": "elijah",
+  "name": "Elijah",
+  "altNames": [],
+  "summary": "The Tishbite who confronted Ahab and the prophets of Baal on Mount Carmel, and was taken up in a whirlwind.",
+  "ministry": {
+    "audience": ["israel"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 865,
+        "to": 850,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 18,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 18,
+              "verse": 46
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["ahab"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 21,
+              "verse": 17
+            },
+            "to": {
+              "chapter": 21,
+              "verse": 29
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["ahab"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 1,
+              "verse": 17
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["ahaziah-of-israel"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 21,
+              "verse": 12
+            },
+            "to": {
+              "chapter": 21,
+              "verse": 15
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehoram-of-judah"]
+        },
+        {
+          "kind": "inference",
+          "note": "His ascension (2 Kgs 2) is told after Joram of Israel begins to reign (852), and before Elisha appears as the leading prophet in 2 Kgs 3."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. His letter to Jehoram of Judah may date from Jehoram's coregency (from 853)."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 17,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 19,
+        "verse": 21
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 21,
+        "verse": 17
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 29
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 2,
+        "verse": 11
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 21,
+        "verse": 12
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 15
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Mal",
+      "from": {
+        "chapter": 4,
+        "verse": 5
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 17,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 17,
+        "verse": 13
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Luke",
+      "from": {
+        "chapter": 1,
+        "verse": 17
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Jas",
+      "from": {
+        "chapter": 5,
+        "verse": 17
+      },
+      "to": {
+        "chapter": 5,
+        "verse": 18
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "id": "jehoahaz-of-israel",
+  "name": "Jehoahaz (Israel)",
+  "altNames": [],
+  "summary": "Son of Jehu. Israel was reduced by Aram under Hazael and Ben-hadad during his reign.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 814,
+        "to": 798,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 13,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 23rd year of Joash of Judah; reigned seventeen years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Israel counted the accession year as year 1 (non-accession dating), so the stated years overlap by one with the predecessor."
+    },
+    "alternatives": [],
+    "predecessor": "jehu",
+    "successor": "jehoash-of-israel",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehu",
+      "personId": "jehu"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoash",
+      "personId": "jehoash-of-israel"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 13,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 13,
+        "verse": 9
+      },
+      "kind": "narrative"
+    }
+  ]
+}

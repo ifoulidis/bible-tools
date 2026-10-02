@@ -1,0 +1,78 @@
+{
+  "id": "baasha",
+  "name": "Baasha",
+  "altNames": [],
+  "summary": "Seized the throne by killing Nadab and wiped out the house of Jeroboam. Fought Asa of Judah.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 909,
+        "to": 886,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 33
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the third year of Asa; reigned twenty-four years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "2 Chr 16:1 has Baasha attacking Judah in Asa's 36th year, after his death by Kings' reckoning; it is usually read as counted from the division of the kingdom."
+    },
+    "alternatives": [],
+    "predecessor": "nadab",
+    "successor": "elah",
+    "relationToPredecessor": "Usurper (assassinated Nadab)"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Ahijah of Issachar"
+    },
+    {
+      "relation": "son",
+      "name": "Elah",
+      "personId": "elah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 7
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 16,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 6
+      },
+      "kind": "narrative"
+    }
+  ]
+}

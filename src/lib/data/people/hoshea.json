@@ -1,0 +1,100 @@
+{
+  "id": "hoshea",
+  "name": "Hoshea",
+  "altNames": [],
+  "summary": "Last king of Israel. Rebelled against Assyria, which besieged Samaria for three years and exiled its people.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 732,
+        "to": 723,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 17,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 12th year of Ahaz; reigned nine years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 18,
+              "verse": 10
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Samaria fell in Hoshea's 9th year, Hezekiah's 6th."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian Chronicle (ABC 1)",
+          "note": "Records Shalmaneser V ravaging Samaria; he died in 722, dating the fall to 723/722."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "grayson-1975"
+        }
+      ],
+      "notes": "The synchronisms between Hoshea and Hezekiah (2 Kgs 17:1; 18:1, 9–10) are the hardest in Kings to reconcile."
+    },
+    "alternatives": [],
+    "predecessor": "pekah",
+    "relationToPredecessor": "Usurper (assassinated Pekah); installed by Assyria"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Elah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 30
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 17,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 17,
+        "verse": 6
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 18,
+        "verse": 9
+      },
+      "to": {
+        "chapter": 18,
+        "verse": 12
+      },
+      "kind": "narrative"
+    }
+  ]
+}

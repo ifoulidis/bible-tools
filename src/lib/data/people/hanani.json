@@ -1,0 +1,76 @@
+{
+  "id": "hanani",
+  "name": "Hanani the seer",
+  "altNames": [],
+  "summary": "Rebuked Asa for relying on the king of Aram instead of the LORD, and was imprisoned for it.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 876,
+        "to": 876,
+        "approx": true
+      },
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 16,
+              "verse": 7
+            },
+            "to": {
+              "chapter": 16,
+              "verse": 10
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["asa"]
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 16,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "The events are dated to Asa's 36th year."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. Asa's \"36th year\" conflicts with Baasha's dates in Kings; see Baasha."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "son",
+      "name": "Jehu",
+      "personId": "jehu-son-of-hanani"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 16,
+        "verse": 7
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 10
+      },
+      "kind": "narrative"
+    }
+  ]
+}

@@ -1,0 +1,125 @@
+{
+  "id": "jehu",
+  "name": "Jehu",
+  "altNames": [],
+  "summary": "Army commander anointed at Elisha's word. Killed Joram, Ahaziah of Judah and Jezebel, and purged Baal worship.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 841,
+        "to": 814,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 10,
+              "verse": 36
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Reigned twenty-eight years in Samaria."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Black Obelisk of Shalmaneser III",
+          "note": "Shows \"Jehu son of Omri\" paying tribute in Shalmaneser's 18th year, 841 BC, so Jehu was already on the throne then."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 842,
+            "to": 815,
+            "approx": false
+          },
+          "confidence": "firm",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "One year earlier than Thiele."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "joram-of-israel",
+    "successor": "jehoahaz-of-israel",
+    "relationToPredecessor": "Usurper (killed Joram)"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoshaphat son of Nimshi"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoahaz",
+      "personId": "jehoahaz-of-israel"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 19,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 19,
+        "verse": 17
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 9,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 10,
+        "verse": 36
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 22,
+        "verse": 7
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 9
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Hos",
+      "from": {
+        "chapter": 1,
+        "verse": 4
+      },
+      "kind": "mention"
+    }
+  ]
+}

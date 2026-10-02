@@ -1,0 +1,101 @@
+{
+  "id": "manasseh",
+  "name": "Manasseh",
+  "altNames": [],
+  "summary": "Judah's longest-reigning king. Rebuilt idol worship; Kings blames him for the exile, while Chronicles records his repentance in captivity.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 687,
+        "to": 643,
+        "approx": false
+      },
+      "coregencyFrom": 697,
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 21,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Twelve years old; reigned fifty-five years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Prism of Esarhaddon",
+          "note": "Lists \"Manasseh king of Judah\" among western vassals around 674."
+        },
+        {
+          "kind": "inference",
+          "note": "Fifty-five years back from Amon fit only with a ten-year coregency with Hezekiah, perhaps begun at Hezekiah's illness (2 Kgs 20)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Coregency with Hezekiah from 697; sole reign from 687."
+    },
+    "alternatives": [],
+    "predecessor": "hezekiah",
+    "successor": "amon",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Hezekiah",
+      "personId": "hezekiah"
+    },
+    {
+      "relation": "mother",
+      "name": "Hephzibah"
+    },
+    {
+      "relation": "son",
+      "name": "Amon",
+      "personId": "amon"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 21,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 18
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 33,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 33,
+        "verse": 20
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 15,
+        "verse": 4
+      },
+      "kind": "mention"
+    }
+  ]
+}

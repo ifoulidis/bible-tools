@@ -1,0 +1,109 @@
+{
+  "id": "daniel",
+  "name": "Daniel",
+  "altNames": ["Belteshazzar"],
+  "summary": "Judean deported to Babylon as a youth who served in the courts of Babylon and Persia, interpreting dreams and receiving visions.",
+  "ministry": {
+    "audience": ["exiles", "nations"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 605,
+        "to": 536,
+        "approx": false
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Dan",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "Taken to Babylon in the 3rd year of Jehoiakim (605 under accession-year counting)."
+        },
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Dan",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 1,
+              "verse": 2
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["jehoiakim"]
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Dan",
+            "from": {
+              "chapter": 10,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "His last dated vision is in the 3rd year of Cyrus (536)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "parker-dubberstein-1956"
+        }
+      ],
+      "notes": "Many scholars date the book's composition to c. 165 BC; that dates the book, not the career it describes. Daniel is among the Writings in the Hebrew Bible but is called a prophet in Matt 24:15."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Dan",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 13
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Ezek",
+      "from": {
+        "chapter": 14,
+        "verse": 14
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Ezek",
+      "from": {
+        "chapter": 28,
+        "verse": 3
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 24,
+        "verse": 15
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

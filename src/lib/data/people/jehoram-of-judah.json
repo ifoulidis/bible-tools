@@ -1,0 +1,97 @@
+{
+  "id": "jehoram-of-judah",
+  "name": "Jehoram (Judah)",
+  "altNames": ["Joram"],
+  "summary": "Married Ahab's daughter Athaliah and followed the ways of Israel's kings. Edom and Libnah revolted under him.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 848,
+        "to": 841,
+        "approx": false
+      },
+      "coregencyFrom": 853,
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 8,
+              "verse": 16
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 5th year of Joram of Israel, while Jehoshaphat was still king; reigned eight years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 1,
+              "verse": 17
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Joram of Israel began in Jehoram's second year, so Jehoram was already coregent by 853/852."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Coregency with Jehoshaphat from 853; sole reign from 848."
+    },
+    "alternatives": [],
+    "predecessor": "jehoshaphat",
+    "successor": "ahaziah-of-judah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoshaphat",
+      "personId": "jehoshaphat"
+    },
+    {
+      "relation": "spouse",
+      "name": "Athaliah",
+      "personId": "athaliah"
+    },
+    {
+      "relation": "son",
+      "name": "Ahaziah",
+      "personId": "ahaziah-of-judah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 8,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 8,
+        "verse": 24
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 21,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 20
+      },
+      "kind": "narrative"
+    }
+  ]
+}

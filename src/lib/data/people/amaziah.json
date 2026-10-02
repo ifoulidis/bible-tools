@@ -1,0 +1,94 @@
+{
+  "id": "amaziah",
+  "name": "Amaziah",
+  "altNames": [],
+  "summary": "Defeated Edom, then challenged Jehoash of Israel and was captured. Killed by conspirators at Lachish.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 796,
+        "to": 767,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 14,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 2nd year of Joash of Israel; reigned twenty-nine years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 14,
+              "verse": 17
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Lived fifteen years after the death of Jehoash of Israel."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "joash-of-judah",
+    "successor": "azariah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Joash",
+      "personId": "joash-of-judah"
+    },
+    {
+      "relation": "mother",
+      "name": "Jehoaddin of Jerusalem"
+    },
+    {
+      "relation": "son",
+      "name": "Azariah",
+      "personId": "azariah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 14,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 20
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 25,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 25,
+        "verse": 28
+      },
+      "kind": "narrative"
+    }
+  ]
+}

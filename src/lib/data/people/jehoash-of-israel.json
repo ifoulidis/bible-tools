@@ -1,0 +1,95 @@
+{
+  "id": "jehoash-of-israel",
+  "name": "Jehoash (Israel)",
+  "altNames": ["Joash"],
+  "summary": "Son of Jehoahaz. Visited the dying Elisha, recovered cities from Aram, and defeated Amaziah of Judah.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 798,
+        "to": 782,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 13,
+              "verse": 10
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 37th year of Joash of Judah; reigned sixteen years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Tell al-Rimah Stele (Adad-nirari III)",
+          "note": "Lists tribute from \"Joash of Samaria\" around 796 BC."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "jehoahaz-of-israel",
+    "successor": "jeroboam-ii",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoahaz",
+      "personId": "jehoahaz-of-israel"
+    },
+    {
+      "relation": "son",
+      "name": "Jeroboam II",
+      "personId": "jeroboam-ii"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 13,
+        "verse": 10
+      },
+      "to": {
+        "chapter": 13,
+        "verse": 25
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 14,
+        "verse": 8
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 16
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 25,
+        "verse": 17
+      },
+      "to": {
+        "chapter": 25,
+        "verse": 24
+      },
+      "kind": "narrative"
+    }
+  ]
+}

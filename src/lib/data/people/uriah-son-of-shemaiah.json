@@ -1,0 +1,67 @@
+{
+  "id": "uriah-son-of-shemaiah",
+  "name": "Uriah son of Shemaiah",
+  "altNames": [],
+  "summary": "Prophesied like Jeremiah against Jerusalem. Fled to Egypt, but was brought back and executed by Jehoiakim.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 609,
+        "to": 605,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 26,
+              "verse": 20
+            },
+            "to": {
+              "chapter": 26,
+              "verse": 23
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehoiakim"]
+        },
+        {
+          "kind": "inference",
+          "note": "Told in the context of an incident \"in the beginning of the reign of Jehoiakim\" (Jer 26:1)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Shemaiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 26,
+        "verse": 20
+      },
+      "to": {
+        "chapter": 26,
+        "verse": 23
+      },
+      "kind": "narrative"
+    }
+  ]
+}

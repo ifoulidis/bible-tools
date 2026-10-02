@@ -1,0 +1,142 @@
+{
+  "id": "nathan",
+  "name": "Nathan",
+  "altNames": [],
+  "summary": "Brought God's covenant promise to David, confronted him over Bathsheba, and secured Solomon's succession.",
+  "ministry": {
+    "audience": ["united"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 1000,
+        "to": 970,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Sam",
+            "from": {
+              "chapter": 7,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 7,
+              "verse": 17
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["david"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Sam",
+            "from": {
+              "chapter": 12,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 12,
+              "verse": 15
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["david"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 1,
+              "verse": 11
+            },
+            "to": {
+              "chapter": 1,
+              "verse": 45
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["david", "solomon"]
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "2Sam",
+      "from": {
+        "chapter": 7,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 7,
+        "verse": 17
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Sam",
+      "from": {
+        "chapter": 12,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 25
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 1,
+        "verse": 8
+      },
+      "to": {
+        "chapter": 1,
+        "verse": 45
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Chr",
+      "from": {
+        "chapter": 17,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 17,
+        "verse": 15
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Chr",
+      "from": {
+        "chapter": 29,
+        "verse": 29
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 9,
+        "verse": 29
+      },
+      "kind": "mention"
+    }
+  ]
+}

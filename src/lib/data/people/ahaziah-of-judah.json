@@ -1,0 +1,112 @@
+{
+  "id": "ahaziah-of-judah",
+  "name": "Ahaziah (Judah)",
+  "altNames": ["Jehoahaz", "Azariah"],
+  "summary": "Son of Jehoram and Athaliah. Killed by Jehu after visiting the wounded Joram of Israel at Jezreel.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 841,
+        "to": 841,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 8,
+              "verse": 25
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 12th year of Joram of Israel; reigned one year."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 9,
+              "verse": 29
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Also given as the 11th year of Joram, the difference between non-accession and accession counting."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Tel Dan Stele",
+          "note": "An Aramaean king claims to have killed [Ahaz]iah son of [Jehoram] of the house of David."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "jehoram-of-judah",
+    "successor": "athaliah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoram",
+      "personId": "jehoram-of-judah"
+    },
+    {
+      "relation": "mother",
+      "name": "Athaliah",
+      "personId": "athaliah"
+    },
+    {
+      "relation": "son",
+      "name": "Joash",
+      "personId": "joash-of-judah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 8,
+        "verse": 24
+      },
+      "to": {
+        "chapter": 8,
+        "verse": 29
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 9,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 9,
+        "verse": 29
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 22,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 9
+      },
+      "kind": "narrative"
+    }
+  ]
+}

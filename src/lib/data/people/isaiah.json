@@ -1,0 +1,192 @@
+{
+  "id": "isaiah",
+  "name": "Isaiah",
+  "altNames": [],
+  "summary": "Jerusalem prophet called in a temple vision. Counselled Ahaz and Hezekiah through the Assyrian crisis.",
+  "ministry": {
+    "audience": ["judah", "nations"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 740,
+        "to": 700,
+        "approx": true
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Isa",
+            "from": {
+              "chapter": 6,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "His call came \"in the year that King Uzziah died\", 740."
+        },
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Isa",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["azariah", "jotham", "ahaz", "hezekiah"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "Isa",
+            "from": {
+              "chapter": 7,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 7,
+              "verse": 17
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["ahaz"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 19,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 20,
+              "verse": 19
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["hezekiah"]
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Sennacherib's annals",
+          "note": "Date the Assyrian campaign of Isaiah 36\u201337 to 701."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. Isa 37:38 records Sennacherib's death in 681, which may mean he lived longer."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Amoz"
+    },
+    {
+      "relation": "son",
+      "name": "Shear-jashub"
+    },
+    {
+      "relation": "son",
+      "name": "Maher-shalal-hash-baz"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Isa",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 66,
+        "verse": 24
+      },
+      "kind": "book"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 19,
+        "verse": 2
+      },
+      "to": {
+        "chapter": 20,
+        "verse": 19
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 26,
+        "verse": 22
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 32,
+        "verse": 20
+      },
+      "to": {
+        "chapter": 32,
+        "verse": 32
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 3,
+        "verse": 3
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Luke",
+      "from": {
+        "chapter": 4,
+        "verse": 17
+      },
+      "to": {
+        "chapter": 4,
+        "verse": 21
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "John",
+      "from": {
+        "chapter": 12,
+        "verse": 38
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 41
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 8,
+        "verse": 28
+      },
+      "to": {
+        "chapter": 8,
+        "verse": 35
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

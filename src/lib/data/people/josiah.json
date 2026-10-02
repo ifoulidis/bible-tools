@@ -1,0 +1,116 @@
+{
+  "id": "josiah",
+  "name": "Josiah",
+  "altNames": [],
+  "summary": "Crowned at eight. The Book of the Law was found in the temple in his 18th year, prompting a sweeping reform. Killed by Pharaoh Necho at Megiddo.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 641,
+        "to": 609,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 22,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Eight years old; reigned thirty-one years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian Chronicle (ABC 3)",
+          "note": "Records the Egyptian army marching to Harran to aid Assyria in 609, the campaign on which Necho killed Josiah (2 Kgs 23:29)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "grayson-1975"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "amon",
+    "successor": "jehoahaz-of-judah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Amon",
+      "personId": "amon"
+    },
+    {
+      "relation": "mother",
+      "name": "Jedidah daughter of Adaiah of Bozkath"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoahaz",
+      "personId": "jehoahaz-of-judah"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoiakim",
+      "personId": "jehoiakim"
+    },
+    {
+      "relation": "son",
+      "name": "Zedekiah",
+      "personId": "zedekiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 21,
+        "verse": 24
+      },
+      "to": {
+        "chapter": 23,
+        "verse": 30
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 34,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 35,
+        "verse": 27
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 1,
+        "verse": 2
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Zeph",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "kind": "mention"
+    }
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "id": "shallum",
+  "name": "Shallum",
+  "altNames": [],
+  "summary": "Killed Zechariah and reigned one month before Menahem killed him.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 752,
+        "to": 752,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 13
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 39th year of Uzziah; reigned one month."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "zechariah-king",
+    "successor": "menahem",
+    "relationToPredecessor": "Usurper (assassinated Zechariah)"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jabesh"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 10
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 15
+      },
+      "kind": "narrative"
+    }
+  ]
+}

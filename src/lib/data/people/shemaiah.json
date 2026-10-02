@@ -1,0 +1,110 @@
+{
+  "id": "shemaiah",
+  "name": "Shemaiah",
+  "altNames": [],
+  "summary": "Man of God who stopped Rehoboam from fighting the northern tribes, and later announced Shishak's invasion.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 931,
+        "to": 926,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 12,
+              "verse": 22
+            },
+            "to": {
+              "chapter": 12,
+              "verse": 24
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["rehoboam"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 12,
+              "verse": 5
+            },
+            "to": {
+              "chapter": 12,
+              "verse": 8
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["rehoboam"]
+        },
+        {
+          "kind": "inference",
+          "note": "Shishak's invasion came in Rehoboam's fifth year (2 Chr 12:2), c. 926."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 12,
+        "verse": 22
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 24
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 11,
+        "verse": 2
+      },
+      "to": {
+        "chapter": 11,
+        "verse": 4
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 12,
+        "verse": 5
+      },
+      "to": {
+        "chapter": 12,
+        "verse": 8
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 12,
+        "verse": 15
+      },
+      "kind": "mention"
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "id": "pekah",
+  "name": "Pekah",
+  "altNames": [],
+  "summary": "Killed Pekahiah. Allied with Rezin of Damascus against Ahaz of Judah (the Syro-Ephraimite war of Isaiah 7).",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 740,
+        "to": 732,
+        "approx": false
+      },
+      "coregencyFrom": 752,
+      "confidence": "disputed",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 27
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 52nd year of Azariah; reigned twenty years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Inscriptions of Tiglath-pileser III",
+          "note": "Say the people of Israel overthrew Pekah and Tiglath-pileser installed Hoshea in his place."
+        },
+        {
+          "kind": "inference",
+          "note": "Twenty years will not fit between Pekahiah and Hoshea, so Thiele counts them from a rival reign in Gilead beginning 752."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "The \"coregency\" here is a rival reign alongside Menahem and Pekahiah, not a shared throne."
+    },
+    "alternatives": [],
+    "predecessor": "pekahiah",
+    "successor": "hoshea",
+    "relationToPredecessor": "Usurper (assassinated Pekahiah)"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Remaliah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 25
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 31
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 5
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 28,
+        "verse": 6
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Isa",
+      "from": {
+        "chapter": 7,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 7,
+        "verse": 9
+      },
+      "kind": "narrative"
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "id": "menahem",
+  "name": "Menahem",
+  "altNames": [],
+  "summary": "Killed Shallum and took the throne. Paid a thousand talents of silver to Pul (Tiglath-pileser III) of Assyria.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 752,
+        "to": 742,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 17
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 39th year of Azariah; reigned ten years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Annals of Tiglath-pileser III",
+          "note": "List \"Menahem of Samaria\" among kings paying tribute, matching 2 Kgs 15:19–20."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "shallum",
+    "successor": "pekahiah",
+    "relationToPredecessor": "Usurper (assassinated Shallum)"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Gadi"
+    },
+    {
+      "relation": "son",
+      "name": "Pekahiah",
+      "personId": "pekahiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 14
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 22
+      },
+      "kind": "narrative"
+    }
+  ]
+}

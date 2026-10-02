@@ -1,0 +1,100 @@
+{
+  "id": "jehoshaphat",
+  "name": "Jehoshaphat",
+  "altNames": [],
+  "summary": "Faithful king who sent teachers of the law through Judah. Allied with Ahab and his sons by marriage and in war.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 870,
+        "to": 848,
+        "approx": false
+      },
+      "coregencyFrom": 872,
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 22,
+              "verse": 41
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 4th year of Ahab; reigned twenty-five years."
+        },
+        {
+          "kind": "inference",
+          "note": "Twenty-five years from the 4th year of Ahab overruns Jehoram's accession, so Thiele counts the reign from a coregency with the ailing Asa."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Coregency with Asa from 872; sole reign from 870."
+    },
+    "alternatives": [],
+    "predecessor": "asa",
+    "successor": "jehoram-of-judah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Asa",
+      "personId": "asa"
+    },
+    {
+      "relation": "mother",
+      "name": "Azubah daughter of Shilhi"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoram",
+      "personId": "jehoram-of-judah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 22,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 50
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 3,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 3,
+        "verse": 27
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 17,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 1
+      },
+      "kind": "narrative"
+    }
+  ]
+}

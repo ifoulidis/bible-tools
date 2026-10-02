@@ -1,0 +1,95 @@
+{
+  "id": "asa",
+  "name": "Asa",
+  "altNames": [],
+  "summary": "Reforming king who removed idols and deposed his grandmother Maacah. Bought Aramean help against Baasha.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 911,
+        "to": 870,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 9
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 20th year of Jeroboam; reigned forty-one years."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 16,
+              "verse": 12
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Diseased in his feet in his 39th year, which may explain Jehoshaphat's coregency."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Judah generally used accession-year dating (the partial first year is \"year 0\"), unlike Israel."
+    },
+    "alternatives": [],
+    "predecessor": "abijam",
+    "successor": "jehoshaphat",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Abijam",
+      "personId": "abijam"
+    },
+    {
+      "relation": "mother",
+      "name": "Maacah (his grandmother, 1 Kgs 15:10)"
+    },
+    {
+      "relation": "son",
+      "name": "Jehoshaphat",
+      "personId": "jehoshaphat"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 9
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 24
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 14,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 14
+      },
+      "kind": "narrative"
+    }
+  ]
+}

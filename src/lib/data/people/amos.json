@@ -1,0 +1,90 @@
+{
+  "id": "amos",
+  "name": "Amos",
+  "altNames": [],
+  "summary": "Shepherd from Tekoa in Judah sent to prophesy against the injustice of prosperous Israel. Expelled from Bethel by the priest Amaziah.",
+  "ministry": {
+    "audience": ["israel", "nations"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 765,
+        "to": 755,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Amos",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["azariah", "jeroboam-ii"]
+        },
+        {
+          "kind": "inference",
+          "note": "\"Two years before the earthquake\" (Amos 1:1; Zech 14:5)."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Earthquake destruction layers",
+          "note": "Destruction at Hazor and other sites is commonly attributed to a major earthquake around 760 BC."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "stuart-1987"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Amos",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 9,
+        "verse": 15
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 7,
+        "verse": 42
+      },
+      "to": {
+        "chapter": 7,
+        "verse": 43
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 15,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 17
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

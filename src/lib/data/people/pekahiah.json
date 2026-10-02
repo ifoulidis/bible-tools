@@ -1,0 +1,62 @@
+{
+  "id": "pekahiah",
+  "name": "Pekahiah",
+  "altNames": [],
+  "summary": "Son of Menahem. Assassinated by his officer Pekah.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 742,
+        "to": 740,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 23
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 50th year of Azariah; reigned two years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Israel counted the accession year as year 1 (non-accession dating), so the stated years overlap by one with the predecessor."
+    },
+    "alternatives": [],
+    "predecessor": "menahem",
+    "successor": "pekah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Menahem",
+      "personId": "menahem"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 22
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 26
+      },
+      "kind": "narrative"
+    }
+  ]
+}

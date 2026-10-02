@@ -1,0 +1,78 @@
+{
+  "id": "habakkuk",
+  "name": "Habakkuk",
+  "altNames": [],
+  "summary": "Questioned God about injustice and about using the Babylonians as judgment, and concluded \"the righteous shall live by his faith\".",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 609,
+        "to": 598,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "inference",
+          "note": "God is \"raising up the Chaldeans\" (Hab 1:6), so the Babylonian threat is new but real."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Babylonian Chronicle (ABC 5)",
+          "note": "Records Babylon's rise to dominance in the west after Carchemish in 605."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "grayson-1975"
+        }
+      ]
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "Hab",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 3,
+        "verse": 19
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Rom",
+      "from": {
+        "chapter": 1,
+        "verse": 17
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Gal",
+      "from": {
+        "chapter": 3,
+        "verse": 11
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Heb",
+      "from": {
+        "chapter": 10,
+        "verse": 37
+      },
+      "to": {
+        "chapter": 10,
+        "verse": 38
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

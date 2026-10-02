@@ -1,8 +1,5 @@
-import { createContext } from '$lib/trpc/context'
-import { createCaller } from '$lib/trpc/router'
+import { redirect } from '@sveltejs/kit'
 
 import type { PageServerLoad } from './$types'
 
-export const load: PageServerLoad = async event => ({
-  kings: await createCaller(await createContext(event)).listKings(),
-})
+export const load: PageServerLoad = () => redirect(301, '/timeline')

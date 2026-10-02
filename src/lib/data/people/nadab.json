@@ -1,0 +1,62 @@
+{
+  "id": "nadab",
+  "name": "Nadab",
+  "altNames": [],
+  "summary": "Son of Jeroboam I. Assassinated by Baasha while besieging Gibbethon, ending Jeroboam's dynasty.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 910,
+        "to": 909,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 25
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the second year of Asa; reigned two years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Israel counted the accession year as year 1 (non-accession dating), so the stated years overlap by one with the predecessor."
+    },
+    "alternatives": [],
+    "predecessor": "jeroboam-i",
+    "successor": "baasha",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jeroboam I",
+      "personId": "jeroboam-i"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 25
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 31
+      },
+      "kind": "narrative"
+    }
+  ]
+}

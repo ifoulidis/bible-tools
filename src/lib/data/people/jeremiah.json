@@ -1,0 +1,167 @@
+{
+  "id": "jeremiah",
+  "name": "Jeremiah",
+  "altNames": [],
+  "summary": "Priest from Anathoth who warned Judah for forty years before Jerusalem fell to Babylon, and was taken to Egypt afterwards.",
+  "ministry": {
+    "audience": ["judah", "nations"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 627,
+        "to": 580,
+        "approx": true
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 1,
+              "verse": 3
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["josiah", "jehoiakim", "zedekiah"]
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 1,
+              "verse": 2
+            },
+            "kind": "superscription"
+          },
+          "note": "His call came in the 13th year of Josiah."
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 36,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 36,
+              "verse": 32
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["jehoiakim"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "Jer",
+            "from": {
+              "chapter": 37,
+              "verse": 1
+            },
+            "to": {
+              "chapter": 38,
+              "verse": 28
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["zedekiah"]
+        },
+        {
+          "kind": "inference",
+          "note": "He was still prophesying in Egypt after Jerusalem's fall (Jer 43\u201344)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Hilkiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Jer",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 52,
+        "verse": 34
+      },
+      "kind": "book"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 35,
+        "verse": 25
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 36,
+        "verse": 12
+      },
+      "to": {
+        "chapter": 36,
+        "verse": 22
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Ezra",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Dan",
+      "from": {
+        "chapter": 9,
+        "verse": 2
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 2,
+        "verse": 17
+      },
+      "to": {
+        "chapter": 2,
+        "verse": 18
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 16,
+        "verse": 14
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

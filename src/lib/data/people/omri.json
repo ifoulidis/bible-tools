@@ -1,0 +1,78 @@
+{
+  "id": "omri",
+  "name": "Omri",
+  "altNames": [],
+  "summary": "Army commander proclaimed king after Zimri. Founded Samaria as the capital; Assyria long called Israel \"the house of Omri\".",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 885,
+        "to": 874,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 16,
+              "verse": 23
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began to reign (alone) in the 31st year of Asa; reigned twelve years, six of them in Tirzah."
+        },
+        {
+          "kind": "inference",
+          "note": "Started in Asa's 27th year (1 Kgs 16:15–16) but shared the kingdom with the rival Tibni until about 880 (1 Kgs 16:21–22)."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Mesha Stele (Moabite Stone)",
+          "note": "King Mesha of Moab says \"Omri was king of Israel and oppressed Moab many days\"."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "zimri",
+    "successor": "ahab",
+    "relationToPredecessor": "Army commander, chosen by the troops"
+  },
+  "family": [
+    {
+      "relation": "son",
+      "name": "Ahab",
+      "personId": "ahab"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 16
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 28
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Mic",
+      "from": {
+        "chapter": 6,
+        "verse": 16
+      },
+      "kind": "mention"
+    }
+  ]
+}

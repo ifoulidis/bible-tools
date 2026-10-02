@@ -1,0 +1,97 @@
+{
+  "id": "ahaz",
+  "name": "Ahaz",
+  "altNames": [],
+  "summary": "Refused Isaiah's sign and appealed to Tiglath-pileser III against Israel and Aram, making Judah an Assyrian vassal.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 732,
+        "to": 716,
+        "approx": false
+      },
+      "coregencyFrom": 735,
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 16,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 17th year of Pekah; reigned sixteen years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Tribute list of Tiglath-pileser III",
+          "note": "Names \"Jehoahaz (Ahaz) of Judah\" among tributaries around 734."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Thiele has Ahaz in power from 735, overlapping Jotham, and sole king 732–716."
+    },
+    "alternatives": [],
+    "predecessor": "jotham",
+    "successor": "hezekiah",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jotham",
+      "personId": "jotham"
+    },
+    {
+      "relation": "son",
+      "name": "Hezekiah",
+      "personId": "hezekiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 20
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 28,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 28,
+        "verse": 27
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Isa",
+      "from": {
+        "chapter": 7,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 7,
+        "verse": 25
+      },
+      "kind": "narrative"
+    }
+  ]
+}

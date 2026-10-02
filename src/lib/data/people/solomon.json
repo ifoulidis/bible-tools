@@ -1,0 +1,138 @@
+{
+  "id": "solomon",
+  "name": "Solomon",
+  "altNames": ["Jedidiah"],
+  "summary": "Son of David and Bathsheba. Built the Jerusalem temple; after his death the kingdom split.",
+  "reign": {
+    "kingdom": "united",
+    "dating": {
+      "span": {
+        "from": 970,
+        "to": 931,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 11,
+              "verse": 42
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Reigned forty years over all Israel."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 6,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Temple begun in his fourth year."
+        },
+        {
+          "kind": "inference",
+          "note": "The end of his reign is the division of the kingdom (931), fixed by counting back the divided-kingdom reigns from Ahab at Qarqar in 853."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "The forty years may be a round number, so the start is less certain than the end."
+    },
+    "alternatives": [
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 961,
+            "to": 922,
+            "approx": true
+          },
+          "confidence": "probable",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Albright shortened several divided-kingdom reigns, placing the division in 922."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "david",
+    "successor": "rehoboam",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "David",
+      "personId": "david"
+    },
+    {
+      "relation": "mother",
+      "name": "Bathsheba"
+    },
+    {
+      "relation": "son",
+      "name": "Rehoboam",
+      "personId": "rehoboam"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 11,
+        "verse": 43
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 9,
+        "verse": 31
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 6,
+        "verse": 29
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 12,
+        "verse": 42
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

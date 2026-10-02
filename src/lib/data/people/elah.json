@@ -1,0 +1,62 @@
+{
+  "id": "elah",
+  "name": "Elah",
+  "altNames": [],
+  "summary": "Son of Baasha. Killed by his chariot commander Zimri while drunk in Tirzah.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 886,
+        "to": 885,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 16,
+              "verse": 8
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 26th year of Asa; reigned two years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Israel counted the accession year as year 1 (non-accession dating), so the stated years overlap by one with the predecessor."
+    },
+    "alternatives": [],
+    "predecessor": "baasha",
+    "successor": "zimri",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Baasha",
+      "personId": "baasha"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 6
+      },
+      "to": {
+        "chapter": 16,
+        "verse": 14
+      },
+      "kind": "narrative"
+    }
+  ]
+}

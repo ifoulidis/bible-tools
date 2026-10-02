@@ -1,0 +1,107 @@
+{
+  "id": "zechariah-prophet",
+  "name": "Zechariah (prophet)",
+  "altNames": [],
+  "summary": "Priest and prophet who, alongside Haggai, encouraged temple rebuilding through night visions and promises of a coming king.",
+  "ministry": {
+    "audience": ["returnees"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 520,
+        "to": 518,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Zech",
+            "from": {
+              "chapter": 1,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "First message: 8th month, 2nd year of Darius (October/November 520)."
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Zech",
+            "from": {
+              "chapter": 7,
+              "verse": 1
+            },
+            "kind": "superscription"
+          },
+          "note": "Last dated message: 4th day of the 9th month, 4th year of Darius (December 518)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "parker-dubberstein-1956"
+        }
+      ],
+      "notes": "Chapters 9\u201314 are undated and may come from later in his life."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Berechiah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Zech",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 14,
+        "verse": 21
+      },
+      "kind": "book"
+    },
+    {
+      "book": "Ezra",
+      "from": {
+        "chapter": 5,
+        "verse": 1
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Ezra",
+      "from": {
+        "chapter": 6,
+        "verse": 14
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Neh",
+      "from": {
+        "chapter": 12,
+        "verse": 16
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 21,
+        "verse": 4
+      },
+      "to": {
+        "chapter": 21,
+        "verse": 5
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

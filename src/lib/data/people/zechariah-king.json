@@ -1,0 +1,69 @@
+{
+  "id": "zechariah-king",
+  "name": "Zechariah (king)",
+  "altNames": [],
+  "summary": "Son of Jeroboam II and last of Jehu's dynasty, fulfilling 2 Kgs 10:30. Assassinated by Shallum after six months.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 753,
+        "to": 752,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 8
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 38th year of Azariah; reigned six months."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "jeroboam-ii",
+    "successor": "shallum",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jeroboam II",
+      "personId": "jeroboam-ii"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 14,
+        "verse": 29
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 8
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 12
+      },
+      "kind": "narrative"
+    }
+  ]
+}

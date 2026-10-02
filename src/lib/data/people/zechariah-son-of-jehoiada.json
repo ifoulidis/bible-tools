@@ -1,0 +1,83 @@
+{
+  "id": "zechariah-son-of-jehoiada",
+  "name": "Zechariah son of Jehoiada",
+  "altNames": [],
+  "summary": "Priest and prophet stoned in the temple court on the order of King Joash, after Joash turned from the LORD.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 805,
+        "to": 800,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 24,
+              "verse": 20
+            },
+            "to": {
+              "chapter": 24,
+              "verse": 22
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["joash-of-judah"]
+        },
+        {
+          "kind": "inference",
+          "note": "After the death of Jehoiada and shortly before Aram's attack near the end of Joash's reign (2 Chr 24:15–23)."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology. Whether he is the \"Zechariah son of Barachiah\" of Matt 23:35 is debated."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jehoiada"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 24,
+        "verse": 20
+      },
+      "to": {
+        "chapter": 24,
+        "verse": 22
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 23,
+        "verse": 35
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Luke",
+      "from": {
+        "chapter": 11,
+        "verse": 51
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

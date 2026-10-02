@@ -1,0 +1,172 @@
+{
+  "id": "david",
+  "name": "David",
+  "altNames": [],
+  "summary": "Shepherd from Bethlehem anointed by Samuel. Reigned over Judah from Hebron, then all Israel from Jerusalem.",
+  "reign": {
+    "kingdom": "united",
+    "dating": {
+      "span": {
+        "from": 1010,
+        "to": 970,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "2Sam",
+            "from": {
+              "chapter": 5,
+              "verse": 4
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Thirty years old; reigned forty years, seven and a half in Hebron and thirty-three in Jerusalem."
+        },
+        {
+          "kind": "regnal-length",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 2,
+              "verse": 11
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Forty years."
+        },
+        {
+          "kind": "inference",
+          "note": "Counted back from Solomon's accession (c. 970), which is itself counted back from the division of the kingdom."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Tel Dan Stele",
+          "note": "A 9th-century Aramaic inscription naming the \"house of David\", attesting the dynasty though not dating it."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "kitchen-2003"
+        }
+      ]
+    },
+    "alternatives": [
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 1000,
+            "to": 961,
+            "approx": true
+          },
+          "confidence": "probable",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Follows from dating the division of the kingdom to 922."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "saul",
+    "successor": "solomon",
+    "relationToPredecessor": "Son-in-law of Saul; not of Saul's line"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Jesse"
+    },
+    {
+      "relation": "spouse",
+      "name": "Michal"
+    },
+    {
+      "relation": "spouse",
+      "name": "Bathsheba"
+    },
+    {
+      "relation": "son",
+      "name": "Solomon",
+      "personId": "solomon"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Sam",
+      "from": {
+        "chapter": 16,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 31,
+        "verse": 13
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Sam",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 24,
+        "verse": 25
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 2,
+        "verse": 11
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "1Chr",
+      "from": {
+        "chapter": 11,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 29,
+        "verse": 30
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Matt",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "kind": "nt-reference"
+    },
+    {
+      "book": "Acts",
+      "from": {
+        "chapter": 13,
+        "verse": 22
+      },
+      "kind": "nt-reference"
+    }
+  ]
+}

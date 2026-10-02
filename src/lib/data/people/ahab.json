@@ -1,0 +1,133 @@
+{
+  "id": "ahab",
+  "name": "Ahab",
+  "altNames": [],
+  "summary": "Son of Omri, husband of Jezebel. Promoted Baal worship and opposed Elijah. Killed in battle at Ramoth-gilead.",
+  "reign": {
+    "kingdom": "israel",
+    "dating": {
+      "span": {
+        "from": 874,
+        "to": 853,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 16,
+              "verse": 29
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 38th year of Asa; reigned twenty-two years."
+        },
+        {
+          "kind": "extrabiblical",
+          "artifact": "Kurkh Monolith (Shalmaneser III)",
+          "note": "\"Ahab the Israelite\" fights Assyria at Qarqar in Shalmaneser's 6th year, 853 BC, dated through the Assyrian eponym list and the 763 BC eclipse."
+        },
+        {
+          "kind": "inference",
+          "note": "Twelve years separate Qarqar (853) from Jehu's tribute (841), exactly filled by Ahaziah and Joram under non-accession dating, so 853 is Ahab's last year."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Israel counted the accession year as year 1 (non-accession dating), so the stated years overlap by one with the predecessor."
+    },
+    "alternatives": [
+      {
+        "label": "Albright",
+        "dating": {
+          "span": {
+            "from": 869,
+            "to": 850,
+            "approx": false
+          },
+          "confidence": "firm",
+          "evidence": [
+            {
+              "kind": "inference",
+              "note": "Albright did not tie Ahab's death to Qarqar in the same year."
+            }
+          ],
+          "citations": [
+            {
+              "sourceId": "albright-1945"
+            }
+          ]
+        }
+      }
+    ],
+    "predecessor": "omri",
+    "successor": "ahaziah-of-israel",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Omri",
+      "personId": "omri"
+    },
+    {
+      "relation": "spouse",
+      "name": "Jezebel"
+    },
+    {
+      "relation": "son",
+      "name": "Ahaziah",
+      "personId": "ahaziah-of-israel"
+    },
+    {
+      "relation": "son",
+      "name": "Joram",
+      "personId": "joram-of-israel"
+    },
+    {
+      "relation": "daughter",
+      "name": "Athaliah",
+      "personId": "athaliah"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 16,
+        "verse": 28
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 40
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 18,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 18,
+        "verse": 34
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "Mic",
+      "from": {
+        "chapter": 6,
+        "verse": 16
+      },
+      "kind": "mention"
+    }
+  ]
+}

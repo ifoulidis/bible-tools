@@ -1,0 +1,82 @@
+{
+  "id": "abijam",
+  "name": "Abijam",
+  "altNames": ["Abijah"],
+  "summary": "Son of Rehoboam. Chronicles records his victory over Jeroboam at Mount Zemaraim.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 913,
+        "to": 911,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "1Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 1
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 18th year of Jeroboam; reigned three years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ]
+    },
+    "alternatives": [],
+    "predecessor": "rehoboam",
+    "successor": "asa",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Rehoboam",
+      "personId": "rehoboam"
+    },
+    {
+      "relation": "mother",
+      "name": "Maacah daughter of Abishalom"
+    },
+    {
+      "relation": "son",
+      "name": "Asa",
+      "personId": "asa"
+    }
+  ],
+  "passages": [
+    {
+      "book": "1Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 8
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 13,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 13,
+        "verse": 22
+      },
+      "kind": "narrative"
+    }
+  ]
+}

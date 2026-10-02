@@ -1,0 +1,86 @@
+{
+  "id": "ezekiel",
+  "name": "Ezekiel",
+  "altNames": [],
+  "summary": "Priest deported with Jehoiachin who prophesied to the exiles in Babylonia: visions of God's glory leaving and returning to the temple.",
+  "ministry": {
+    "audience": ["exiles", "nations"],
+    "hasBook": true,
+    "dating": {
+      "span": {
+        "from": 593,
+        "to": 571,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Ezek",
+            "from": {
+              "chapter": 1,
+              "verse": 2
+            },
+            "kind": "superscription"
+          },
+          "note": "His first vision came in the 5th year of King Jehoiachin's exile (593)."
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "Ezek",
+            "from": {
+              "chapter": 29,
+              "verse": 17
+            },
+            "kind": "superscription"
+          },
+          "note": "The latest dated oracle is in the 27th year of the exile (571)."
+        },
+        {
+          "kind": "superscription",
+          "passage": {
+            "book": "Ezek",
+            "from": {
+              "chapter": 1,
+              "verse": 2
+            },
+            "kind": "superscription"
+          },
+          "contemporaries": ["jehoiachin"]
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        },
+        {
+          "sourceId": "parker-dubberstein-1956"
+        }
+      ],
+      "notes": "The book dates its oracles by the years of Jehoiachin's exile; converted with the Babylonian calendar tables."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Buzi"
+    }
+  ],
+  "passages": [
+    {
+      "book": "Ezek",
+      "from": {
+        "chapter": 1,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 48,
+        "verse": 35
+      },
+      "kind": "book"
+    }
+  ]
+}

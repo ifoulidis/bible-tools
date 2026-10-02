@@ -1,0 +1,87 @@
+{
+  "id": "huldah",
+  "name": "Huldah",
+  "altNames": [],
+  "summary": "Prophetess consulted by Josiah's officials about the Book of the Law found in the temple. She confirmed its warnings would come to pass.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 622,
+        "to": 622,
+        "approx": false
+      },
+      "confidence": "firm",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 22,
+              "verse": 14
+            },
+            "to": {
+              "chapter": 22,
+              "verse": 20
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["josiah"]
+        },
+        {
+          "kind": "internal-date",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 22,
+              "verse": 3
+            },
+            "kind": "superscription"
+          },
+          "note": "The book was found in the 18th year of Josiah."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [
+    {
+      "relation": "spouse",
+      "name": "Shallum"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 22,
+        "verse": 14
+      },
+      "to": {
+        "chapter": 22,
+        "verse": 20
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 34,
+        "verse": 22
+      },
+      "to": {
+        "chapter": 34,
+        "verse": 28
+      },
+      "kind": "narrative"
+    }
+  ]
+}

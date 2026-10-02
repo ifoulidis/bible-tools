@@ -1,11 +1,10 @@
-import { createServerClient } from '@supabase/ssr'
 import { type Handle, redirect } from '@sveltejs/kit'
 import { sequence } from '@sveltejs/kit/hooks'
 import { createTRPCHandle } from 'trpc-sveltekit'
 import { v4 as uuidv4 } from 'uuid'
 
-import { PUBLIC_SUPABASE_ANON_KEY, PUBLIC_SUPABASE_URL } from '$env/static/public'
-import prisma from '$lib/prisma.server'
+import { dev } from '$app/environment'
+import { type AuthUser, userFromSession } from '$lib/server/session'
 import { createContext } from '$lib/trpc/context'
 import { router } from '$lib/trpc/router'
 import { context, setContextualConsole } from '$utility/api/context'
@@ -22,86 +21,36 @@ export const addTraceIds: Handle = async ({ event, resolve }) => {
   })
 }
 
-// Initial version per https://supabase.com/docs/guides/auth/server-side/sveltekit
+/** Stands in for a logged-in admin during `vite dev`, so auth never gets in the way locally */
+const DEV_USER: AuthUser = { id: 'dev-user', email: 'dev@localhost', role: 'Admin' }
+
 const handleAuth: Handle = async ({ event, resolve }) => {
-  /**
-   * Creates a Supabase client specific to this server request.
-   * The Supabase client gets the Auth token from the request cookies.
-   */
-  const supabase = createServerClient(PUBLIC_SUPABASE_URL, PUBLIC_SUPABASE_ANON_KEY, {
-    cookies: {
-      getAll: () => event.cookies.getAll(),
-      /**
-       * SvelteKit's cookies API requires `path` to be explicitly set in
-       * the cookie options. Setting `path` to `/` replicates previous/
-       * standard behavior.
-       */
-      setAll: cookiesToSet => {
-        cookiesToSet.forEach(({ name, value, options }) => {
-          event.cookies.set(name, value, { ...options, path: '/' })
-        })
-      },
-    },
-  })
-  event.locals.supabase = supabase
+  // `dev` is compiled to `false` in production builds, so this bypass can't run in production
+  event.locals.user = dev ? DEV_USER : await userFromSession(event.cookies)
+  return resolve(event)
+}
 
-  /**
-   * Unlike `supabase.auth.getSession()`, which returns the session _without_
-   * validating the JWT, this function also calls `getUser()` to validate the
-   * JWT before returning the session.
-   */
-  const safeGetSession = async () => {
-    const {
-      data: { session },
-    } = await event.locals.supabase.auth.getSession()
-    if (!session) {
-      return { session: null, user: null }
-    }
+/** Paths anyone can view without logging in (the auth pages themselves must be here to avoid a redirect loop) */
+const publicPrefixes = ['/auth', '/timeline', '/kings-timeline', '/people']
 
-    const {
-      data: { user },
-      error,
-    } = await event.locals.supabase.auth.getUser()
-    if (error) {
-      // JWT validation has failed
-      return { session: null, user: null }
-    }
-
-    return { session, user }
-  }
-  event.locals.safeGetSession = safeGetSession
-
-  const { session, user } = await safeGetSession()
-  event.locals.user = user
-  event.locals.session = session
-
-  if (user) {
-    const role = await prisma.userRole.findUnique({ where: { userId: user.id } })
-    if (role) event.locals.role = role.role
-  }
-
-  return resolve(event, {
-    filterSerializedResponseHeaders(name) {
-      /**
-       * Supabase libraries use the `content-range` and `x-supabase-api-version`
-       * headers, so we need to tell SvelteKit to pass it through.
-       */
-      return name === 'content-range' || name === 'x-supabase-api-version'
-    },
-  })
+function isPublic(pathname: string) {
+  return (
+    pathname === '/' ||
+    publicPrefixes.some(prefix => pathname === prefix || pathname.startsWith(`${prefix}/`))
+  )
 }
 
 const authGuards: Handle = async ({ event, resolve }) => {
-  const { user, role } = event.locals
+  const { user } = event.locals
 
-  // If no user then redirect to auth
-  if (!user && !event.url.pathname.startsWith('/admin')) redirect(303, '/auth')
+  // If no user and the page isn't public then redirect to auth
+  if (!user && !isPublic(event.url.pathname)) redirect(303, '/auth')
 
   // If there's a user but they're on an auth page then redirect to the homepage
   if (user && event.url.pathname.startsWith('/auth')) redirect(303, '/')
 
   // If the user isn't an admin and they're trying to access an admin path then redirect to the homepage
-  if (role !== 'Admin' && event.url.pathname.startsWith('/admin')) redirect(303, '/')
+  if (user?.role !== 'Admin' && event.url.pathname.startsWith('/admin')) redirect(303, '/')
 
   return resolve(event)
 }

@@ -1,0 +1,82 @@
+{
+  "id": "iddo",
+  "name": "Iddo the seer",
+  "altNames": [],
+  "summary": "Seer whose writings Chronicles cites as a source for the reigns of Solomon, Rehoboam and Abijah.",
+  "ministry": {
+    "audience": ["judah"],
+    "hasBook": false,
+    "dating": {
+      "span": {
+        "from": 935,
+        "to": 911,
+        "approx": true
+      },
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 12,
+              "verse": 15
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["rehoboam"]
+        },
+        {
+          "kind": "narrative-contact",
+          "passage": {
+            "book": "2Chr",
+            "from": {
+              "chapter": 13,
+              "verse": 22
+            },
+            "kind": "narrative"
+          },
+          "contemporaries": ["abijam"]
+        },
+        {
+          "kind": "inference",
+          "note": "Known only as the author of records covering these reigns; no narrative about him survives."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Dates derived from the reigns of the kings named, using Thiele's chronology."
+    },
+    "alternatives": []
+  },
+  "family": [],
+  "passages": [
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 9,
+        "verse": 29
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 12,
+        "verse": 15
+      },
+      "kind": "mention"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 13,
+        "verse": 22
+      },
+      "kind": "mention"
+    }
+  ]
+}

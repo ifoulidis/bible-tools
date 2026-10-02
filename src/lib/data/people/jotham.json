@@ -1,0 +1,108 @@
+{
+  "id": "jotham",
+  "name": "Jotham",
+  "altNames": [],
+  "summary": "Governed for his leprous father Uzziah, then reigned alone. Built the upper gate of the temple.",
+  "reign": {
+    "kingdom": "judah",
+    "dating": {
+      "span": {
+        "from": 740,
+        "to": 732,
+        "approx": false
+      },
+      "coregencyFrom": 750,
+      "confidence": "probable",
+      "evidence": [
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 32
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Began in the 2nd year of Pekah; reigned sixteen years."
+        },
+        {
+          "kind": "inference",
+          "note": "Was over the household and judged the people while Uzziah was a leper (2 Kgs 15:5), so his years overlap his father's."
+        },
+        {
+          "kind": "synchronism",
+          "passage": {
+            "book": "2Kgs",
+            "from": {
+              "chapter": 15,
+              "verse": 30
+            },
+            "kind": "regnal-formula"
+          },
+          "note": "Hoshea took the throne in the \"20th year of Jotham\", counting past his sixteen years."
+        }
+      ],
+      "citations": [
+        {
+          "sourceId": "thiele-1983"
+        }
+      ],
+      "notes": "Coregency with Uzziah from 750; Ahaz appears to have taken control in 735 while Jotham still lived."
+    },
+    "alternatives": [],
+    "predecessor": "azariah",
+    "successor": "ahaz",
+    "relationToPredecessor": "Son"
+  },
+  "family": [
+    {
+      "relation": "father",
+      "name": "Azariah",
+      "personId": "azariah"
+    },
+    {
+      "relation": "mother",
+      "name": "Jerusha daughter of Zadok"
+    },
+    {
+      "relation": "son",
+      "name": "Ahaz",
+      "personId": "ahaz"
+    }
+  ],
+  "passages": [
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 5
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Kgs",
+      "from": {
+        "chapter": 15,
+        "verse": 32
+      },
+      "to": {
+        "chapter": 15,
+        "verse": 38
+      },
+      "kind": "narrative"
+    },
+    {
+      "book": "2Chr",
+      "from": {
+        "chapter": 27,
+        "verse": 1
+      },
+      "to": {
+        "chapter": 27,
+        "verse": 9
+      },
+      "kind": "narrative"
+    }
+  ]
+}
