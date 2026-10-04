@@ -1,9 +1,9 @@
 <svelte:head>
-  <title>Tools for the Bible</title>
+  <title>Bible Tools</title>
 </svelte:head>
 
 <div class="mx-auto my-12 max-w-2xl px-4">
-  <h1 class="text-3xl font-bold">Tools for the Bible</h1>
+  <h1 class="text-3xl font-bold">Bible Tools</h1>
   <p class="mt-4 text-lg text-gray-700">
     A timeline of the kings of Israel and Judah and the prophets who spoke to them, with the
     evidence and sources behind every date.
