@@ -1,7 +1,7 @@
 <script lang="ts">
   import type { Action } from 'svelte/action'
   import tippy from 'tippy.js'
-
+  import Legend from './Legend.svelte'
   import {
     type LaneId,
     formatSpan,
@@ -26,6 +26,30 @@
     prophets: 'Prophets',
   }
 
+  // Full class names so Tailwind can see them; picked per lane instead of overriding a variable
+  const laneClasses: Record<LaneId, { heading: string; bar: string; dark: string }> = {
+    united: {
+      heading: 'text-united',
+      bar: 'from-united-light to-united shadow-united-dark',
+      dark: 'united-dark',
+    },
+    israel: {
+      heading: 'text-israel',
+      bar: 'from-israel-light to-israel shadow-israel-dark',
+      dark: 'israel-dark',
+    },
+    judah: {
+      heading: 'text-judah',
+      bar: 'from-judah-light to-judah shadow-judah-dark',
+      dark: 'judah-dark',
+    },
+    prophets: {
+      heading: 'text-prophets',
+      bar: 'from-prophets-light to-prophets shadow-prophets-dark',
+      dark: 'prophets-dark',
+    },
+  }
+
   const ROW_PX = 28
   const TICK_STEP = 50
 
@@ -38,8 +62,13 @@
   )
   let scale = $derived(scaleFor(datings, pxPerYear))
   let laidOut = $derived(layoutTimeline(data.people, scale, filterLanes[filter]))
+  const roles = $derived(
+    new Map(laidOut.flatMap(item => item.bars.map(bar => [bar.person.id, item.id]))),
+  )
   let highlighted = $derived(
-    hoveredId ? new Set([hoveredId, ...(data.contemporaries[hoveredId] ?? [])]) : null,
+    hoveredId && roles.get(hoveredId) === 'prophets'
+      ? new Set([hoveredId, ...(data.contemporaries[hoveredId] ?? [])])
+      : null,
   )
 
   const tooltip: Action<HTMLElement, string> = (node, content) => {
@@ -55,60 +84,78 @@
   <title>Kings and Prophets Timeline</title>
 </svelte:head>
 
-<div class="page">
-  <h1>Kings and Prophets</h1>
-  <p class="intro">
+<div class="mx-auto my-8 max-w-[1200px] px-4 text-gray-800">
+  <h1 class="text-[2rem] font-bold">Kings and Prophets</h1>
+  <p class="mt-2 mb-4 max-w-[60ch] text-gray-500">
     Hover over a prophet to light up the kings the Bible names alongside them. Click anyone to see
     why they're dated where they are, and where they appear in Scripture.
   </p>
 
-  <div class="controls">
-    <div class="filters" role="radiogroup" aria-label="Show">
+  <div class="mb-3 flex flex-wrap items-center gap-x-8 gap-y-4">
+    <div
+      class="flex overflow-hidden rounded-lg border border-gray-200"
+      role="radiogroup"
+      aria-label="Show"
+    >
       {#each Object.keys(filterLanes) as Filter[] as option (option)}
-        <label class:active={filter === option}>
-          <input type="radio" name="filter" value={option} bind:group={filter} />
+        <label
+          class="has-focus-visible:outline-israel cursor-pointer px-3.5 py-1.5 has-checked:bg-gray-800 has-checked:text-white has-focus-visible:outline-2 has-focus-visible:-outline-offset-2"
+        >
+          <input
+            class="pointer-events-none absolute opacity-0"
+            type="radio"
+            name="filter"
+            value={option}
+            bind:group={filter}
+          />
           {filterLabels[option]}
         </label>
       {/each}
     </div>
-    <label class="zoom">
+    <label class="flex items-center gap-2 text-gray-500">
       Zoom
       <input type="range" min="2" max="14" step="1" bind:value={pxPerYear} />
     </label>
   </div>
 
-  <div class="legend">
-    <span><i class="swatch united"></i>United kingdom</span>
-    <span><i class="swatch israel"></i>Israel</span>
-    <span><i class="swatch judah"></i>Judah</span>
-    <span><i class="swatch prophets"></i>Prophet</span>
-    <span><i class="swatch coregency"></i>Coregency / overlap</span>
-    <span><i class="swatch approx"></i>Approximate</span>
-  </div>
-
-  <div class="scroller">
+  <div class="[scrollbar-width:thin] overflow-x-auto rounded-lg border border-gray-200">
+    <!-- Horizontal padding leaves room for the first axis label, which is centred on x = 0 -->
     <div
-      class="canvas"
+      class="relative box-content px-10 pb-4"
       style:width="{scaleWidth(scale)}px"
       style:--grid="{TICK_STEP * pxPerYear}px"
     >
-      <div class="axis">
+      <div class="relative h-8 border-b border-gray-200">
         {#each ticks(scale, TICK_STEP) as year (year)}
-          <span class="tick" style:left="{yearToX(scale, year)}px">{year} BC</span>
+          <span
+            class="absolute bottom-1.5 -translate-x-1/2 text-xs whitespace-nowrap text-gray-500"
+            style:left="{yearToX(scale, year)}px">{year} BC</span
+          >
         {/each}
       </div>
 
       {#each laidOut as lane (lane.id)}
-        <section class="lane {lane.id}">
-          <h2>{lane.title}</h2>
-          <div class="rows" style:height="{lane.rowCount * ROW_PX}px">
+        <section>
+          <h2
+            class="sticky left-0 mt-3 mb-1 w-max text-[0.85rem] font-semibold tracking-wider uppercase {laneClasses[
+              lane.id
+            ].heading}"
+          >
+            {lane.title}
+          </h2>
+          <div
+            class="relative bg-[linear-gradient(to_right,var(--color-gray-200)_1px,transparent_1px)] bg-size-[var(--grid)_100%]"
+            style:height="{lane.rowCount * ROW_PX}px"
+          >
             {#each lane.bars as bar (`${bar.role}-${bar.person.id}`)}
+              <!-- Lighter leading segment for any coregency or rival reign -->
               <a
                 href="/people/{bar.person.id}"
-                class="bar"
-                class:approx={bar.dating.span.approx}
-                class:widened={bar.widened}
-                class:dimmed={highlighted && !highlighted.has(bar.person.id)}
+                class="shadow-bar absolute mt-0.75 h-5.5 overflow-hidden rounded-sm bg-linear-to-r from-(length:--coregency) to-(length:--coregency) text-xs leading-5.5 text-white transition-opacity duration-120 hover:z-1 hover:outline-2 hover:outline-offset-1 hover:outline-gray-800 focus-visible:z-1 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-gray-800 {laneClasses[
+                  lane.id
+                ].bar}"
+                class:z-1={bar.widened}
+                class:opacity-20={highlighted && !highlighted.has(bar.person.id)}
                 style:left="{bar.x}px"
                 style:top="{bar.row * ROW_PX}px"
                 style:width="{bar.width}px"
@@ -119,8 +166,11 @@
                 onmouseleave={() => (hoveredId = null)}
                 onfocus={() => (hoveredId = bar.person.id)}
                 onblur={() => (hoveredId = null)}
-              >
-                <span class="label">{bar.person.name}</span>
+                >{#if bar.width > 50}
+                  <span class="block overflow-hidden px-1 text-clip whitespace-nowrap"
+                    >{bar.person.name}</span
+                  >
+                {/if}
               </a>
             {/each}
           </div>
@@ -128,226 +178,5 @@
       {/each}
     </div>
   </div>
+  <Legend />
 </div>
-
-<style>
-  .page {
-    --united: #7c3aed;
-    --israel: #2563eb;
-    --judah: #dc2626;
-    --prophets: #d97706;
-    --ink: #1f2937;
-    --muted: #6b7280;
-    --line: #e5e7eb;
-    max-width: 1200px;
-    margin: 2rem auto;
-    padding: 0 1rem;
-    color: var(--ink);
-  }
-
-  h1 {
-    font-size: 2rem;
-    font-weight: 700;
-  }
-
-  .intro {
-    color: var(--muted);
-    margin: 0.5rem 0 1rem;
-    max-width: 60ch;
-  }
-
-  .controls {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-    align-items: center;
-    margin-bottom: 0.75rem;
-  }
-
-  .filters {
-    display: flex;
-    border: 1px solid var(--line);
-    border-radius: 0.5rem;
-    overflow: hidden;
-  }
-
-  .filters label {
-    padding: 0.35rem 0.9rem;
-    cursor: pointer;
-  }
-
-  .filters label.active {
-    background: var(--ink);
-    color: white;
-  }
-
-  .filters input {
-    position: absolute;
-    opacity: 0;
-    pointer-events: none;
-  }
-
-  .filters label:has(input:focus-visible) {
-    outline: 2px solid var(--israel);
-    outline-offset: -2px;
-  }
-
-  .zoom {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-    color: var(--muted);
-  }
-
-  .legend {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.25rem 1rem;
-    font-size: 0.85rem;
-    color: var(--muted);
-    margin-bottom: 1rem;
-  }
-
-  .swatch {
-    display: inline-block;
-    width: 1.5rem;
-    height: 0.75rem;
-    border-radius: 0.2rem;
-    margin-right: 0.35rem;
-    vertical-align: middle;
-  }
-
-  .swatch.united {
-    background: var(--united);
-  }
-  .swatch.israel {
-    background: var(--israel);
-  }
-  .swatch.judah {
-    background: var(--judah);
-  }
-  .swatch.prophets {
-    background: var(--prophets);
-  }
-  .swatch.coregency {
-    background: color-mix(in srgb, var(--ink) 30%, white);
-  }
-  .swatch.approx {
-    border: 1px dashed var(--ink);
-  }
-
-  .scroller {
-    overflow-x: auto;
-    border: 1px solid var(--line);
-    border-radius: 0.5rem;
-    scrollbar-width: thin;
-  }
-
-  .canvas {
-    position: relative;
-    /* Room for the first axis label, which is centred on x = 0 */
-    padding: 0 2.5rem 1rem;
-    box-sizing: content-box;
-  }
-
-  .axis {
-    position: relative;
-    height: 2rem;
-    border-bottom: 1px solid var(--line);
-  }
-
-  .tick {
-    position: absolute;
-    bottom: 0.4rem;
-    transform: translateX(-50%);
-    font-size: 0.75rem;
-    color: var(--muted);
-    white-space: nowrap;
-  }
-
-  .lane {
-    --color: var(--prophets);
-  }
-  .lane.united {
-    --color: var(--united);
-  }
-  .lane.israel {
-    --color: var(--israel);
-  }
-  .lane.judah {
-    --color: var(--judah);
-  }
-
-  h2 {
-    position: sticky;
-    left: 0;
-    width: max-content;
-    margin: 0.75rem 0 0.25rem;
-    font-size: 0.85rem;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: var(--color);
-  }
-
-  .rows {
-    position: relative;
-    background-image: linear-gradient(to right, var(--line) 1px, transparent 1px);
-    background-size: var(--grid) 100%;
-  }
-
-  .bar {
-    position: absolute;
-    height: 22px;
-    margin-top: 3px;
-    border-radius: 0.25rem;
-    /* Lighter leading segment for any coregency or rival reign */
-    background: linear-gradient(
-      to right,
-      color-mix(in srgb, var(--color) 35%, white) var(--coregency),
-      var(--color) var(--coregency)
-    );
-    color: white;
-    font-size: 0.75rem;
-    line-height: 22px;
-    overflow: hidden;
-    transition: opacity 120ms;
-  }
-
-  .bar:hover,
-  .bar:focus-visible {
-    outline: 2px solid var(--ink);
-    outline-offset: 1px;
-    z-index: 1;
-  }
-
-  .bar.approx {
-    border: 1px dashed var(--ink);
-    line-height: 20px;
-  }
-
-  .bar.widened {
-    z-index: 1;
-  }
-
-  .bar.dimmed {
-    opacity: 0.2;
-  }
-
-  .label {
-    display: block;
-    padding: 0 0.3rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: clip;
-    text-shadow: 0 0 2px rgb(0 0 0 / 0.4);
-  }
-
-  :global([data-tippy-root]) {
-    background-color: #374151;
-    color: white;
-    border-radius: 0.25rem;
-    padding: 0.2rem 0.6rem;
-    font-size: 0.85rem;
-  }
-</style>
