@@ -139,7 +139,7 @@
   {/if}
 
   <section class="card">
-    <h2>Where they appear in Scripture</h2>
+    <h2>Where {person.name} appears in Scripture</h2>
     {#each groups as group (group.kind)}
       <h3>{group.title}</h3>
       <ul class="passages">
