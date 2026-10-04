@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import 'tippy.js/dist/tippy.css';
 
 @plugin 'flowbite/plugin';
 @source '../node_modules/flowbite-svelte';
@@ -46,6 +47,24 @@
   }
 }
 
-[data-tippy-root] {
-  @apply rounded-sm bg-gray-700 px-2.5 py-0.5 text-sm text-white;
+/* Style the box tippy fades in and out, not its root, so the background and text animate together */
+.tippy-box {
+  @apply rounded-sm bg-gray-700 text-sm text-white;
+}
+.tippy-content {
+  @apply px-2.5 py-0.5;
+}
+
+/* Matches the timeline's scrollbar: a gray-500 thumb on a thin gray-200 track */
+@layer components {
+  .slider {
+    @apply h-1.5 w-32 cursor-pointer appearance-none rounded-full bg-gray-200 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-israel;
+
+    &::-webkit-slider-thumb {
+      @apply size-3.5 appearance-none rounded-full bg-gray-500 hover:bg-gray-700;
+    }
+    &::-moz-range-thumb {
+      @apply size-3.5 rounded-full border-0 bg-gray-500 hover:bg-gray-700;
+    }
+  }
 }
