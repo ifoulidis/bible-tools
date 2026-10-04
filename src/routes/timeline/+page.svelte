@@ -27,24 +27,20 @@
   }
 
   // Full class names so Tailwind can see them; picked per lane instead of overriding a variable
-  const laneClasses: Record<LaneId, { heading: string; bar: string; dark: string }> = {
+  const laneClasses: Record<LaneId, { bar: string; dark: string }> = {
     united: {
-      heading: 'text-united',
       bar: 'from-united-light to-united shadow-united-dark',
       dark: 'united-dark',
     },
     israel: {
-      heading: 'text-israel',
       bar: 'from-israel-light to-israel shadow-israel-dark',
       dark: 'israel-dark',
     },
     judah: {
-      heading: 'text-judah',
       bar: 'from-judah-light to-judah shadow-judah-dark',
       dark: 'judah-dark',
     },
     prophets: {
-      heading: 'text-prophets',
       bar: 'from-prophets-light to-prophets shadow-prophets-dark',
       dark: 'prophets-dark',
     },
@@ -99,7 +95,7 @@
     >
       {#each Object.keys(filterLanes) as Filter[] as option (option)}
         <label
-          class="has-focus-visible:outline-israel cursor-pointer px-3.5 py-1.5 has-checked:bg-gray-800 has-checked:text-white has-focus-visible:outline-2 has-focus-visible:-outline-offset-2"
+          class="cursor-pointer px-3.5 py-1.5 has-checked:bg-gray-800 has-checked:text-white has-focus-visible:outline-2 has-focus-visible:-outline-offset-2 has-focus-visible:outline-israel"
         >
           <input
             class="pointer-events-none absolute opacity-0"
@@ -118,7 +114,7 @@
     </label>
   </div>
 
-  <div class="[scrollbar-width:thin] overflow-x-auto rounded-lg border border-gray-200">
+  <div class="scrollbar-thin overflow-x-auto rounded-lg border border-gray-200">
     <!-- Horizontal padding leaves room for the first axis label, which is centred on x = 0 -->
     <div
       class="relative box-content px-10 pb-4"
@@ -135,14 +131,7 @@
       </div>
 
       {#each laidOut as lane (lane.id)}
-        <section>
-          <h2
-            class="sticky left-0 mt-3 mb-1 w-max text-[0.85rem] font-semibold tracking-wider uppercase {laneClasses[
-              lane.id
-            ].heading}"
-          >
-            {lane.title}
-          </h2>
+        <section class="mt-3">
           <div
             class="relative bg-[linear-gradient(to_right,var(--color-gray-200)_1px,transparent_1px)] bg-size-[var(--grid)_100%]"
             style:height="{lane.rowCount * ROW_PX}px"
@@ -151,7 +140,7 @@
               <!-- Lighter leading segment for any coregency or rival reign -->
               <a
                 href="/people/{bar.person.id}"
-                class="shadow-bar absolute mt-0.75 h-5.5 overflow-hidden rounded-sm bg-linear-to-r from-(length:--coregency) to-(length:--coregency) text-xs leading-5.5 text-white transition-opacity duration-120 hover:z-1 hover:outline-2 hover:outline-offset-1 hover:outline-gray-800 focus-visible:z-1 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-gray-800 {laneClasses[
+                class="absolute mt-0.75 h-5.5 overflow-hidden rounded-sm bg-linear-to-r from-(length:--coregency) to-(length:--coregency) text-xs leading-5.5 text-white shadow-bar transition-opacity duration-120 hover:z-1 hover:outline-2 hover:outline-offset-1 hover:outline-gray-800 focus-visible:z-1 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-gray-800 {laneClasses[
                   lane.id
                 ].bar}"
                 class:z-1={bar.widened}

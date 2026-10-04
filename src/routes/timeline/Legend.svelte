@@ -7,7 +7,7 @@
   ]
 </script>
 
-<div class="mb-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500">
+<div class="mt-4 flex flex-wrap gap-x-4 gap-y-1 text-sm text-gray-500">
   <!-- TODO: coregency one should show the three different light colours, divided among the space. -->
   <!-- TODO: approximate should be hard borders on each end, but of the appropriate colour. -->
   {#each keyDisplayClasses as [swatch, label] (label)}

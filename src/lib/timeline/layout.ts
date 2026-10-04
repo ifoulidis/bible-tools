@@ -1,10 +1,10 @@
 import type { Dating, Kingdom, Person } from '$lib/data/schema'
 
 export const lanes = [
-  { id: 'united', title: 'United kingdom' },
-  { id: 'israel', title: 'Israel (north)' },
-  { id: 'judah', title: 'Judah (south)' },
-  { id: 'prophets', title: 'Prophets' },
+  { id: 'united' },
+  { id: 'israel' },
+  { id: 'judah' },
+  { id: 'prophets' },
 ] as const
 
 export type LaneId = (typeof lanes)[number]['id']
@@ -57,7 +57,6 @@ export interface Bar {
 
 export interface LaidOutLane {
   id: LaneId
-  title: string
   rowCount: number
   bars: Bar[]
 }
@@ -177,7 +176,6 @@ export function layoutTimeline(
       )
       return {
         id: lane.id,
-        title: lane.title,
         rowCount: Math.max(0, ...rows) + 1,
         bars,
       }
