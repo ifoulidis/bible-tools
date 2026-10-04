@@ -1,3 +1,51 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@plugin 'flowbite/plugin';
+@source '../node_modules/flowbite-svelte';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+  /* flowbite-svelte */
+  --color-primary-50: #fff5f2;
+  --color-primary-100: #fff1ee;
+  --color-primary-200: #ffe4de;
+  --color-primary-300: #ffd5cc;
+  --color-primary-400: #ffbcad;
+  --color-primary-500: #fe795d;
+  --color-primary-600: #ef562f;
+  --color-primary-700: #eb4f27;
+  --color-primary-800: #cc4522;
+  --color-primary-900: #a5371b;
+
+  /* Timeline lanes, each with a lighter tint (coregency) and darker shade (shadow) */
+  --color-united: #7c3aed;
+  --color-united-light: color-mix(in srgb, var(--color-united) 77%, white);
+  --color-united-dark: color-mix(in srgb, black 20%, var(--color-united));
+  --color-israel: #2563eb;
+  --color-israel-light: color-mix(in srgb, var(--color-israel) 86%, white);
+  --color-israel-dark: color-mix(in srgb, black 20%, var(--color-israel));
+  --color-judah: #dc2626;
+  --color-judah-light: color-mix(in srgb, var(--color-judah) 74%, white);
+  --color-judah-dark: color-mix(in srgb, black 20%, var(--color-judah));
+  --color-prophets: #d97706;
+  --color-prophets-light: color-mix(in srgb, var(--color-prophets) 35%, white);
+  --color-prophets-dark: color-mix(in srgb, black 10%, var(--color-prophets));
+
+  --shadow-bar: 1px 3px 5px rgb(0 0 0 / 0.2);
+}
+
+/* v4 defaults borders to currentColor; keep v3's gray-200 so existing markup looks the same */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
+
+[data-tippy-root] {
+  @apply rounded-sm bg-gray-700 px-2.5 py-0.5 text-sm text-white;
+}

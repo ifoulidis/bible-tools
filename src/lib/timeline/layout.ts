@@ -145,8 +145,9 @@ export function layoutTimeline(
     const items: { lane: LaneId; role: Bar['role']; dating: TimelineDating }[] = []
     if (person.reign)
       items.push({ lane: person.reign.kingdom, role: 'king', dating: person.reign.dating })
-    if (person.ministry)
+    if (person.ministry) {
       items.push({ lane: 'prophets', role: 'prophet', dating: person.ministry.dating })
+    }
     return items.map(item => ({ ...item, person, ...barExtent(scale, item.dating) }))
   })
 
