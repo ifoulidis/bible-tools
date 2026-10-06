@@ -6,47 +6,45 @@
   <title>Log in</title>
 </svelte:head>
 
-<div class="mx-auto my-12 max-w-sm px-4">
-  <h1 class="mb-6 text-2xl font-bold">Log in</h1>
+<div class="mx-auto my-16 max-w-sm px-4">
+  <div class="card p-8">
+    <p class="eyebrow">Welcome</p>
+    <h1 class="mt-2 mb-6 text-3xl font-semibold">Log in</h1>
 
-  <form method="POST" action="?/login" class="grid gap-4">
-    <label class="grid gap-1">
-      <span class="text-sm font-medium">Email</span>
-      <input
-        name="email"
-        type="email"
-        autocomplete="email"
-        required
-        value={form?.email ?? ''}
-        class="rounded-lg border border-gray-300 px-3 py-2"
-      />
-    </label>
-    <label class="grid gap-1">
-      <span class="text-sm font-medium">Password</span>
-      <input
-        name="password"
-        type="password"
-        autocomplete="current-password"
-        required
-        minlength="8"
-        class="rounded-lg border border-gray-300 px-3 py-2"
-      />
-    </label>
+    <form method="POST" action="?/login" class="grid gap-4">
+      <label class="grid gap-1.5">
+        <span class="text-sm font-medium text-stone-700">Email</span>
+        <input
+          name="email"
+          type="email"
+          autocomplete="email"
+          required
+          value={form?.email ?? ''}
+          class="field"
+        />
+      </label>
+      <label class="grid gap-1.5">
+        <span class="text-sm font-medium text-stone-700">Password</span>
+        <input
+          name="password"
+          type="password"
+          autocomplete="current-password"
+          required
+          minlength="8"
+          class="field"
+        />
+      </label>
 
-    {#if form?.message}
-      <p class="text-sm text-red-700" role="alert">{form.message}</p>
-    {/if}
+      {#if form?.message}
+        <p class="rounded-lg bg-red-50 px-3 py-2 text-sm text-red-700" role="alert">
+          {form.message}
+        </p>
+      {/if}
 
-    <div class="flex gap-3">
-      <button class="rounded-lg bg-gray-900 px-4 py-2 font-medium text-white hover:bg-gray-700">
-        Log in
-      </button>
-      <button
-        formaction="?/signup"
-        class="rounded-lg border border-gray-300 px-4 py-2 font-medium hover:bg-gray-50"
-      >
-        Sign up
-      </button>
-    </div>
-  </form>
+      <div class="mt-2 flex gap-3">
+        <button class="btn btn-primary">Log in</button>
+        <button formaction="?/signup" class="btn btn-secondary">Sign up</button>
+      </div>
+    </form>
+  </div>
 </div>

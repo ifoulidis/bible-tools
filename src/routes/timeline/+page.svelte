@@ -1,6 +1,7 @@
 <script lang="ts">
   import type { Action } from 'svelte/action'
   import tippy from 'tippy.js'
+  import KingdomsBar from './KingdomsBar.svelte'
   import Legend from './Legend.svelte'
   import {
     type LaneId,
@@ -11,50 +12,15 @@
     ticks,
     yearToX,
   } from '$lib/timeline/layout'
+  import { type Filter, filterClasses, filterLabels, filterLanes, laneClasses } from './theme'
 
   let { data } = $props()
-
-  type Filter = 'everyone' | 'kings' | 'prophets'
-  const filterLanes: Record<Filter, LaneId[]> = {
-    everyone: ['united', 'israel', 'judah', 'prophets'],
-    kings: ['united', 'israel', 'judah'],
-    prophets: ['prophets'],
-  }
-  const filterLabels: Record<Filter, string> = {
-    everyone: 'Everyone',
-    kings: 'Kings',
-    prophets: 'Prophets',
-  }
 
   const laneLabels: Record<LaneId, string> = {
     united: 'United kingdom',
     israel: 'Israel',
     judah: 'Judah',
     prophets: 'Prophets',
-  }
-
-  // Full class names so Tailwind can see them; picked per lane instead of overriding a variable
-  const laneClasses: Record<LaneId, { label: string; bar: string; dark: string }> = {
-    united: {
-      label: 'text-united',
-      bar: 'from-united-light to-united shadow-united-dark',
-      dark: 'united-dark',
-    },
-    israel: {
-      label: 'text-israel',
-      bar: 'from-israel-light to-israel shadow-israel-dark',
-      dark: 'israel-dark',
-    },
-    judah: {
-      label: 'text-judah',
-      bar: 'from-judah-light to-judah shadow-judah-dark',
-      dark: 'judah-dark',
-    },
-    prophets: {
-      label: 'text-prophets',
-      bar: 'from-prophets-light to-prophets shadow-prophets-dark',
-      dark: 'prophets-dark',
-    },
   }
 
   const ROW_PX = 28
@@ -94,22 +60,30 @@
   <title>Kings and Prophets Timeline</title>
 </svelte:head>
 
-<div class="mx-auto my-8 max-w-[1200px] px-4 text-gray-800">
-  <h1 class="text-[2rem] font-bold">Kings and Prophets</h1>
-  <p class="mt-2 mb-4 max-w-[60ch] text-gray-500">
+<div class="mx-auto my-10 max-w-300 px-4">
+  <div class="flex flex-wrap items-end justify-between gap-x-12 gap-y-6">
+    <div>
+      <p class="eyebrow">Timeline</p>
+      <h1 class="mt-2 text-4xl font-semibold md:text-5xl">Kings and Prophets</h1>
+    </div>
+    <KingdomsBar />
+  </div>
+  <p class="mt-3 mb-6 max-w-[60ch] text-stone-600">
     Hover over a prophet to light up the kings the Bible names alongside them. Click anyone to see
     why they're dated where they are, and where they appear in Scripture.
   </p>
 
-  <div class="mb-3 flex flex-wrap items-center gap-x-8 gap-y-4">
+  <div class="mb-4 flex flex-wrap items-center justify-between gap-x-8 gap-y-4">
     <div
-      class="flex overflow-hidden rounded-lg border border-gray-200"
+      class="flex gap-1 rounded-full border border-stone-200 bg-white p-1 shadow-sm"
       role="radiogroup"
       aria-label="Show"
     >
       {#each Object.keys(filterLanes) as Filter[] as option (option)}
         <label
-          class="cursor-pointer px-3.5 py-1.5 has-checked:bg-gray-800 has-checked:text-white has-focus-visible:outline-2 has-focus-visible:-outline-offset-2 has-focus-visible:outline-israel"
+          class="cursor-pointer rounded-full px-4 py-1.5 text-sm font-medium text-stone-600 transition-colors not-has-checked:hover:bg-stone-100 has-checked:shadow-sm has-focus-visible:outline-2 has-focus-visible:-outline-offset-2 has-focus-visible:outline-israel {filterClasses[
+            option
+          ]}"
         >
           <input
             class="pointer-events-none absolute opacity-0"
@@ -122,13 +96,13 @@
         </label>
       {/each}
     </div>
-    <label class="flex items-center gap-2 text-gray-500">
+    <label class="flex items-center gap-3 text-sm font-medium text-stone-600">
       Zoom
       <input class="slider" type="range" min="2" max="14" step="1" bind:value={pxPerYear} />
     </label>
   </div>
 
-  <div class="flex">
+  <div class="card flex p-2 sm:p-4 sm:pl-5">
     <!-- Lane labels sit outside the scrolling chart, lined up with each lane -->
     <div class="mt-px pr-3 text-right" aria-hidden="true">
       <div class="h-8 border-b border-transparent"></div>
@@ -145,7 +119,7 @@
     </div>
 
     <div
-      class="min-w-0 flex-1 scrollbar-thin scrollbar-thumb-gray-500 scrollbar-track-gray-200 overflow-x-auto rounded-lg border border-gray-200"
+      class="min-w-0 flex-1 scrollbar-thin scrollbar-thumb-stone-400 scrollbar-track-stone-100 overflow-x-auto rounded-xl border border-stone-200 bg-stone-50/60"
     >
       <!-- Horizontal padding leaves room for the first axis label, which is centred on x = 0 -->
       <div
@@ -153,10 +127,10 @@
         style:width="{scaleWidth(scale)}px"
         style:--grid="{TICK_STEP * pxPerYear}px"
       >
-        <div class="relative h-8 border-b border-gray-200">
+        <div class="relative h-8 border-b border-stone-200">
           {#each ticks(scale, TICK_STEP) as year (year)}
             <span
-              class="absolute bottom-1.5 -translate-x-1/2 text-xs whitespace-nowrap text-gray-500"
+              class="absolute bottom-1.5 -translate-x-1/2 text-xs font-medium whitespace-nowrap text-stone-400 tabular-nums"
               style:left="{yearToX(scale, year)}px">{year} BC</span
             >
           {/each}
@@ -165,14 +139,14 @@
         {#each laidOut as lane (lane.id)}
           <section class={LANE_GAP} aria-label={laneLabels[lane.id]}>
             <div
-              class="relative bg-[linear-gradient(to_right,var(--color-gray-200)_1px,transparent_1px)] bg-size-[var(--grid)_100%]"
+              class="relative bg-[linear-gradient(to_right,var(--color-stone-200)_1px,transparent_1px)] bg-size-[var(--grid)_100%]"
               style:height="{lane.rowCount * ROW_PX}px"
             >
               {#each lane.bars as bar (`${bar.role}-${bar.person.id}`)}
                 <!-- Lighter leading segment for any coregency or rival reign -->
                 <a
                   href="/people/{bar.person.id}"
-                  class="absolute mt-0.75 h-5.5 overflow-hidden rounded-sm bg-linear-to-r from-(length:--coregency) to-(length:--coregency) text-xs leading-5.5 text-white shadow-bar transition-opacity duration-120 hover:z-1 hover:outline-2 hover:outline-offset-1 hover:outline-gray-800 focus-visible:z-1 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-gray-800 {laneClasses[
+                  class="absolute mt-0.75 h-5.5 overflow-hidden rounded-md bg-linear-to-r from-(length:--coregency) to-(length:--coregency) text-xs leading-5.5 font-medium text-white shadow-bar transition duration-150 hover:z-1 hover:-translate-y-px hover:shadow-bar-lifted hover:outline-2 hover:outline-offset-1 hover:outline-stone-800 focus-visible:z-1 focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-stone-800 {laneClasses[
                     lane.id
                   ].bar}"
                   class:z-1={bar.widened}
@@ -188,7 +162,7 @@
                   onfocus={() => (hoveredId = bar.person.id)}
                   onblur={() => (hoveredId = null)}
                   >{#if bar.width > 50}
-                    <span class="block overflow-hidden px-1 text-clip whitespace-nowrap"
+                    <span class="block overflow-hidden px-1.5 text-clip whitespace-nowrap"
                       >{bar.person.name}</span
                     >
                   {/if}

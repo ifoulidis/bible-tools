@@ -28,13 +28,10 @@
     <ul class="grid gap-1">
       {#each group.passages as passage (formatPassage(passage))}
         <li>
-          <a
-            class="text-blue-700 underline"
-            href={bibleGatewayUrl(passage)}
-            target="_blank"
-            rel="noopener noreferrer">{formatPassage(passage)}</a
+          <a class="link" href={bibleGatewayUrl(passage)} target="_blank" rel="noopener noreferrer"
+            >{formatPassage(passage)}</a
           >
-          {#if passage.note}<span class="text-gray-500">{passage.note}</span>{/if}
+          {#if passage.note}<span class="text-stone-500">{passage.note}</span>{/if}
         </li>
       {/each}
     </ul>

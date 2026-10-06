@@ -71,6 +71,8 @@ export default [
     },
     plugins: { 'unused-imports': unusedImports },
     rules: {
+      // TypeScript already catches undefined names, and this rule can't see Svelte's `generics`
+      'no-undef': 'off',
       '@typescript-eslint/require-await': 'off',
       '@typescript-eslint/restrict-template-expressions': 'off',
       '@typescript-eslint/no-unsafe-assignment': 'off',

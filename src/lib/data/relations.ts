@@ -1,4 +1,4 @@
-import type { Dating, Person } from './schema'
+import type { Dating, Kingdom, Person } from './schema'
 
 function primaryDatings(person: Person): Dating[] {
   return [person.reign?.dating, person.ministry?.dating].filter(dating => dating !== undefined)
@@ -28,4 +28,33 @@ export function buildContemporaries(people: Person[]) {
     }
   }
   return links
+}
+
+/**
+ * A kingdom's kings in order of succession, following each reign's successor link. Starts from
+ * whichever king without a predecessor in that kingdom heads the longest line, so a lone rival
+ * like Ish-bosheth doesn't displace Jeroboam I.
+ */
+export function kingsInOrder(people: Person[], kingdom: Kingdom) {
+  const byId = new Map(people.map(person => [person.id, person]))
+  const inKingdom = (id: string | undefined) =>
+    id === undefined
+      ? undefined
+      : byId.get(id)?.reign?.kingdom === kingdom
+        ? byId.get(id)
+        : undefined
+
+  const lineFrom = (first: Person) => {
+    const line = [first]
+    for (let next = inKingdom(first.reign?.successor); next && !line.includes(next);) {
+      line.push(next)
+      next = inKingdom(next.reign?.successor)
+    }
+    return line
+  }
+
+  return people
+    .filter(person => person.reign?.kingdom === kingdom && !inKingdom(person.reign.predecessor))
+    .map(lineFrom)
+    .reduce<Person[]>((longest, line) => (line.length > longest.length ? line : longest), [])
 }

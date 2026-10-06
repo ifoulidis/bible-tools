@@ -90,14 +90,18 @@
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1.25rem;
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    color: var(--color-stone-900);
   }
 
   .confidence {
     font-size: 0.75rem;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    padding: 0.1rem 0.5rem;
+    font-family: var(--font-sans);
+    font-weight: 600;
+    padding: 0.15rem 0.6rem;
     border-radius: 999px;
   }
   .confidence.firm {
@@ -114,12 +118,12 @@
   }
 
   h4 {
-    margin: 1rem 0 0.35rem;
+    margin: 1.25rem 0 0.5rem;
     font-size: 0.8rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    color: #6b7280;
+    letter-spacing: 0.12em;
+    color: var(--color-primary-700);
   }
 
   ul {
@@ -137,19 +141,25 @@
   .kind {
     font-size: 0.75rem;
     font-weight: 600;
-    color: #374151;
-    background: #f3f4f6;
-    padding: 0 0.4rem;
+    color: var(--color-stone-700);
+    background: var(--color-stone-100);
+    padding: 0.05rem 0.5rem;
     border-radius: 0.25rem;
   }
 
   a {
-    color: #1d4ed8;
-    text-decoration: underline;
+    font-weight: 500;
+    color: var(--color-stone-900);
+    text-decoration: underline 2px var(--color-primary-400);
+    text-underline-offset: 3px;
+    transition: text-decoration-color 150ms;
+  }
+  a:hover {
+    text-decoration-color: currentcolor;
   }
 
   .muted {
-    color: #6b7280;
+    color: var(--color-stone-500);
     margin-top: 0.5rem;
   }
 </style>

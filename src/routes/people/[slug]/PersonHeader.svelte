@@ -13,22 +13,23 @@
     [
       person.reign && { label: 'King', color: kingdomClasses[person.reign.kingdom] },
       person.ministry && { label: 'Prophet', color: 'bg-prophets' },
-      person.ministry?.hasBook && { label: 'Has a book', color: 'bg-gray-700' },
+      person.ministry?.hasBook && { label: 'Has a book', color: 'bg-stone-700' },
     ].filter(badge => !!badge),
   )
 </script>
 
-<header class="mt-4 mb-6">
-  <h1 class="text-4xl font-bold">{person.name}</h1>
+<header class="mt-6 mb-8">
+  <h1 class="text-5xl font-semibold">{person.name}</h1>
   {#if person.altNames.length > 0}
-    <p class="text-gray-500">Also called {person.altNames.join(', ')}</p>
+    <p class="mt-1 text-stone-500 italic">Also called {person.altNames.join(', ')}</p>
   {/if}
-  <div class="mt-2 flex gap-2">
+  <div class="mt-4 flex gap-2">
     {#each badges as { label, color } (label)}
-      <span class="rounded-full px-2.5 py-0.5 text-xs font-semibold text-white {color}"
+      <span
+        class="rounded-full px-3 py-1 text-xs font-semibold tracking-wide text-white shadow-sm {color}"
         >{label}</span
       >
     {/each}
   </div>
-  <p class="mt-3 text-lg">{person.summary}</p>
+  <p class="mt-5 text-lg leading-relaxed text-stone-700">{person.summary}</p>
 </header>
