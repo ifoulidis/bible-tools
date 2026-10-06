@@ -31,6 +31,8 @@
   let filter = $state<Filter>('everyone')
   let pxPerYear = $state(5)
   let hoveredId = $state<string | null>(null)
+  /** Phones show each lane's label as a coloured stripe until this is opened */
+  let labelsOpen = $state(false)
 
   const datings = data.people.flatMap(person =>
     [person.reign?.dating, person.ministry?.dating].filter(dating => dating !== undefined),
@@ -104,16 +106,39 @@
 
   <div class="card flex p-2 sm:p-4 sm:pl-5">
     <!-- Lane labels sit outside the scrolling chart, lined up with each lane -->
-    <div class="mt-px pr-3 text-right" aria-hidden="true">
-      <div class="h-8 border-b border-transparent"></div>
+    <div class="mt-px pr-2 text-right md:pr-3">
+      <div class="flex h-8 items-center justify-end border-b border-transparent">
+        <button
+          class="grid size-7 place-items-center rounded-full text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900 md:hidden"
+          aria-expanded={labelsOpen}
+          aria-label={labelsOpen ? 'Collapse lane names' : 'Show lane names'}
+          onclick={() => (labelsOpen = !labelsOpen)}
+        >
+          <svg
+            class="size-4 transition-transform {labelsOpen ? 'rotate-180' : ''}"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2.5"
+          >
+            <path stroke-linecap="round" stroke-linejoin="round" d="m9 6 6 6-6 6" />
+          </svg>
+        </button>
+      </div>
       {#each laidOut as lane (lane.id)}
         <div
-          class="{LANE_GAP} text-xs leading-7 font-semibold tracking-wider whitespace-nowrap uppercase {laneClasses[
+          class="{LANE_GAP} flex justify-end text-xs leading-7 font-semibold tracking-wider whitespace-nowrap uppercase {laneClasses[
             lane.id
           ].label}"
           style:height="{lane.rowCount * ROW_PX}px"
+          aria-hidden="true"
         >
-          {laneLabels[lane.id]}
+          <span class={labelsOpen ? '' : 'max-md:hidden'}>{laneLabels[lane.id]}</span>
+          <span
+            class="my-1 w-1.5 rounded-full md:hidden {laneClasses[lane.id].stripe} {labelsOpen
+              ? 'hidden'
+              : ''}"
+          ></span>
         </div>
       {/each}
     </div>

@@ -87,7 +87,7 @@
 
   {#if current}
     <form
-      class="card grid gap-5 p-6"
+      class="card grid gap-5 p-5 sm:p-6"
       onsubmit={event => {
         event.preventDefault()
         submit(typed)
@@ -99,25 +99,37 @@
           >{index + 1} / {questions.length}</span
         >
       </div>
-      <div class="flex flex-wrap gap-3">
+      <!-- Stacked on phones so the answer gets the full width -->
+      <div class="flex flex-col gap-3 sm:flex-row">
         <input
           bind:this={input}
           bind:value={typed}
-          class="field min-w-0 flex-1 text-lg"
+          class="field w-full min-w-0 text-lg sm:flex-1"
           {placeholder}
           autocomplete="off"
           autocapitalize="words"
           spellcheck="false"
           aria-label="Your answer"
         />
-        <button class="btn btn-primary" disabled={!typed.trim()}>Check</button>
-        <button type="button" class="btn btn-secondary" onclick={() => submit('')}>
-          I don't know
-        </button>
+        <div class="flex gap-3">
+          <button
+            class="btn btn-primary flex-1 justify-center sm:flex-none"
+            disabled={!typed.trim()}
+          >
+            Check
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary flex-1 justify-center whitespace-nowrap sm:flex-none"
+            onclick={() => submit('')}
+          >
+            I don't know
+          </button>
+        </div>
       </div>
     </form>
   {:else}
-    <div class="card grid justify-items-start gap-4 p-6">
+    <div class="card grid justify-items-start gap-4 p-5 sm:p-6">
       <h2 class="text-2xl font-semibold">Finished</h2>
       <p class="text-stone-600">
         <strong class="text-emerald-700">{tally.correct} correct</strong>,

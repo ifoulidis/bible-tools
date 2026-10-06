@@ -79,13 +79,16 @@
     <Card title="Family">
       <ul class="grid gap-1">
         {#each person.family as member (member.relation + member.name)}
-          <li>
-            <span class="inline-block min-w-20 text-stone-500 capitalize">{member.relation}</span>
-            {#if member.personId}
-              <a class="link" href="/people/{member.personId}">{member.name}</a>
-            {:else}
-              {member.name}
-            {/if}
+          <!-- The relation gets its own column so a long name wraps beside it, not under it -->
+          <li class="grid grid-cols-[5rem_1fr] gap-x-2">
+            <span class="text-stone-500 capitalize">{member.relation}</span>
+            <span>
+              {#if member.personId}
+                <a class="link" href="/people/{member.personId}">{member.name}</a>
+              {:else}
+                {member.name}
+              {/if}
+            </span>
           </li>
         {/each}
       </ul>
