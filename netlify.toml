@@ -1,0 +1,7 @@
+# https://svelte.dev/docs/kit/adapter-netlify
+[build]
+  # Prisma 7 doesn't generate its client on install, and prisma.config.ts needs DATABASE_URL to
+  # generate it. Nothing connects to the database while accounts are off (src/lib/auth.ts), so a
+  # placeholder stands in until a real DATABASE_URL is set in Netlify.
+  command = "DATABASE_URL=${DATABASE_URL:-postgresql://unused@localhost/unused} npm run db:generate && npm run build"
+  publish = "build"
