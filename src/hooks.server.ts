@@ -4,6 +4,7 @@ import { createTRPCHandle } from 'trpc-sveltekit'
 import { v4 as uuidv4 } from 'uuid'
 
 import { dev } from '$app/environment'
+import { authEnabled } from '$lib/auth'
 import { type AuthUser, userFromSession } from '$lib/server/session'
 import { createContext } from '$lib/trpc/context'
 import { router } from '$lib/trpc/router'
@@ -26,12 +27,13 @@ const DEV_USER: AuthUser = { id: 'dev-user', email: 'dev@localhost', role: 'Admi
 
 const handleAuth: Handle = async ({ event, resolve }) => {
   // `dev` is compiled to `false` in production builds, so this bypass can't run in production
-  event.locals.user = dev ? DEV_USER : await userFromSession(event.cookies)
+  if (dev) event.locals.user = DEV_USER
+  else event.locals.user = authEnabled ? await userFromSession(event.cookies) : null
   return resolve(event)
 }
 
 /** Paths anyone can view without logging in (the auth pages themselves must be here to avoid a redirect loop) */
-const publicPrefixes = ['/auth', '/timeline', '/kings-timeline', '/people']
+const publicPrefixes = ['/auth', '/timeline', '/kings-timeline', '/people', '/memorise']
 
 function isPublic(pathname: string) {
   return (
@@ -42,6 +44,11 @@ function isPublic(pathname: string) {
 
 const authGuards: Handle = async ({ event, resolve }) => {
   const { user } = event.locals
+
+  // With accounts off there's nothing to log in or out of
+  const { pathname } = event.url
+  if (!authEnabled && !dev && (pathname.startsWith('/auth') || pathname.startsWith('/logout')))
+    redirect(303, '/')
 
   // If no user and the page isn't public then redirect to auth
   if (!user && !isPublic(event.url.pathname)) redirect(303, '/auth')
