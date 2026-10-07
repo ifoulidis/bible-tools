@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Three staggered reigns, like the timeline's lanes, on parchment -->
+  <rect x="0.75" y="0.75" width="30.5" height="30.5" rx="7" fill="#faf7f2" stroke="#d6d3d1" stroke-width="1.5"/>
+  <rect x="5.5" y="6.5" width="12.5" height="5.5" rx="2.75" fill="#7c3aed"/>
+  <rect x="13" y="13.25" width="13.5" height="5.5" rx="2.75" fill="#2563eb"/>
+  <rect x="8.5" y="20" width="15.5" height="5.5" rx="2.75" fill="#dc2626"/>
+</svg>

@@ -22,12 +22,20 @@
   <header class="sticky top-0 z-30 border-b border-stone-200/70 bg-parchment/80 backdrop-blur-md">
     <nav class="mx-auto flex max-w-300 flex-wrap items-center justify-between px-4 py-3">
       <a href="/" class="flex items-center gap-2.5">
-        <!-- An open book, drawn in the lane colours -->
+        <!-- The favicon (static/favicon.svg): three staggered reigns, like the timeline's lanes -->
         <svg class="size-7" viewBox="0 0 32 32" aria-hidden="true">
-          <path d="M16 8c-3-2.5-7.5-3-12-2v18c4.5-1 9-.5 12 2z" class="fill-united" />
-          <path d="M16 8c3-2.5 7.5-3 12-2v18c-4.5-1-9-.5-12 2z" class="fill-israel" />
-          <path d="M16 8v18" class="stroke-parchment" stroke-width="1.5" />
-          <path d="M7 11c2.5-.4 4.7 0 6 .8M7 15c2.5-.4 4.7 0 6 .8" class="stroke-white/70" />
+          <rect
+            x="0.75"
+            y="0.75"
+            width="30.5"
+            height="30.5"
+            rx="7"
+            class="fill-parchment stroke-stone-300"
+            stroke-width="1.5"
+          />
+          <rect x="5.5" y="6.5" width="12.5" height="5.5" rx="2.75" class="fill-united" />
+          <rect x="13" y="13.25" width="13.5" height="5.5" rx="2.75" class="fill-israel" />
+          <rect x="8.5" y="20" width="15.5" height="5.5" rx="2.75" class="fill-judah" />
         </svg>
         <span class="font-display text-xl font-semibold whitespace-nowrap text-stone-900"
           >Bible Tools</span

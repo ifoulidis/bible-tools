@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- The united kingdom dividing into Israel and Judah, on an ink tile -->
+  <rect width="32" height="32" rx="7" fill="#1c1917"/>
+  <g fill="none" stroke-linecap="round" stroke-width="4">
+    <path d="M15 16C19 16 19 10 25 10" stroke="#2563eb"/>
+    <path d="M15 16C19 16 19 22 25 22" stroke="#dc2626"/>
+    <path d="M7 16H15" stroke="#7c3aed"/>
+  </g>
+</svg>
