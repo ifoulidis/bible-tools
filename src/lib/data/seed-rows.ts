@@ -49,25 +49,21 @@ export function toSeedRows({ people, sources }: Dataset) {
   )
 
   return {
-    sources: sources.map(
-      (source): Prisma.SourceCreateManyInput => ({
-        id: source.id,
-        author: source.author,
-        title: source.title,
-        year: source.year,
-        kind: source.kind,
-        publisher: source.publisher ?? null,
-        url: source.url ?? null,
-      }),
-    ),
-    people: people.map(
-      (person): Prisma.PersonCreateManyInput => ({
-        id: person.id,
-        name: person.name,
-        altNames: person.altNames,
-        summary: person.summary,
-      }),
-    ),
+    sources: sources.map((source): Prisma.SourceCreateManyInput => ({
+      id: source.id,
+      author: source.author,
+      title: source.title,
+      year: source.year,
+      kind: source.kind,
+      publisher: source.publisher ?? null,
+      url: source.url ?? null,
+    })),
+    people: people.map((person): Prisma.PersonCreateManyInput => ({
+      id: person.id,
+      name: person.name,
+      altNames: person.altNames,
+      summary: person.summary,
+    })),
     reigns: people.flatMap((person): Prisma.ReignCreateManyInput[] =>
       person.reign
         ? [
@@ -92,64 +88,54 @@ export function toSeedRows({ people, sources }: Dataset) {
           ]
         : [],
     ),
-    datings: datings.map(
-      ({ dating, ...row }): Prisma.DatingCreateManyInput => ({
-        ...row,
-        spanFrom: dating.span.from,
-        spanTo: dating.span.to,
-        approx: dating.span.approx,
-        coregencyFrom: dating.coregencyFrom ?? null,
-        confidence: dating.confidence,
-        notes: dating.notes ?? null,
-      }),
-    ),
+    datings: datings.map(({ dating, ...row }): Prisma.DatingCreateManyInput => ({
+      ...row,
+      spanFrom: dating.span.from,
+      spanTo: dating.span.to,
+      approx: dating.span.approx,
+      coregencyFrom: dating.coregencyFrom ?? null,
+      confidence: dating.confidence,
+      notes: dating.notes ?? null,
+    })),
     evidence: datings.flatMap(({ id: datingId, dating }) =>
-      dating.evidence.map(
-        (evidence, position): Prisma.EvidenceCreateManyInput => ({
-          id: `${datingId}/evidence/${position}`,
-          datingId,
-          position,
-          kind: evidence.kind,
-          ...('passage' in evidence ? passageColumns(evidence.passage) : noPassageColumns),
-          note: 'note' in evidence ? evidence.note : null,
-          artifact: evidence.kind === 'extrabiblical' ? evidence.artifact : null,
-          contemporaryIds: 'contemporaries' in evidence ? evidence.contemporaries : [],
-        }),
-      ),
+      dating.evidence.map((evidence, position): Prisma.EvidenceCreateManyInput => ({
+        id: `${datingId}/evidence/${position}`,
+        datingId,
+        position,
+        kind: evidence.kind,
+        ...('passage' in evidence ? passageColumns(evidence.passage) : noPassageColumns),
+        note: 'note' in evidence ? evidence.note : null,
+        artifact: evidence.kind === 'extrabiblical' ? evidence.artifact : null,
+        contemporaryIds: 'contemporaries' in evidence ? evidence.contemporaries : [],
+      })),
     ),
     citations: datings.flatMap(({ id: datingId, dating }) =>
-      dating.citations.map(
-        (citation, position): Prisma.CitationCreateManyInput => ({
-          id: `${datingId}/citation/${position}`,
-          datingId,
-          sourceId: citation.sourceId,
-          pages: citation.pages ?? null,
-        }),
-      ),
+      dating.citations.map((citation, position): Prisma.CitationCreateManyInput => ({
+        id: `${datingId}/citation/${position}`,
+        datingId,
+        sourceId: citation.sourceId,
+        pages: citation.pages ?? null,
+      })),
     ),
     passages: people.flatMap(person =>
-      person.passages.map(
-        (passage, position): Prisma.PassageCreateManyInput => ({
-          id: `${person.id}/passage/${position}`,
-          personId: person.id,
-          position,
-          ...passageColumns(passage),
-          kind: passage.kind,
-          note: passage.note ?? null,
-        }),
-      ),
+      person.passages.map((passage, position): Prisma.PassageCreateManyInput => ({
+        id: `${person.id}/passage/${position}`,
+        personId: person.id,
+        position,
+        ...passageColumns(passage),
+        kind: passage.kind,
+        note: passage.note ?? null,
+      })),
     ),
     family: people.flatMap(person =>
-      person.family.map(
-        (member, position): Prisma.FamilyMemberCreateManyInput => ({
-          id: `${person.id}/family/${position}`,
-          personId: person.id,
-          position,
-          relation: member.relation,
-          name: member.name,
-          relatedPersonId: member.personId ?? null,
-        }),
-      ),
+      person.family.map((member, position): Prisma.FamilyMemberCreateManyInput => ({
+        id: `${person.id}/family/${position}`,
+        personId: person.id,
+        position,
+        relation: member.relation,
+        name: member.name,
+        relatedPersonId: member.personId ?? null,
+      })),
     ),
   }
 }

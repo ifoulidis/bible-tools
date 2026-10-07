@@ -8,6 +8,7 @@
   const links = [
     { href: '/timeline', label: 'Timeline' },
     { href: '/memorise', label: 'Memorise' },
+    { href: '/people', label: 'People' },
   ]
 
   let menuOpen = $state(false)
