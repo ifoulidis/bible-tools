@@ -11,5 +11,8 @@
     "strict": true,
     "strictNullChecks": true,
     "moduleResolution": "bundler"
+  },
+  "mdx": {
+    "checkMdx": true
   }
 }

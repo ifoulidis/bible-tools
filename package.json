@@ -70,5 +70,13 @@
     "@storybook/addon-docs": "^10.6.1",
     "eslint-plugin-storybook": "^10.6.1"
   },
-  "type": "module"
+  "type": "module",
+  "allowScripts": {
+    "@prisma/engines@7.10.0": true,
+    "esbuild@0.25.12": true,
+    "esbuild@0.21.5": true,
+    "esbuild@0.28.2": true,
+    "@sveltejs/kit@2.7.3": true,
+    "prisma@7.10.0": true
+  }
 }

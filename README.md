@@ -32,6 +32,16 @@ Use `npm run db:generate` rather than `npx prisma generate`: the Zod generator c
 
 `npx prisma db seed` loads the king and prophet data.
 
+## Storybook
+
+Run `npm run storybook` to open Storybook on port 6006.
+
+Notes from installing it:
+
+- Svelte had to be upgraded (from 5.1.8 to 5.57.2) for Storybook to install.
+- npm 11 asks you to approve dependency install scripts. The approved packages (Prisma, esbuild, SvelteKit) are pinned by version in `allowScripts` in `package.json`. After upgrading one of them, run `npm approve-scripts --allow-scripts-pending` to see what needs approving again, then `npm approve-scripts <pkg>`.
+- TypeScript ignores dot-prefixed files and folders, so `src/stories/.storybook` is added to the generated tsconfig through `kit.typescript.config` in `svelte.config.js`. Don't add `include` to `tsconfig.json` directly, because it would replace SvelteKit's include list instead of adding to it.
+
 ## Building
 
 To create a production version of your app:

@@ -15,6 +15,12 @@ const config = {
       $trpc: 'src/lib/trpc',
       $zod: 'prisma/generated/zod',
     },
+
+    typescript: {
+      config: (config) => {
+        config.include.push('../src/stories/.storybook/**/*.ts', '../src/**/*.mdx')
+      },
+    },
   },
 }
 
