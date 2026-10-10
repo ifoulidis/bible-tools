@@ -58,7 +58,7 @@ export function toPersonEntry(person: Person): PersonEntry {
  * before Jehu son of Hanani, and both before anyone whose summary mentions him
  */
 function matchRank(entry: PersonEntry, query: string) {
-  // Without the bracketed qualifier, so "Joram (Israel)" is an exact match for "joram"
+  // Without the bracketed qualifier, so "Zechariah (king)" is an exact match for "zechariah"
   const names = [entry.name.replace(/\s*\(.*\)$/, ''), ...entry.altNames].map(normalizeAnswer)
   if (names.includes(query)) return 0
   if (names.some(name => name.startsWith(query))) return 1

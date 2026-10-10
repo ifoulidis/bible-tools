@@ -3,7 +3,7 @@ import { kingsInOrder } from '$lib/data/relations'
 
 import type { PageServerLoad } from './$types'
 
-/** "Joram (Israel)" is just "Joram" once you already know which kingdom you're in */
+/** "Zechariah (king)" is just "Zechariah" once you already know you're naming kings */
 const withoutQualifier = (name: string) => name.replace(/\s*\(.*\)$/, '')
 
 function toQuizKing(person: Person) {
