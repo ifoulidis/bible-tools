@@ -14,7 +14,9 @@
     "db:gui": "npx prisma studio",
     "format": "prettier --write .",
     "prettier:check": "prettier --check .",
-    "db:generate": "rm -rf prisma/generated/zod && prisma generate"
+    "db:generate": "rm -rf prisma/generated/zod && prisma generate",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
   },
   "dependencies": {
     "@bearing-agency/utilities": "^1.0.0",
@@ -60,7 +62,13 @@
     "typescript": "^5.5.0",
     "typescript-eslint": "^8.0.0-alpha.20",
     "vite": "^5.4.4",
-    "vitest": "^1.2.0"
+    "vitest": "^1.2.0",
+    "storybook": "^10.6.1",
+    "@storybook/sveltekit": "^10.6.1",
+    "@storybook/addon-svelte-csf": "latest",
+    "@storybook/addon-a11y": "^10.6.1",
+    "@storybook/addon-docs": "^10.6.1",
+    "eslint-plugin-storybook": "^10.6.1"
   },
   "type": "module"
 }
