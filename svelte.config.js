@@ -17,8 +17,8 @@ const config = {
     },
 
     typescript: {
-      config: (config) => {
-        config.include.push('../src/stories/.storybook/**/*.ts', '../src/**/*.mdx')
+      config: config => {
+        config.include.push('../.storybook/**/*.ts', '../src/**/*.mdx')
       },
     },
   },
