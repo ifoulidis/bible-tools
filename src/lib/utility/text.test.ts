@@ -2,8 +2,11 @@ import { describe, expect, it } from 'vitest'
 
 import {
   alignCharacters,
+  formatYear,
   gradeAnswer,
+  gradeYear,
   normalizeAnswer,
+  parseYear,
   plural,
   similarity,
   tallyVerdicts,
@@ -80,5 +83,67 @@ describe('plural', () => {
   it('uses the plural for none or many', () => {
     expect(plural(0, 'typo')).toBe('0 typos')
     expect(plural(2, 'person', 'people')).toBe('2 people')
+  })
+})
+
+describe('parseYear', () => {
+  it('reads a bare number in the given era', () => {
+    expect(parseYear('1868')).toBe(1868)
+    expect(parseYear('586', 'BC')).toBe(-586)
+  })
+
+  it('lets an era written in the answer override the default', () => {
+    expect(parseYear('586 BC')).toBe(-586)
+    expect(parseYear('586 bce')).toBe(-586)
+    expect(parseYear('AD 70', 'BC')).toBe(70)
+    expect(parseYear('70 CE', 'BC')).toBe(70)
+  })
+
+  it('allows "c." and spacing', () => {
+    expect(parseYear('  c. 1000 BC ')).toBe(-1000)
+    expect(parseYear('circa 1947')).toBe(1947)
+    expect(parseYear('c1947')).toBe(1947)
+  })
+
+  it('is null for anything that is not a year', () => {
+    expect(parseYear('')).toBeNull()
+    expect(parseYear('the 1800s')).toBeNull()
+    expect(parseYear('18688')).toBeNull()
+    expect(parseYear('0')).toBeNull()
+    expect(parseYear('AD 70 BC')).toBeNull()
+    expect(parseYear('-586')).toBeNull()
+  })
+})
+
+describe('formatYear', () => {
+  it('writes BC years with the era after', () => {
+    expect(formatYear(-586)).toBe('586 BC')
+  })
+
+  it('marks short AD years so they are not taken for BC', () => {
+    expect(formatYear(70)).toBe('AD 70')
+    expect(formatYear(1868)).toBe('1868')
+  })
+})
+
+describe('gradeYear', () => {
+  it('is correct for the exact year, however it is written', () => {
+    expect(gradeYear('1868', 1868)).toEqual({ verdict: 'correct', closest: '1868' })
+    expect(gradeYear('586 BC', -586)).toEqual({ verdict: 'correct', closest: '586 BC' })
+    expect(gradeYear('586', -586, { era: 'BC' }).verdict).toBe('correct')
+  })
+
+  it('is incorrect for the right number in the wrong era', () => {
+    expect(gradeYear('586', -586).verdict).toBe('incorrect')
+  })
+
+  it('accepts anything within the tolerance, either side', () => {
+    expect(gradeYear('1865', 1868, { tolerance: 5 }).verdict).toBe('correct')
+    expect(gradeYear('1873', 1868, { tolerance: 5 }).verdict).toBe('correct')
+    expect(gradeYear('1874', 1868, { tolerance: 5 }).verdict).toBe('incorrect')
+  })
+
+  it('is incorrect for something that is not a year', () => {
+    expect(gradeYear('no idea', 1868).verdict).toBe('incorrect')
   })
 })

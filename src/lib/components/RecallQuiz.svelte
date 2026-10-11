@@ -30,6 +30,7 @@
     prompt,
     progress,
     placeholder = 'Type your answer',
+    grade = (given, question) => gradeAnswer(given, question.accepted),
   }: {
     questions: RecallQuestion[]
     /** Renders the question being asked */
@@ -37,6 +38,8 @@
     /** Optional view of how far through the quiz the answers so far have got */
     progress?: Snippet<[results: RecallResult[]]>
     placeholder?: string
+    /** Marks an answer; by default against every accepted spelling, allowing for typos */
+    grade?: (given: string, question: RecallQuestion) => { verdict: Verdict; closest: string }
   } = $props()
 
   let results = $state<RecallResult[]>([])
@@ -56,7 +59,7 @@
   function submit(given: string) {
     if (!current) return
     const { verdict, closest } = given.trim()
-      ? gradeAnswer(given, current.accepted)
+      ? grade(given, current)
       : { verdict: 'incorrect' as const, closest: current.answer }
     results.push({ question: current, given: given.trim(), verdict, closest })
     typed = ''

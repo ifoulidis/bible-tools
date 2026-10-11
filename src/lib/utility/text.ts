@@ -86,3 +86,44 @@ export function tallyVerdicts(verdicts: Verdict[]): Tally {
 /** "1 typo" but "2 typos" */
 export const plural = (count: number, singular: string, pluralForm = `${singular}s`) =>
   `${count} ${count === 1 ? singular : pluralForm}`
+
+export type Era = 'BC' | 'AD'
+
+/**
+ * Reads a typed year as a signed number, BC negative: "1868", "AD 70", "c. 586 BC", "586 BCE".
+ * A bare number is taken to be in `era`. Anything else, including year 0, is null.
+ */
+export function parseYear(text: string, era: Era = 'AD'): number | null {
+  const match = /^(?:c\.?|circa|about)?\s*(ad|ce)?\s*(\d{1,4})\s*(bc|bce|ad|ce)?$/i.exec(
+    text.trim(),
+  )
+  if (!match) return null
+  const [, prefix, digits, suffix] = match
+  if (prefix && suffix) return null
+  const year = Number(digits)
+  if (year === 0) return null
+  const resolved: Era = suffix ? (/^bc/i.test(suffix) ? 'BC' : 'AD') : prefix ? 'AD' : era
+  return resolved === 'BC' ? -year : year
+}
+
+/** "586 BC", "AD 70", or just "1868" once a year is long enough not to be mistaken for BC */
+export function formatYear(year: number) {
+  if (year < 0) return `${-year} BC`
+  return year < 1000 ? `AD ${year}` : `${year}`
+}
+
+/**
+ * Marks a typed year against the right one (signed, BC negative). Within `tolerance` years counts
+ * as right, for questions where only the decade matters. There's no typo verdict: a year is
+ * either right or it isn't.
+ */
+export function gradeYear(
+  given: string,
+  answer: number,
+  { era = 'AD', tolerance = 0 }: { era?: Era; tolerance?: number } = {},
+): { verdict: Verdict; closest: string } {
+  const year = parseYear(given, era)
+  const verdict: Verdict =
+    year !== null && Math.abs(year - answer) <= tolerance ? 'correct' : 'incorrect'
+  return { verdict, closest: formatYear(answer) }
+}
