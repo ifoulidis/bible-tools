@@ -33,14 +33,22 @@
       dimmed: false,
       raised: false,
       // Logged in the Actions panel instead of navigating the preview away
-      onclick: fn(event => event.preventDefault()),
+      onnavigate: fn(event => event.preventDefault()),
       onhoverchange: fn(),
+      onactivechange: fn(),
     },
   })
 
   type BarProps = ComponentProps<typeof TimelineBar>
 
   const tooltip = () => within(document.body).findByText(/^Jeroboam II: 793–753 BC/)
+  const openLink = () => within(document.body).findByRole('link', { name: /^Open Jeroboam II/ })
+
+  /** A tap as a phone sends it: a touch press, then the click the browser makes from it */
+  async function tap(element: Element) {
+    await fireEvent.pointerDown(element, { pointerType: 'touch' })
+    await fireEvent.click(element)
+  }
 </script>
 
 <Story name="Default" />
@@ -125,24 +133,59 @@
   }}
 />
 
+<!-- A mouse goes straight to the page; there's no active step -->
 <Story
   name="Clicked"
   play={async ({ canvas, userEvent, args }) => {
     await userEvent.click(canvas.getByRole('link'))
-    await expect(args.onclick).toHaveBeenCalledOnce()
+    await expect(args.onnavigate).toHaveBeenCalledOnce()
+    await expect(args.onactivechange).not.toHaveBeenCalled()
   }}
 />
 
-<!-- Tippy only treats input as touch after a real touchstart, so this emulates one; for the real
-     thing, open the story in its own tab with device emulation on -->
+<Story name="Active" args={{ active: true }} />
+
+<!-- The first tap opens the tooltip and stays put; open it in its own tab with device emulation
+     on to try it with a real finger -->
 <Story
-  name="Tapped"
+  name="Tapped once"
   globals={{ viewport: { value: 'mobile1', isRotated: false } }}
-  play={async ({ canvas, userEvent, args }) => {
+  play={async ({ canvas, args }) => {
+    await tap(canvas.getByRole('link'))
+    await expect(args.onactivechange).toHaveBeenCalledWith(true)
+    await expect(args.onnavigate).not.toHaveBeenCalled()
+    await waitFor(async () => expect(await openLink()).toBeVisible())
+  }}
+/>
+
+<Story
+  name="Tapped twice"
+  globals={{ viewport: { value: 'mobile1', isRotated: false } }}
+  play={async ({ canvas, args }) => {
     const bar = canvas.getByRole('link')
-    await fireEvent.touchStart(bar)
-    await userEvent.click(bar)
-    await expect(args.onclick).toHaveBeenCalledOnce()
-    await waitFor(async () => expect(await tooltip()).toBeVisible())
+    await tap(bar)
+    await tap(bar)
+    await expect(args.onnavigate).toHaveBeenCalledOnce()
+  }}
+/>
+
+<Story
+  name="Tooltip tapped"
+  globals={{ viewport: { value: 'mobile1', isRotated: false } }}
+  play={async ({ canvas, args }) => {
+    await tap(canvas.getByRole('link'))
+    await tap(await openLink())
+    await expect(args.onnavigate).toHaveBeenCalledOnce()
+  }}
+/>
+
+<Story
+  name="Tapped, then tapped outside"
+  globals={{ viewport: { value: 'mobile1', isRotated: false } }}
+  play={async ({ canvas, args }) => {
+    await tap(canvas.getByRole('link'))
+    await tap(document.body)
+    await expect(args.onactivechange).toHaveBeenLastCalledWith(false)
+    await expect(args.onnavigate).not.toHaveBeenCalled()
   }}
 />

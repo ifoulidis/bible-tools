@@ -34,6 +34,17 @@
   const LANE_GAP = 'mt-3'
 
   let hoveredId = $state<string | null>(null)
+  /** The bar tapped open on a touch screen; only one at a time */
+  let active = $state<{ key: string; personId: string } | null>(null)
+
+  function setActive(key: string, personId: string, isActive: boolean) {
+    if (isActive) active = { key, personId }
+    // Only clear it if it's still this bar; another may have been tapped open since
+    else if (active?.key === key) active = null
+  }
+
+  /** Whoever's tooltip is up: a tapped bar wins over a hovered one */
+  let focusId = $derived(active?.personId ?? hoveredId)
   /** Phones show each lane's label as a coloured stripe until this is opened */
   let labelsOpen = $state(false)
 
@@ -49,8 +60,8 @@
     new Map(laidOut.flatMap(item => item.bars.map(bar => [bar.person.id, item.id]))),
   )
   let highlighted = $derived(
-    hoveredId && roles.get(hoveredId) === 'prophets'
-      ? new Set([hoveredId, ...(contemporaries[hoveredId] ?? [])])
+    focusId && roles.get(focusId) === 'prophets'
+      ? new Set([focusId, ...(contemporaries[focusId] ?? [])])
       : null,
   )
 </script>
@@ -119,9 +130,12 @@
             style:height="{lane.rowCount * ROW_PX}px"
           >
             {#each lane.bars as bar (`${bar.role}-${bar.person.id}`)}
+              {@const key = `${bar.role}-${bar.person.id}`}
               <TimelineBar
                 class="absolute mt-0.75"
                 style="left: {bar.x}px; top: {bar.row * ROW_PX}px"
+                active={active?.key === key}
+                onactivechange={isActive => setActive(key, bar.person.id, isActive)}
                 name={bar.person.name}
                 dating={bar.dating}
                 lane={lane.id}
