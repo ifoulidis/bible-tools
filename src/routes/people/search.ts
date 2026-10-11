@@ -33,6 +33,13 @@ export const defaultFilters: PeopleFilters = {
   sort: 'date',
 }
 
+/** How many sort and filter options differ from the defaults; the search box isn't counted */
+export function changedOptions(filters: Omit<PeopleFilters, 'query'>) {
+  return (['role', 'kingdom', 'hasBook', 'sort'] as const).filter(
+    key => filters[key] !== defaultFilters[key],
+  ).length
+}
+
 const isKingdom = (audience: Audience): audience is Kingdom =>
   audience === 'united' || audience === 'israel' || audience === 'judah'
 

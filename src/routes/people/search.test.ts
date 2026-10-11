@@ -2,7 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { people } from '$lib/data'
 
-import { defaultFilters, filterPeople, toPersonEntry } from './search'
+import { changedOptions, defaultFilters, filterPeople, toPersonEntry } from './search'
 
 const entries = people.map(toPersonEntry)
 const ids = (filters: Partial<typeof defaultFilters>) =>
@@ -47,5 +47,18 @@ describe('filterPeople', () => {
   it('sorts by name when asked', () => {
     const names = filterPeople(entries, { ...defaultFilters, sort: 'name' }).map(e => e.name)
     expect(names).toEqual([...names].sort((a, b) => a.localeCompare(b)))
+  })
+})
+
+describe('changedOptions', () => {
+  it('is 0 for the defaults', () => {
+    expect(changedOptions(defaultFilters)).toBe(0)
+  })
+
+  it('counts each option changed from its default', () => {
+    expect(changedOptions({ ...defaultFilters, role: 'king' })).toBe(1)
+    expect(changedOptions({ role: 'prophet', kingdom: 'judah', hasBook: true, sort: 'name' })).toBe(
+      4,
+    )
   })
 })
