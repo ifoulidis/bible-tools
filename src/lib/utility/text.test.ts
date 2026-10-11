@@ -1,6 +1,13 @@
 import { describe, expect, it } from 'vitest'
 
-import { alignCharacters, gradeAnswer, normalizeAnswer, similarity } from './text'
+import {
+  alignCharacters,
+  gradeAnswer,
+  normalizeAnswer,
+  plural,
+  similarity,
+  tallyVerdicts,
+} from './text'
 
 describe('normalizeAnswer', () => {
   it('ignores case, punctuation and spacing', () => {
@@ -48,5 +55,30 @@ describe('gradeAnswer', () => {
 
   it('calls anything 70% similar or less incorrect', () => {
     expect(gradeAnswer('Ahab', ['Omri']).verdict).toBe('incorrect')
+  })
+})
+
+describe('tallyVerdicts', () => {
+  it('counts each verdict', () => {
+    expect(tallyVerdicts(['correct', 'typo', 'correct', 'incorrect'])).toEqual({
+      correct: 2,
+      typo: 1,
+      incorrect: 1,
+    })
+  })
+
+  it('is all zeroes before any answers', () => {
+    expect(tallyVerdicts([])).toEqual({ correct: 0, typo: 0, incorrect: 0 })
+  })
+})
+
+describe('plural', () => {
+  it('uses the singular for exactly one', () => {
+    expect(plural(1, 'typo')).toBe('1 typo')
+  })
+
+  it('uses the plural for none or many', () => {
+    expect(plural(0, 'typo')).toBe('0 typos')
+    expect(plural(2, 'person', 'people')).toBe('2 people')
   })
 })

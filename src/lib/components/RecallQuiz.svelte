@@ -20,7 +20,7 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
 
-  import { gradeAnswer } from '$lib/utility/text'
+  import { gradeAnswer, tallyVerdicts } from '$lib/utility/text'
 
   import AnswerFeedback from './AnswerFeedback.svelte'
   import { showToast } from './toast/toast.svelte'
@@ -47,11 +47,7 @@
   let current = $derived(questions[index])
   // The last answer, shown above the next question when it wasn't right
   let feedback = $derived(results.at(-1)?.verdict === 'correct' ? undefined : results.at(-1))
-  let tally = $derived({
-    correct: results.filter(r => r.verdict === 'correct').length,
-    typo: results.filter(r => r.verdict === 'typo').length,
-    incorrect: results.filter(r => r.verdict === 'incorrect').length,
-  })
+  let tally = $derived(tallyVerdicts(results.map(result => result.verdict)))
 
   $effect(() => {
     input?.focus()
@@ -70,6 +66,7 @@
   function restart() {
     results = []
     typed = ''
+    input?.focus()
   }
 </script>
 
@@ -128,6 +125,12 @@
         </div>
       </div>
     </form>
+    {#if results.length > 0}
+      <button
+        class="cursor-pointer justify-self-end rounded-full px-3 py-1 text-sm font-medium text-stone-500 transition-colors hover:bg-stone-100 hover:text-stone-900"
+        onclick={restart}>Start over</button
+      >
+    {/if}
   {:else}
     <div class="card grid justify-items-start gap-4 p-5 sm:p-6">
       <h2 class="text-2xl font-semibold">Finished</h2>

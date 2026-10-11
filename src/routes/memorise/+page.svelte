@@ -1,18 +1,33 @@
 <script lang="ts">
+  import { page } from '$app/stores'
+  import { untrack } from 'svelte'
+
+  import { replaceState } from '$app/navigation'
   import SegmentedControl from '$lib/components/SegmentedControl.svelte'
 
   import KingsQuiz from './components/KingsQuiz.svelte'
+  import { type QuizKingdom, parseKingdom } from './quiz'
 
   let { data } = $props()
-
-  type QuizKingdom = 'israel' | 'judah'
 
   const kingdomOptions: { value: QuizKingdom; label: string }[] = [
     { value: 'israel', label: 'Israel' },
     { value: 'judah', label: 'Judah' },
   ]
 
-  let kingdom = $state<QuizKingdom>('israel')
+  // Starts from the URL, so a link can open straight onto Judah
+  let kingdom = $state(parseKingdom($page.url.searchParams.get('kingdom')))
+
+  // Keeps the URL in step, as on the people page. Israel is the default, so it leaves the URL bare
+  $effect(() => {
+    const query = kingdom === 'israel' ? '' : `?kingdom=${kingdom}`
+    if (query !== location.search) {
+      replaceState(
+        location.pathname + query,
+        untrack(() => $page.state),
+      )
+    }
+  })
 </script>
 
 <svelte:head>

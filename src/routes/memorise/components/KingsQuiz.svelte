@@ -1,18 +1,17 @@
 <script lang="ts">
   import RecallQuiz, { type RecallQuestion } from '$lib/components/RecallQuiz.svelte'
 
+  import type { QuizKingdom } from '../quiz'
   import KingChain from './KingChain.svelte'
 
-  let { kingdom, kings }: { kingdom: 'israel' | 'judah'; kings: RecallQuestion[] } = $props()
+  let { kingdom, kings }: { kingdom: QuizKingdom; kings: RecallQuestion[] } = $props()
 
-  const kingdomNames = { israel: 'Israel', judah: 'Judah' }
-  // Full class names so Tailwind can see them
-  const kingdomText = { israel: 'text-israel', judah: 'text-judah' }
+  const kingdomNames: Record<QuizKingdom, string> = { israel: 'Israel', judah: 'Judah' }
 </script>
 
 <RecallQuiz questions={kings} placeholder="Name of the king">
   {#snippet progress(results)}
-    <KingChain {kingdom} {results} total={kings.length} />
+    <KingChain {results} />
   {/snippet}
 
   {#snippet prompt(index)}
@@ -20,7 +19,7 @@
       {#if index === 0}
         Who was the first king of {kingdomNames[kingdom]}?
       {:else}
-        Who reigned after <span class={kingdomText[kingdom]}>{kings[index - 1].answer}</span>?
+        Who reigned after {kings[index - 1].answer}?
       {/if}
     </h2>
   {/snippet}

@@ -73,3 +73,16 @@ export function gradeAnswer(given: string, accepted: string[], typoThreshold = 0
     closest.score === 1 ? 'correct' : closest.score > typoThreshold ? 'typo' : 'incorrect'
   return { verdict, closest: closest.answer }
 }
+
+export type Tally = Record<Verdict, number>
+
+/** How many answers got each verdict */
+export function tallyVerdicts(verdicts: Verdict[]): Tally {
+  const tally: Tally = { correct: 0, typo: 0, incorrect: 0 }
+  for (const verdict of verdicts) tally[verdict]++
+  return tally
+}
+
+/** "1 typo" but "2 typos" */
+export const plural = (count: number, singular: string, pluralForm = `${singular}s`) =>
+  `${count} ${count === 1 ? singular : pluralForm}`
