@@ -1,4 +1,6 @@
 <script lang="ts">
+  import SteleIcon from './SteleIcon.svelte'
+
   const keyDisplayClasses = [
     ['bg-united', 'United kingdom'],
     ['bg-israel', 'Israel'],
@@ -15,4 +17,7 @@
       ><i class="inline-block h-3 w-6 rounded-full shadow-sm {swatch}"></i>{label}</span
     >
   {/each}
+  <span class="inline-flex items-center gap-2"
+    ><SteleIcon class="size-4 text-stone-500" />Named outside the Bible</span
+  >
 </div>

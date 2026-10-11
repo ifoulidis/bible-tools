@@ -128,6 +128,7 @@
                 href="/people/{bar.person.id}"
                 width={bar.width}
                 coregencyWidth={bar.coregencyWidth}
+                attestedBy={bar.person.attestedBy}
                 raised={bar.widened}
                 dimmed={highlighted !== null && !highlighted.has(bar.person.id)}
                 onhoverchange={hovering => (hoveredId = hovering ? bar.person.id : null)}

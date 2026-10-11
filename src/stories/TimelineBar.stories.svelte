@@ -1,5 +1,6 @@
 <script module lang="ts">
   import { defineMeta } from '@storybook/addon-svelte-csf'
+  import type { ComponentProps } from 'svelte'
   import { expect, fireEvent, fn, waitFor, within } from 'storybook/test'
   import TimelineBar from '../routes/timeline/TimelineBar.svelte'
 
@@ -8,7 +9,7 @@
   // Real names from the dataset, shortest to longest
   const names = ['Asa', 'Ahab', 'Jehoiakim', 'Jeroboam II', 'Zechariah son of Jehoiada']
   // Either side of the 50px cutoff where the name is dropped, up to a long reign at full zoom
-  const widths = [6, 30, 50, 51, 70, 100, 150, 250]
+  const widths = [6, 20, 21, 30, 50, 51, 70, 100, 150, 250]
 
   const { Story } = defineMeta({
     title: 'Timeline/TimelineBar',
@@ -37,35 +38,49 @@
     },
   })
 
+  type BarProps = ComponentProps<typeof TimelineBar>
+
   const tooltip = () => within(document.body).findByText(/^Jeroboam II: 793–753 BC/)
 </script>
 
 <Story name="Default" />
 
-<Story name="Text vs width" parameters={{ controls: { include: ['lane'] } }}>
-  {#snippet template(args)}
-    <table class="border-separate border-spacing-x-3 border-spacing-y-2 text-xs text-stone-500">
-      <thead>
+<!-- Every name at every width, either side of where the name and badge drop out -->
+{#snippet widthGrid(args: BarProps)}
+  <table class="border-separate border-spacing-x-3 border-spacing-y-2 text-xs text-stone-500">
+    <thead>
+      <tr>
+        <th></th>
+        {#each widths as width (width)}
+          <th class="text-left font-medium tabular-nums">{width}px</th>
+        {/each}
+      </tr>
+    </thead>
+    <tbody>
+      {#each names as name (name)}
         <tr>
-          <th></th>
+          <th class="pr-2 text-right font-medium whitespace-nowrap">{name}</th>
           {#each widths as width (width)}
-            <th class="text-left font-medium tabular-nums">{width}px</th>
+            <td style:min-width="{width}px"><TimelineBar {...args} {name} {width} /></td>
           {/each}
         </tr>
-      </thead>
-      <tbody>
-        {#each names as name (name)}
-          <tr>
-            <th class="pr-2 text-right font-medium whitespace-nowrap">{name}</th>
-            {#each widths as width (width)}
-              <td style:min-width="{width}px"><TimelineBar {...args} {name} {width} /></td>
-            {/each}
-          </tr>
-        {/each}
-      </tbody>
-    </table>
-  {/snippet}
-</Story>
+      {/each}
+    </tbody>
+  </table>
+{/snippet}
+
+<Story
+  name="Text vs width"
+  template={widthGrid}
+  parameters={{ controls: { include: ['lane', 'attestedBy'] } }}
+/>
+
+<Story
+  name="Text vs width, named outside the Bible"
+  template={widthGrid}
+  args={{ attestedBy: ['Tell al-Rimah Stele (Adad-nirari III)'] }}
+  parameters={{ controls: { include: ['lane', 'attestedBy'] } }}
+/>
 
 <Story name="Lanes" parameters={{ controls: { exclude: ['lane'] } }}>
   {#snippet template(args)}
@@ -85,7 +100,10 @@
   }}
 />
 
-<Story name="Approximate" args={{ dating: { ...dating, span: { ...dating.span, approx: true } } }} />
+<Story
+  name="Approximate"
+  args={{ dating: { ...dating, span: { ...dating.span, approx: true } } }}
+/>
 
 <Story name="Dimmed" args={{ dimmed: true }} />
 
