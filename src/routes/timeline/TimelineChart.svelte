@@ -1,14 +1,18 @@
 <script lang="ts">
+  import BarDetails from './BarDetails.svelte'
   import TimelineBar from './TimelineBar.svelte'
   import {
+    type Bar,
     type LaneId,
     type TimelinePerson,
     layoutTimeline,
     scaleFor,
+    formatSpan,
     scaleWidth,
     ticks,
     yearToX,
   } from '$lib/timeline/layout'
+  import { tooltipLines } from './interaction'
   import { type Filter, filterLanes, laneClasses } from './theme'
 
   interface Props {
@@ -17,9 +21,20 @@
     contemporaries: Record<string, string[]>
     filter?: Filter
     pxPerYear?: number
+    /**
+     * "tooltip" floats each bar's details beside it. "inline" draws a tapped bar's details inside
+     * the chart instead, so they turn with it when it's rotated sideways with CSS
+     */
+    details?: 'tooltip' | 'inline'
   }
 
-  let { people, contemporaries, filter = 'everyone', pxPerYear = 5 }: Props = $props()
+  let {
+    people,
+    contemporaries,
+    filter = 'everyone',
+    pxPerYear = 5,
+    details = 'tooltip',
+  }: Props = $props()
 
   const laneLabels: Record<LaneId, string> = {
     united: 'United kingdom',
@@ -32,6 +47,9 @@
   const TICK_STEP = 50
   /** Lanes are spaced apart by this much; the labels beside the chart have to match */
   const LANE_GAP = 'mt-3'
+
+  /** A person can have a bar in two lanes, as both king and prophet */
+  const keyOf = (bar: Bar) => `${bar.role}-${bar.person.id}`
 
   let hoveredId = $state<string | null>(null)
   /** The bar tapped open on a touch screen; only one at a time */
@@ -56,6 +74,12 @@
   // Rounded to the decade so the chart starts just before Saul rather than at the next tick
   let scale = $derived(scaleFor(datings, pxPerYear, 10))
   let laidOut = $derived(layoutTimeline(people, scale, filterLanes[filter]))
+  /** The tapped bar, for drawing its details inline */
+  let activeBar = $derived(
+    active === null
+      ? undefined
+      : laidOut.flatMap(lane => lane.bars).find(bar => keyOf(bar) === active?.key),
+  )
   const roles = $derived(
     new Map(laidOut.flatMap(item => item.bars.map(bar => [bar.person.id, item.id]))),
   )
@@ -129,8 +153,8 @@
             class="relative bg-[linear-gradient(to_right,var(--color-stone-200)_1px,transparent_1px)] bg-size-[var(--grid)_100%]"
             style:height="{lane.rowCount * ROW_PX}px"
           >
-            {#each lane.bars as bar (`${bar.role}-${bar.person.id}`)}
-              {@const key = `${bar.role}-${bar.person.id}`}
+            {#each lane.bars as bar (keyOf(bar))}
+              {@const key = keyOf(bar)}
               <TimelineBar
                 class="absolute mt-0.75"
                 style="left: {bar.x}px; top: {bar.row * ROW_PX}px"
@@ -144,10 +168,31 @@
                 coregencyWidth={bar.coregencyWidth}
                 attestedBy={bar.person.attestedBy}
                 raised={bar.widened}
+                tooltip={details === 'tooltip'}
                 dimmed={highlighted !== null && !highlighted.has(bar.person.id)}
                 onhoverchange={hovering => (hoveredId = hovering ? bar.person.id : null)}
               />
             {/each}
+            {#if details === 'inline' && activeBar && lane.bars.includes(activeBar)}
+              <!-- Just under the bar, styled like the tooltip it stands in for -->
+              <div
+                class="absolute z-10 w-max max-w-64 rounded-md bg-stone-800 px-2.5 py-1 text-sm text-stone-50 shadow-lg"
+                style:left="{activeBar.x}px"
+                style:top="{(activeBar.row + 1) * ROW_PX + 2}px"
+              >
+                <BarDetails
+                  name={activeBar.person.name}
+                  lines={tooltipLines(
+                    activeBar.person.name,
+                    formatSpan(activeBar.dating),
+                    activeBar.dating.coregencyFrom,
+                    activeBar.person.attestedBy,
+                  )}
+                  href="/people/{activeBar.person.id}"
+                  showLink
+                />
+              </div>
+            {/if}
           </div>
         </section>
       {/each}

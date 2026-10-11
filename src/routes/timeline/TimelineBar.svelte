@@ -1,6 +1,7 @@
 <script lang="ts">
   import tippy, { type Instance } from 'tippy.js'
   import { type LaneId, type TimelineDating, formatSpan } from '$lib/timeline/layout'
+  import BarDetails from './BarDetails.svelte'
   import SteleIcon from './SteleIcon.svelte'
   import { type PointerType, barClick, parsePointerType, tooltipLines } from './interaction'
   import { laneClasses } from './theme'
@@ -26,6 +27,11 @@
      */
     active?: boolean
     onactivechange?: (active: boolean) => void
+    /**
+     * Show details in a floating tooltip. Off where the chart shows them itself, as it does when
+     * turned sideways with CSS, which the tooltip can't follow
+     */
+    tooltip?: boolean
     /** Faded back while another bar is highlighted */
     dimmed?: boolean
     /** Drawn wider than its true length, so it sits above the neighbour it may overlap */
@@ -48,6 +54,7 @@
     attestedBy = [],
     active = false,
     onactivechange,
+    tooltip = true,
     dimmed = false,
     raised = false,
     onhoverchange,
@@ -72,19 +79,22 @@
   let instance = $state<Instance>()
 
   $effect(() => {
-    if (!bar || !tooltipContent) return
+    if (!tooltip || !bar || !tooltipContent) return
     // Shown and hidden from `showTooltip` rather than tippy's own triggers, which can't tell a
-    // tap from a hover. On the body so the chart's scrolling doesn't clip it, and interactive so
-    // its link can be tapped
+    // tap from a hover. Outside the chart so its scrolling doesn't clip it, but inside whatever is
+    // full screen, as nothing else is drawn then. Interactive so its link can be tapped
     const created = tippy(bar, {
       content: tooltipContent,
       arrow: false,
       trigger: 'manual',
       interactive: true,
-      appendTo: () => document.body,
+      appendTo: () => document.fullscreenElement ?? document.body,
     })
     instance = created
-    return () => created.destroy()
+    return () => {
+      created.destroy()
+      instance = undefined
+    }
   })
 
   $effect(() => {
@@ -109,8 +119,8 @@
   $effect(() => {
     if (!active) return
     const clearOutside = (event: PointerEvent) => {
-      if (!(event.target instanceof Node)) return
-      if (bar?.contains(event.target) || instance?.popper.contains(event.target)) return
+      if (!(event.target instanceof Element)) return
+      if (bar?.contains(event.target) || event.target.closest('[data-bar-details]')) return
       setActive(false)
     }
     document.addEventListener('pointerdown', clearOutside)
@@ -172,19 +182,10 @@
   {/if}
 </a>
 
-<div class="hidden">
-  <div bind:this={tooltipContent}>
-    {#each lines as line (line)}
-      <p>{line}</p>
-    {/each}
-    {#if active}
-      <!-- Only reachable by tapping: a mouse goes to the page by clicking the bar itself -->
-      <a
-        class="mt-1 block font-medium underline decoration-stone-500 underline-offset-4"
-        {href}
-        tabindex="-1"
-        onclick={event => onnavigate?.(event)}>Open {name}'s page →</a
-      >
-    {/if}
+{#if tooltip}
+  <div class="hidden">
+    <div bind:this={tooltipContent}>
+      <BarDetails {name} {lines} {href} showLink={active} {onnavigate} />
+    </div>
   </div>
-</div>
+{/if}

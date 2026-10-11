@@ -19,6 +19,7 @@
     argTypes: {
       filter: { control: 'inline-radio', options: ['everyone', 'kings', 'prophets'] },
       pxPerYear: { control: { type: 'range', min: 2, max: 14, step: 1 } },
+      details: { control: 'inline-radio', options: ['tooltip', 'inline'] },
       people: { table: { disable: true } },
       contemporaries: { table: { disable: true } },
     },
@@ -66,5 +67,20 @@
     await fireEvent.click(elijah)
     await expect(canvas.getByRole('link', { name: /^Ahab,/ })).not.toHaveClass('opacity-20')
     await expect(canvas.getByRole('link', { name: /^Josiah,/ })).toHaveClass('opacity-20')
+  }}
+/>
+
+<!-- As in the phone's full screen layout: a tapped bar's details are drawn inside the chart, so
+     they turn with it when it's rotated sideways -->
+<Story
+  name="Details inline"
+  globals={{ viewport: { value: 'mobile1', isRotated: true } }}
+  args={{ details: 'inline', filter: 'kings', pxPerYear: 8 }}
+  play={async ({ canvas }) => {
+    const ahab = canvas.getByRole('link', { name: /^Ahab,/ })
+    ahab.scrollIntoView({ inline: 'center' })
+    await fireEvent.pointerDown(ahab, { pointerType: 'touch' })
+    await fireEvent.click(ahab)
+    await expect(canvas.getByRole('link', { name: "Open Ahab's page →" })).toBeVisible()
   }}
 />
