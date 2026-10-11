@@ -91,5 +91,11 @@
       },
       "kind": "narrative"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Tell al-Rimah Stele (Adad-nirari III)",
+      "note": "Lists tribute from \"Joash of Samaria\" around 796 BC."
+    }
   ]
 }

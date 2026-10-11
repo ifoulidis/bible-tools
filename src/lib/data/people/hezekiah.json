@@ -189,5 +189,15 @@
       },
       "kind": "mention"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Sennacherib's annals",
+      "note": "Sennacherib says he shut up \"Hezekiah the Judahite\" in Jerusalem \"like a bird in a cage\" during his campaign of 701 BC."
+    },
+    {
+      "artifact": "Royal seal impression (Ophel bulla)",
+      "note": "A clay seal impression found in excavations on the Ophel in Jerusalem, published in 2015, reads \"Belonging to Hezekiah [son of] Ahaz, king of Judah\"."
+    }
   ]
 }

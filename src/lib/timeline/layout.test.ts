@@ -6,11 +6,13 @@ import type { Dating, Person } from '$lib/data/schema'
 import {
   BAR_GAP_PX,
   MIN_BAR_PX,
+  type TimelinePerson,
   formatSpan,
   layoutTimeline,
   packRows,
   scaleFor,
   ticks,
+  toTimelinePerson,
   yearToX,
 } from './layout'
 
@@ -24,13 +26,16 @@ function dating(from: number, to: number, coregencyFrom?: number): Dating {
   }
 }
 
-function person(id: string, facets: Pick<Person, 'reign' | 'ministry'>): Person {
+/** Both a full person, for buildContemporaries, and the slice the timeline draws */
+function person(id: string, facets: Pick<Person, 'reign' | 'ministry'>): Person & TimelinePerson {
   return {
     id,
     name: id,
     altNames: [],
     summary: '',
     family: [],
+    attestations: [],
+    attestedBy: [],
     passages: [{ book: '1Kgs', from: { chapter: 1 }, kind: 'narrative' }],
     ...facets,
   }
@@ -211,6 +216,25 @@ describe('layoutTimeline', () => {
       ['judah', 'king'],
       ['prophets', 'prophet'],
     ])
+  })
+})
+
+describe('toTimelinePerson', () => {
+  it('keeps just the names of the finds that attest someone', () => {
+    const attested = {
+      ...person('omri', {
+        reign: { kingdom: 'israel', dating: dating(885, 874), alternatives: [] },
+      }),
+      attestations: [{ artifact: 'Mesha Stele', note: 'Names Omri' }],
+    }
+    expect(toTimelinePerson(attested).attestedBy).toEqual(['Mesha Stele'])
+  })
+
+  it('has an empty list for someone no find names', () => {
+    const unattested = person('asa', {
+      reign: { kingdom: 'judah', dating: dating(911, 870), alternatives: [] },
+    })
+    expect(toTimelinePerson(unattested).attestedBy).toEqual([])
   })
 })
 

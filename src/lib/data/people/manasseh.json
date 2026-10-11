@@ -97,5 +97,11 @@
       },
       "kind": "mention"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Prism of Esarhaddon",
+      "note": "Lists \"Manasseh king of Judah\" among the western kings made to send building materials to Nineveh, around 674 BC."
+    }
   ]
 }

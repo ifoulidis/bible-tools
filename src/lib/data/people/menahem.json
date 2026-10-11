@@ -66,5 +66,11 @@
       },
       "kind": "narrative"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Annals of Tiglath-pileser III",
+      "note": "List \"Menahem of Samaria\" among the kings paying tribute, matching 2 Kings 15:19–20."
+    }
   ]
 }

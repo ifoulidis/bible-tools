@@ -93,5 +93,11 @@
       },
       "kind": "narrative"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Summary inscription of Tiglath-pileser III",
+      "note": "Lists \"Jehoahaz of Judah\", the full form of Ahaz's name, among the kings paying tribute around 734 BC."
+    }
   ]
 }

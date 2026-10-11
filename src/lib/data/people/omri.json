@@ -74,5 +74,11 @@
       },
       "kind": "mention"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Mesha Stele (Moabite Stone)",
+      "note": "King Mesha of Moab says \"Omri was king of Israel and oppressed Moab many days\". Found at Dhiban in 1868."
+    }
   ]
 }

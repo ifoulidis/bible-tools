@@ -133,6 +133,14 @@ export const personSchema = z
       }),
     ),
     passages: z.array(passageSchema).min(1),
+    /**
+     * Inscriptions and other finds outside the Bible that name this person. Unlike `extrabiblical`
+     * evidence, which can be anything that helps date them, these must name them (or, for David,
+     * the dynasty he founded); a name restored into a gap doesn't count.
+     */
+    attestations: z
+      .array(z.object({ artifact: z.string().min(1), note: z.string().min(1) }))
+      .default([]),
   })
   .refine(person => person.reign ?? person.ministry, 'a person must be a king, a prophet, or both')
 
@@ -156,4 +164,5 @@ export type Audience = (typeof audiences)[number]
 export type Reign = z.infer<typeof reignSchema>
 export type Ministry = z.infer<typeof ministrySchema>
 export type Person = z.infer<typeof personSchema>
+export type Attestation = Person['attestations'][number]
 export type Source = z.infer<typeof sourceSchema>

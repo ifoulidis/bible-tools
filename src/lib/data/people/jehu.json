@@ -121,5 +121,11 @@
       },
       "kind": "mention"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Black Obelisk of Shalmaneser III",
+      "note": "Records tribute from \"Jehu son of Omri\" in 841 BC, beside a relief of Jehu, or his envoy, bowing low before the Assyrian king."
+    }
   ]
 }

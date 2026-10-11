@@ -154,5 +154,11 @@
       },
       "kind": "nt-reference"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Babylonian ration tablets",
+      "note": "Record oil rations in Babylon for \"Jehoiachin (Ya'ukin), king of Judah\" and his sons."
+    }
   ]
 }

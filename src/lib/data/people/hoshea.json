@@ -96,5 +96,11 @@
       },
       "kind": "narrative"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Inscriptions of Tiglath-pileser III",
+      "note": "Say Tiglath-pileser set Hoshea as king over Israel after its people overthrew Pekah."
+    }
   ]
 }

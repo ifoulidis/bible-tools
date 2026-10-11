@@ -168,5 +168,11 @@
       },
       "kind": "nt-reference"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Tel Dan Stele",
+      "note": "A 9th-century BC Aramaic victory inscription, found at Tel Dan in 1993, refers to the \"house of David\", naming the dynasty he founded."
+    }
   ]
 }

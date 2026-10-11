@@ -18,6 +18,8 @@ export interface TimelinePerson {
   name: string
   reign?: { kingdom: Kingdom; dating: TimelineDating }
   ministry?: { dating: TimelineDating }
+  /** Finds outside the Bible that name them, by name only */
+  attestedBy: string[]
 }
 
 const toTimelineDating = ({ span, coregencyFrom, confidence }: Dating): TimelineDating => ({
@@ -26,10 +28,17 @@ const toTimelineDating = ({ span, coregencyFrom, confidence }: Dating): Timeline
   confidence,
 })
 
-export function toTimelinePerson({ id, name, reign, ministry }: Person): TimelinePerson {
+export function toTimelinePerson({
+  id,
+  name,
+  reign,
+  ministry,
+  attestations,
+}: Person): TimelinePerson {
   return {
     id,
     name,
+    attestedBy: attestations.map(attestation => attestation.artifact),
     ...(reign ? { reign: { kingdom: reign.kingdom, dating: toTimelineDating(reign.dating) } } : {}),
     ...(ministry ? { ministry: { dating: toTimelineDating(ministry.dating) } } : {}),
   }

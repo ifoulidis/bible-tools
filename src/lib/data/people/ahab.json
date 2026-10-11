@@ -129,5 +129,11 @@
       },
       "kind": "mention"
     }
+  ],
+  "attestations": [
+    {
+      "artifact": "Kurkh Monolith (Shalmaneser III)",
+      "note": "Lists \"Ahab the Israelite\", with 2,000 chariots and 10,000 soldiers, among the kings who fought Assyria at Qarqar in 853 BC."
+    }
   ]
 }
