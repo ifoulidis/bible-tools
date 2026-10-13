@@ -1,9 +1,9 @@
 <script lang="ts">
-  import tippy, { type Instance } from 'tippy.js'
+  import Popover from '$lib/components/Popover.svelte'
   import { type LaneId, type TimelineDating, formatSpan } from '$lib/timeline/layout'
   import BarDetails from './BarDetails.svelte'
   import SteleIcon from './SteleIcon.svelte'
-  import { type PointerType, barClick, parsePointerType, tooltipLines } from './interaction'
+  import { type PointerType, barClick, parsePointerType } from './interaction'
   import { laneClasses } from './theme'
 
   /**
@@ -22,6 +22,7 @@
     coregencyWidth?: number
     /** Finds outside the Bible that name them, which earn the bar a badge */
     attestedBy?: string[]
+    altNames?: string[]
     /**
      * Tapped once on a touch screen: the tooltip stays open, and the next tap on the bar or the
      * tooltip goes to their page. A tap anywhere else clears it.
@@ -29,10 +30,12 @@
     active?: boolean
     onactivechange?: (active: boolean) => void
     /**
-     * Show details in a floating tooltip. Off where the chart shows them itself, as it does when
-     * turned sideways with CSS, which the tooltip can't follow
+     * Show details in a floating popover. Off where the chart shows them itself, as it does when
+     * turned sideways with CSS, which the popover can't follow
      */
     tooltip?: boolean
+    /** The popover goes below the bar if it fits inside this (the chart), and above if not */
+    bounds?: HTMLElement
     /** Faded back while another bar is highlighted */
     dimmed?: boolean
     /** Drawn wider than its true length, so it sits above the neighbour it may overlap */
@@ -53,9 +56,11 @@
     width,
     coregencyWidth = 0,
     attestedBy = [],
+    altNames = [],
     active = false,
     onactivechange,
     tooltip = true,
+    bounds,
     dimmed = false,
     raised = false,
     onhoverchange,
@@ -65,7 +70,6 @@
   }: Props = $props()
 
   const span = $derived(formatSpan(dating))
-  const lines = $derived(tooltipLines(name, span, dating.coregencyFrom, attestedBy))
 
   let hovered = $state(false)
   let focused = $state(false)
@@ -75,33 +79,6 @@
   let pointer: PointerType = null
 
   let bar = $state<HTMLAnchorElement>()
-  /** Rendered here, then handed to tippy, which moves it into the tooltip */
-  let tooltipContent = $state<HTMLDivElement>()
-  let instance = $state<Instance>()
-
-  $effect(() => {
-    if (!tooltip || !bar || !tooltipContent) return
-    // Shown and hidden from `showTooltip` rather than tippy's own triggers, which can't tell a
-    // tap from a hover. Outside the chart so its scrolling doesn't clip it, but inside whatever is
-    // full screen, as nothing else is drawn then. Interactive so its link can be tapped
-    const created = tippy(bar, {
-      content: tooltipContent,
-      arrow: false,
-      trigger: 'manual',
-      interactive: true,
-      appendTo: () => document.fullscreenElement ?? document.body,
-    })
-    instance = created
-    return () => {
-      created.destroy()
-      instance = undefined
-    }
-  })
-
-  $effect(() => {
-    if (showTooltip) instance?.show()
-    else instance?.hide()
-  })
 
   /** Hover and keyboard focus both count as hovering, so the chart hears when either changes */
   function setHovered(next: boolean) {
@@ -184,9 +161,18 @@
 </a>
 
 {#if tooltip}
-  <div class="hidden">
-    <div bind:this={tooltipContent}>
-      <BarDetails {name} {lines} {href} showLink={active} {onnavigate} />
-    </div>
-  </div>
+  <!-- Only a tapped bar's popover has a link to tap; a hovered one stays out of the mouse's way -->
+  <Popover anchor={bar} {bounds} open={showTooltip} interactive={active}>
+    <BarDetails
+      {name}
+      {lane}
+      {span}
+      coregencyFrom={dating.coregencyFrom}
+      {altNames}
+      {attestedBy}
+      {href}
+      showLink={active}
+      {onnavigate}
+    />
+  </Popover>
 {/if}

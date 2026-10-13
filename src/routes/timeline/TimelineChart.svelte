@@ -15,7 +15,6 @@
     ticks,
     yearToX,
   } from '$lib/timeline/layout'
-  import { tooltipLines } from './interaction'
   import { type Filter, eventClasses, eventLabels, filterLanes, laneClasses } from './theme'
 
   interface Props {
@@ -59,6 +58,8 @@
   /** A person can have a bar in two lanes, as both king and prophet */
   const keyOf = (bar: Bar) => `${bar.role}-${bar.person.id}`
 
+  /** The scrolling part of the chart, which popovers try to fit inside */
+  let scroller = $state<HTMLElement>()
   let hoveredId = $state<string | null>(null)
   /** The bar tapped open on a touch screen; only one at a time */
   let active = $state<{ key: string; personId: string } | null>(null)
@@ -154,6 +155,7 @@
   </div>
 
   <div
+    bind:this={scroller}
     class="min-w-0 flex-1 scrollbar-thin scrollbar-thumb-stone-400 scrollbar-track-stone-100 overflow-x-auto rounded-xl border border-stone-200 bg-stone-50/60"
   >
     <!-- Horizontal padding leaves room for the first axis label, which is centred on x = 0 -->
@@ -191,6 +193,7 @@
                   event={marker.event}
                   side={marker.side}
                   tooltip={details === 'tooltip'}
+                  bounds={scroller}
                 />
               {/each}
             </div>
@@ -216,6 +219,8 @@
                 width={bar.width}
                 coregencyWidth={bar.coregencyWidth}
                 attestedBy={bar.person.attestedBy}
+                altNames={bar.person.altNames}
+                bounds={scroller}
                 raised={bar.widened}
                 tooltip={details === 'tooltip'}
                 dimmed={highlighted !== null && !highlighted.has(bar.person.id)}
@@ -223,20 +228,19 @@
               />
             {/each}
             {#if details === 'inline' && activeBar && lane.bars.includes(activeBar)}
-              <!-- Just under the bar, styled like the tooltip it stands in for -->
+              <!-- Just under the bar, in place of the popover it stands in for -->
               <div
-                class="absolute z-10 w-max max-w-64 rounded-md bg-stone-800 px-2.5 py-1 text-sm text-stone-50 shadow-lg"
+                class="absolute z-10 w-max max-w-72"
                 style:left="{activeBar.x}px"
                 style:top="{(activeBar.row + 1) * ROW_PX + 2}px"
               >
                 <BarDetails
                   name={activeBar.person.name}
-                  lines={tooltipLines(
-                    activeBar.person.name,
-                    formatSpan(activeBar.dating),
-                    activeBar.dating.coregencyFrom,
-                    activeBar.person.attestedBy,
-                  )}
+                  lane={lane.id}
+                  span={formatSpan(activeBar.dating)}
+                  coregencyFrom={activeBar.dating.coregencyFrom}
+                  altNames={activeBar.person.altNames}
+                  attestedBy={activeBar.person.attestedBy}
                   href="/people/{activeBar.person.id}"
                   showLink
                 />

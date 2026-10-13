@@ -41,7 +41,7 @@
 
   type BarProps = ComponentProps<typeof TimelineBar>
 
-  const tooltip = () => within(document.body).findByText(/^Jeroboam II: 793–753 BC/)
+  const tooltip = () => within(document.body).findByRole('tooltip')
   const openLink = () => within(document.body).findByRole('link', { name: /^Open Jeroboam II/ })
 
   /** A tap as a phone sends it: a touch press, then the click the browser makes from it */
@@ -144,6 +144,33 @@
 />
 
 <Story name="Active" args={{ active: true }} />
+
+<!-- Every detail the popover can show, from the dataset: Ahaz has a coregency and a find; Jehoash
+     a second name -->
+<Story
+  name="Popover in full"
+  args={{
+    name: 'Ahaz',
+    lane: 'judah',
+    href: '/people/ahaz',
+    dating: { ...dating, coregencyFrom: 735, span: { from: 732, to: 716, approx: false } },
+    coregencyWidth: 15,
+    attestedBy: ['Summary inscription of Tiglath-pileser III'],
+    active: true,
+  }}
+/>
+
+<Story
+  name="Popover with another name"
+  args={{
+    name: 'Jehoash',
+    href: '/people/jehoash-of-israel',
+    dating: { ...dating, span: { from: 798, to: 782, approx: false } },
+    altNames: ['Joash'],
+    attestedBy: ['Tell al-Rimah Stele (Adad-nirari III)'],
+    active: true,
+  }}
+/>
 
 <!-- The first tap opens the tooltip and stays put; open it in its own tab with device emulation
      on to try it with a real finger -->

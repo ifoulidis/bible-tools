@@ -1,5 +1,6 @@
 <script lang="ts">
-  import tippy from 'tippy.js'
+  import Manuscript from '$lib/components/Manuscript.svelte'
+  import Popover from '$lib/components/Popover.svelte'
   import type { TimelineEvent } from '$lib/data/events'
   import { formatYear } from '$lib/timeline/layout'
   import { eventClasses } from './theme'
@@ -8,30 +9,40 @@
     event: TimelineEvent
     /** Which side of the marker the name goes */
     side?: 'left' | 'right'
-    /** Show the details in a floating tooltip; off where the chart is turned sideways with CSS */
+    /** Show the details in a popover; off where the chart is turned sideways with CSS */
     tooltip?: boolean
+    /** The popover goes below the marker if it fits inside this (the chart), and above if not */
+    bounds?: HTMLElement
     class?: string
     style?: string
   }
 
-  let { event, side = 'right', tooltip = true, class: className = '', style }: Props = $props()
+  let {
+    event,
+    side = 'right',
+    tooltip = true,
+    bounds,
+    class: className = '',
+    style,
+  }: Props = $props()
 
   const year = $derived(formatYear(event))
   const classes = $derived(eventClasses[event.kind])
 
   let marker = $state<HTMLButtonElement>()
-  /** Rendered here, then handed to tippy, which moves it into the tooltip */
-  let tooltipContent = $state<HTMLDivElement>()
+  let hovered = $state(false)
+  let focused = $state(false)
+  /** Tapped open on a touch screen, until a tap anywhere else */
+  let tapped = $state(false)
 
   $effect(() => {
-    if (!tooltip || !marker || !tooltipContent) return
-    // Tippy's own triggers will do: there's nowhere to go, so a tap only has to show the details
-    const created = tippy(marker, {
-      content: tooltipContent,
-      arrow: false,
-      appendTo: () => document.fullscreenElement ?? document.body,
-    })
-    return () => created.destroy()
+    if (!tapped) return
+    const clearOutside = (pointer: PointerEvent) => {
+      if (pointer.target instanceof Node && marker?.contains(pointer.target)) return
+      tapped = false
+    }
+    document.addEventListener('pointerdown', clearOutside)
+    return () => document.removeEventListener('pointerdown', clearOutside)
   })
 </script>
 
@@ -46,18 +57,34 @@
     className,
   ]}
   aria-label="{event.name}, {year}"
+  onpointerenter={pointer => {
+    if (pointer.pointerType === 'mouse') hovered = true
+  }}
+  onpointerleave={pointer => {
+    if (pointer.pointerType === 'mouse') hovered = false
+  }}
+  onpointerup={pointer => {
+    if (pointer.pointerType !== 'mouse') tapped = !tapped
+  }}
+  onfocus={focus => {
+    // A tap can focus a button too; only the keyboard should open the popover this way
+    if (focus.currentTarget.matches(':focus-visible')) focused = true
+  }}
+  onblur={() => (focused = false)}
 >
   <!-- Centred on the event's year: the marker is 10px wide and placed 5px before it -->
-  <span class="size-2.5 shrink-0 rotate-45 rounded-[2px] {classes.marker}"></span>
+  <span class="size-2.5 shrink-0 rotate-45 rounded-xs {classes.marker}"></span>
   {event.name}
 </button>
 
 {#if tooltip}
-  <div class="hidden">
-    <div bind:this={tooltipContent} class="max-w-64 py-0.5">
-      <p class="font-semibold">{event.name}</p>
-      <p class="text-stone-300">{year}{event.ref ? ` · ${event.ref}` : ''}</p>
+  <Popover anchor={marker} {bounds} open={hovered || focused || tapped}>
+    <Manuscript
+      eyebrow={event.kind === 'bible' ? 'In the Bible' : 'In the world'}
+      title={event.name}
+    >
+      <p class="italic">{year}{event.ref ? ` · ${event.ref}` : ''}</p>
       <p class="mt-1">{event.detail}</p>
-    </div>
-  </div>
+    </Manuscript>
+  </Popover>
 {/if}
