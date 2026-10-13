@@ -6,10 +6,11 @@
   import { type PointerType, barClick, parsePointerType, tooltipLines } from './interaction'
   import { laneClasses } from './theme'
 
-  /** Bars narrower than this drop their name rather than show a sliver of it */
+  /**
+   * Bars narrower than this drop their name rather than show a sliver of it, and the badge goes
+   * with it, as a badge alone doesn't say whose it is. The tooltip still names the find
+   */
   const MIN_LABEL_PX = 50
-  /** Bars narrower than this drop the badge too; the tooltip still names the find */
-  const MIN_BADGE_PX = 20
 
   interface Props {
     name: string
@@ -176,9 +177,9 @@
 >
   {#if width > MIN_LABEL_PX}
     <span class="min-w-0 flex-1 overflow-hidden px-1.5 text-clip whitespace-nowrap">{name}</span>
-  {/if}
-  {#if attestedBy.length > 0 && width > MIN_BADGE_PX}
-    <SteleIcon class="mx-auto size-3.5 shrink-0 {width > MIN_LABEL_PX ? 'mr-1' : ''}" />
+    {#if attestedBy.length > 0}
+      <SteleIcon class="mr-1 size-3.5 shrink-0" />
+    {/if}
   {/if}
 </a>
 
