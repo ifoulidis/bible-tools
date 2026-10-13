@@ -73,6 +73,7 @@
   )
   // Rounded to the decade so the chart starts just before Saul rather than at the next tick
   let scale = $derived(scaleFor(datings, pxPerYear, 10))
+  let yearTicks = $derived(ticks(scale, TICK_STEP))
   let laidOut = $derived(layoutTimeline(people, scale, filterLanes[filter]))
   /** The tapped bar, for drawing its details inline */
   let activeBar = $derived(
@@ -133,15 +134,21 @@
     class="min-w-0 flex-1 scrollbar-thin scrollbar-thumb-stone-400 scrollbar-track-stone-100 overflow-x-auto rounded-xl border border-stone-200 bg-stone-50/60"
   >
     <!-- Horizontal padding leaves room for the first axis label, which is centred on x = 0 -->
-    <div
-      class="relative box-content px-10 pb-4"
-      style:width="{scaleWidth(scale)}px"
-      style:--grid="{TICK_STEP * pxPerYear}px"
-    >
+    <div class="relative box-content px-10 pb-4" style:width="{scaleWidth(scale)}px">
+      <!-- One set of grid lines behind every lane, so they run unbroken through the gaps between
+           them. Each starts just above the axis line, as a tick under its year -->
+      <div class="pointer-events-none absolute inset-x-10 top-7 bottom-4" aria-hidden="true">
+        {#each yearTicks as year (year)}
+          <div
+            class="absolute inset-y-0 w-px -translate-x-1/2 bg-stone-200"
+            style:left="{yearToX(scale, year)}px"
+          ></div>
+        {/each}
+      </div>
       <div class="relative h-8 border-b border-stone-200">
-        {#each ticks(scale, TICK_STEP) as year (year)}
+        {#each yearTicks as year (year)}
           <span
-            class="absolute bottom-1.5 -translate-x-1/2 text-xs font-medium whitespace-nowrap text-stone-400 tabular-nums"
+            class="absolute bottom-2 -translate-x-1/2 text-xs font-medium whitespace-nowrap text-stone-400 tabular-nums"
             style:left="{yearToX(scale, year)}px">{year} BC</span
           >
         {/each}
@@ -149,10 +156,7 @@
 
       {#each laidOut as lane (lane.id)}
         <section class={LANE_GAP} aria-label={laneLabels[lane.id]}>
-          <div
-            class="relative bg-[linear-gradient(to_right,var(--color-stone-200)_1px,transparent_1px)] bg-size-[var(--grid)_100%]"
-            style:height="{lane.rowCount * ROW_PX}px"
-          >
+          <div class="relative" style:height="{lane.rowCount * ROW_PX}px">
             {#each lane.bars as bar (keyOf(bar))}
               {@const key = keyOf(bar)}
               <TimelineBar
