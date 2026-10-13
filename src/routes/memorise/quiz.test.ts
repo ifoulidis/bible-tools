@@ -65,6 +65,17 @@ describe('toQuizKing', () => {
     expect(king.accepted).toEqual(['Azariah', 'Uzziah'])
   })
 
+  it('marks an alternative name right', () => {
+    const { accepted } = toQuizKing({
+      id: 'jehoiachin',
+      name: 'Jehoiachin',
+      altNames: ['Jeconiah', 'Jechoniah', 'Coniah'],
+    })
+    for (const given of ['Jehoiachin', 'Jeconiah', 'jechoniah', 'Coniah']) {
+      expect(gradeAnswer(given, accepted).verdict).toBe('correct')
+    }
+  })
+
   it("doesn't make you know the numeral", () => {
     const { accepted } = toQuizKing({ id: 'jeroboam-i', name: 'Jeroboam I', altNames: [] })
     for (const given of ['Jeroboam', 'jeroboam i', 'Jeroboam 1', 'Jeroboam the First']) {
