@@ -2,6 +2,7 @@
   import { defineMeta } from '@storybook/addon-svelte-csf'
   import { expect, fireEvent } from 'storybook/test'
   import { people } from '$lib/data'
+  import { events } from '$lib/data/events'
   import { buildContemporaries } from '$lib/data/relations'
   import { toTimelinePerson } from '$lib/timeline/layout'
   import TimelineChart from '../routes/timeline/TimelineChart.svelte'
@@ -22,6 +23,7 @@
       details: { control: 'inline-radio', options: ['tooltip', 'inline'] },
       people: { table: { disable: true } },
       contemporaries: { table: { disable: true } },
+      events: { table: { disable: true } },
     },
     args: {
       people: people.map(toTimelinePerson),
@@ -39,6 +41,11 @@
 <Story name="Prophets" args={{ filter: 'prophets' }} />
 
 <Story name="Zoomed out" args={{ pxPerYear: 2 }} />
+
+<!-- The Bible's events get a row above the people, the world's a row below -->
+<Story name="With events" args={{ events }} />
+
+<Story name="With events, zoomed out" args={{ events, pxPerYear: 2 }} />
 
 <Story name="Zoomed in" args={{ pxPerYear: 14 }} />
 

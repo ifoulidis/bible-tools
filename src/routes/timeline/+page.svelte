@@ -1,6 +1,8 @@
 <script lang="ts">
   import { MediaQuery } from 'svelte/reactivity'
+  import { type EventKind, eventKinds, events } from '$lib/data/events'
 
+  import EventIcon from './EventIcon.svelte'
   import FilterIcon from './FilterIcon.svelte'
   import KingdomsBar from './KingdomsBar.svelte'
   import Legend from './Legend.svelte'
@@ -18,6 +20,14 @@
   let filter = $state<Filter>('everyone')
   let pxPerYear = $state(5)
   const filters = Object.keys(filterLanes) as Filter[]
+
+  /** The world's events give some perspective from the start; the Bible's are there to turn on */
+  let shownEvents = $state<Record<EventKind, boolean>>({ bible: false, world: true })
+  let visibleEvents = $derived(events.filter(event => shownEvents[event.kind]))
+  const eventToggleLabels: Record<EventKind, string> = {
+    bible: 'Bible events',
+    world: 'World events',
+  }
 
   let fullscreen = $state<Fullscreen>('off')
   let stage = $state<HTMLElement>()
@@ -134,7 +144,7 @@
       {#if layout === 'phone' || layout === 'phone-rotated'}
         <!-- A rail of controls down one side: icons rather than words, and the slider upright -->
         <div
-          class="flex shrink-0 flex-col items-center gap-3 rounded-2xl border border-stone-200 bg-white p-1.5 shadow-sm"
+          class="flex shrink-0 flex-col items-center gap-3 overflow-y-auto rounded-2xl border border-stone-200 bg-white p-1.5 shadow-sm"
         >
           <button
             class="grid size-10 cursor-pointer place-items-center rounded-full text-stone-600 transition-colors hover:bg-stone-100 hover:text-stone-900 focus-visible:outline-2 focus-visible:outline-stone-800"
@@ -163,9 +173,25 @@
               </label>
             {/each}
           </div>
+          <div class="flex flex-col gap-1" role="group" aria-label="Events">
+            {#each eventKinds as kind (kind)}
+              <label
+                class="grid size-10 cursor-pointer place-items-center rounded-full text-stone-600 transition-colors not-has-checked:hover:bg-stone-100 has-checked:bg-stone-200 has-checked:text-stone-900 has-checked:shadow-sm has-focus-visible:outline-2 has-focus-visible:-outline-offset-2 has-focus-visible:outline-israel"
+                title={eventToggleLabels[kind]}
+              >
+                <input
+                  class="pointer-events-none absolute opacity-0"
+                  type="checkbox"
+                  aria-label={eventToggleLabels[kind]}
+                  bind:checked={shownEvents[kind]}
+                />
+                <EventIcon {kind} class="size-5" />
+              </label>
+            {/each}
+          </div>
           <!-- Upright, with zooming in at the top -->
           <input
-            class="slider my-2 min-h-16 w-1.5 flex-1 [direction:rtl] [writing-mode:vertical-lr]"
+            class="slider my-2 min-h-12 w-1.5 flex-1 [direction:rtl] [writing-mode:vertical-lr]"
             type="range"
             min="2"
             max="14"
@@ -179,6 +205,7 @@
             people={data.people}
             contemporaries={data.contemporaries}
             {filter}
+            events={visibleEvents}
             {pxPerYear}
             details="inline"
           />
@@ -207,6 +234,25 @@
               </label>
             {/each}
           </div>
+          <div
+            class="flex gap-1 rounded-full border border-stone-200 bg-white p-1 shadow-sm"
+            role="group"
+            aria-label="Events"
+          >
+            {#each eventKinds as kind (kind)}
+              <label
+                class="flex cursor-pointer items-center gap-2 rounded-full px-3.5 py-1.5 text-sm font-medium text-stone-600 transition-colors not-has-checked:hover:bg-stone-100 has-checked:bg-stone-200 has-checked:text-stone-900 has-checked:shadow-sm has-focus-visible:outline-2 has-focus-visible:-outline-offset-2 has-focus-visible:outline-israel"
+              >
+                <input
+                  class="pointer-events-none absolute opacity-0"
+                  type="checkbox"
+                  bind:checked={shownEvents[kind]}
+                />
+                <EventIcon {kind} class="size-4" />
+                {eventToggleLabels[kind]}
+              </label>
+            {/each}
+          </div>
           <label class="flex items-center gap-3 text-sm font-medium text-stone-600">
             Zoom
             <input class="slider" type="range" min="2" max="14" step="1" bind:value={pxPerYear} />
@@ -225,6 +271,7 @@
           people={data.people}
           contemporaries={data.contemporaries}
           {filter}
+          events={visibleEvents}
           {pxPerYear}
         />
         <Legend />

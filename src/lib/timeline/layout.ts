@@ -1,3 +1,4 @@
+import type { EventKind, TimelineEvent } from '$lib/data/events'
 import type { Dating, Kingdom, Person } from '$lib/data/schema'
 
 export const lanes = [
@@ -191,6 +192,71 @@ export function layoutTimeline(
     })
     .filter(lane => lane.bars.length > 0)
 }
+
+export interface EventMarker {
+  event: TimelineEvent
+  x: number
+  row: number
+  /** Which side of the marker its name goes: the left near the end of the chart, so it fits */
+  side: 'left' | 'right'
+}
+
+export interface LaidOutEvents {
+  kind: EventKind
+  rowCount: number
+  markers: EventMarker[]
+}
+
+/** Room the marker itself takes either side of its year */
+export const EVENT_MARKER_PX = 6
+/** A rough width per character of an event's name, for packing them without measuring the DOM */
+export const EVENT_CHAR_PX = 6.5
+/** Kept clear between one event's name and the next marker in its row */
+const EVENT_GAP_PX = 10
+
+/** How far an event's name reaches from its year, including the marker */
+export const eventLabelWidth = (name: string) =>
+  EVENT_MARKER_PX + 4 + Math.ceil(name.length * EVENT_CHAR_PX)
+
+/**
+ * Events in the scale, one group per kind in `kinds` that has any, packed into rows so no name
+ * runs into another. `overhang` is how far past the end of the scale a name may reach before it's
+ * put on the left of its marker instead
+ */
+export function layoutEvents(
+  events: TimelineEvent[],
+  scale: Scale,
+  kinds: readonly EventKind[],
+  overhang = 0,
+): LaidOutEvents[] {
+  const limit = scaleWidth(scale) + overhang
+  return kinds
+    .map(kind => {
+      const placed = events
+        .filter(
+          event => event.kind === kind && event.year <= scale.start && event.year >= scale.end,
+        )
+        .map(event => {
+          const x = yearToX(scale, event.year)
+          const reach = eventLabelWidth(event.name)
+          const side: EventMarker['side'] = x + reach > limit ? 'left' : 'right'
+          const from = side === 'right' ? x - EVENT_MARKER_PX : x - reach
+          const to = side === 'right' ? x + reach : x + EVENT_MARKER_PX
+          return { event, x, side, extent: { x: from, width: to - from + EVENT_GAP_PX } }
+        })
+      const rows = packRows(placed.map(({ extent }) => extent))
+      return {
+        kind,
+        rowCount: Math.max(0, ...rows) + 1,
+        markers: placed.map(({ event, x, side }, i) => ({ event, x, side, row: rows[i] })),
+      }
+    })
+    .filter(group => group.markers.length > 0)
+}
+
+/** "966 BC", "c. 814 BC" */
+export const formatYear = ({ year, approx }: Pick<TimelineEvent, 'year' | 'approx'>) =>
+  `${approx ? 'c. ' : ''}${year} BC`
 
 /** "874–853 BC", "885 BC", "c. 760–750 BC" */
 export function formatSpan({ span }: Pick<TimelineDating, 'span'>) {

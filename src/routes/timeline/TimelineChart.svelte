@@ -1,5 +1,7 @@
 <script lang="ts">
+  import type { EventKind, TimelineEvent } from '$lib/data/events'
   import BarDetails from './BarDetails.svelte'
+  import EventMarker from './EventMarker.svelte'
   import TimelineBar from './TimelineBar.svelte'
   import {
     type Bar,
@@ -8,18 +10,21 @@
     layoutTimeline,
     scaleFor,
     formatSpan,
+    layoutEvents,
     scaleWidth,
     ticks,
     yearToX,
   } from '$lib/timeline/layout'
   import { tooltipLines } from './interaction'
-  import { type Filter, filterLanes, laneClasses } from './theme'
+  import { type Filter, eventClasses, eventLabels, filterLanes, laneClasses } from './theme'
 
   interface Props {
     people: TimelinePerson[]
     /** Prophet id → ids of the kings the Bible names alongside them */
     contemporaries: Record<string, string[]>
     filter?: Filter
+    /** Marked on rows of their own: the Bible's above the people, the world's below */
+    events?: TimelineEvent[]
     pxPerYear?: number
     /**
      * "tooltip" floats each bar's details beside it. "inline" draws a tapped bar's details inside
@@ -32,6 +37,7 @@
     people,
     contemporaries,
     filter = 'everyone',
+    events = [],
     pxPerYear = 5,
     details = 'tooltip',
   }: Props = $props()
@@ -44,6 +50,8 @@
   }
 
   const ROW_PX = 28
+  /** The chart's padding either side, which an event's name may spill into at the end */
+  const PAD_PX = 40
   const TICK_STEP = 50
   /** Lanes are spaced apart by this much; the labels beside the chart have to match */
   const LANE_GAP = 'mt-3'
@@ -75,6 +83,26 @@
   let scale = $derived(scaleFor(datings, pxPerYear, 10))
   let yearTicks = $derived(ticks(scale, TICK_STEP))
   let laidOut = $derived(layoutTimeline(people, scale, filterLanes[filter]))
+  const eventGroups = (kinds: EventKind[]) => layoutEvents(events, scale, kinds, PAD_PX - 4)
+  let eventsAbove = $derived(eventGroups(['bible']))
+  let eventsBelow = $derived(eventGroups(['world']))
+  const eventLabel = ({ kind, rowCount }: { kind: EventKind; rowCount: number }) => ({
+    id: kind,
+    rowCount,
+    text: eventLabels[kind],
+    ...eventClasses[kind],
+  })
+  /** Every row of the chart in order, for the labels beside it */
+  let rowLabels = $derived([
+    ...eventsAbove.map(eventLabel),
+    ...laidOut.map(lane => ({
+      id: lane.id,
+      rowCount: lane.rowCount,
+      text: laneLabels[lane.id],
+      ...laneClasses[lane.id],
+    })),
+    ...eventsBelow.map(eventLabel),
+  ])
   /** The tapped bar, for drawing its details inline */
   let activeBar = $derived(
     active === null
@@ -112,19 +140,14 @@
         </svg>
       </button>
     </div>
-    {#each laidOut as lane (lane.id)}
+    {#each rowLabels as row (row.id)}
       <div
-        class="{LANE_GAP} flex justify-end text-xs leading-7 font-semibold tracking-wider whitespace-nowrap uppercase {laneClasses[
-          lane.id
-        ].label}"
-        style:height="{lane.rowCount * ROW_PX}px"
+        class="{LANE_GAP} flex justify-end text-xs leading-7 font-semibold tracking-wider whitespace-nowrap uppercase {row.label}"
+        style:height="{row.rowCount * ROW_PX}px"
         aria-hidden="true"
       >
-        <span class={labelsOpen ? '' : 'max-md:hidden'}>{laneLabels[lane.id]}</span>
-        <span
-          class="my-1 w-1.5 rounded-full md:hidden {laneClasses[lane.id].stripe} {labelsOpen
-            ? 'hidden'
-            : ''}"
+        <span class={labelsOpen ? '' : 'max-md:hidden'}>{row.text}</span>
+        <span class="my-1 w-1.5 rounded-full md:hidden {row.stripe} {labelsOpen ? 'hidden' : ''}"
         ></span>
       </div>
     {/each}
@@ -154,6 +177,28 @@
         {/each}
       </div>
 
+      {#snippet eventRows(groups: typeof eventsAbove)}
+        {#each groups as group (group.kind)}
+          <section class={LANE_GAP} aria-label={eventLabels[group.kind]}>
+            <div class="relative" style:height="{group.rowCount * ROW_PX}px">
+              {#each group.markers as marker (marker.event.id)}
+                <!-- The marker is 10px wide, so it starts 5px before the year, or ends 5px after
+                     it when it's drawn to the left of its name -->
+                <EventMarker
+                  class="absolute"
+                  style="left: {marker.x + (marker.side === 'right' ? -5 : 5)}px; top: {marker.row *
+                    ROW_PX}px"
+                  event={marker.event}
+                  side={marker.side}
+                  tooltip={details === 'tooltip'}
+                />
+              {/each}
+            </div>
+          </section>
+        {/each}
+      {/snippet}
+
+      {@render eventRows(eventsAbove)}
       {#each laidOut as lane (lane.id)}
         <section class={LANE_GAP} aria-label={laneLabels[lane.id]}>
           <div class="relative" style:height="{lane.rowCount * ROW_PX}px">
@@ -200,6 +245,7 @@
           </div>
         </section>
       {/each}
+      {@render eventRows(eventsBelow)}
     </div>
   </div>
 </div>

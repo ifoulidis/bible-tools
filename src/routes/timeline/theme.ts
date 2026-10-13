@@ -1,3 +1,4 @@
+import type { EventKind } from '$lib/data/events'
 import type { LaneId } from '$lib/timeline/layout'
 
 // Full class names so Tailwind can see them; picked per lane instead of overriding a variable
@@ -50,4 +51,26 @@ export const filterClasses: Record<Filter, string> = {
   everyone: 'has-checked:bg-slate-200 has-checked:text-slate-900',
   kings: 'has-checked:bg-teal-100 has-checked:text-teal-900',
   prophets: 'has-checked:bg-lime-100 has-checked:text-lime-900',
+}
+
+/**
+ * Events stay neutral so they don't read as another kingdom: solid for the Bible's own, hollow for
+ * the rest of the world
+ */
+export const eventClasses: Record<EventKind, { label: string; stripe: string; marker: string }> = {
+  bible: {
+    label: 'text-stone-700',
+    stripe: 'bg-stone-700',
+    marker: 'bg-stone-700',
+  },
+  world: {
+    label: 'text-stone-500',
+    stripe: 'bg-stone-400',
+    marker: 'border-2 border-stone-400 bg-white',
+  },
+}
+
+export const eventLabels: Record<EventKind, string> = {
+  bible: 'Events',
+  world: 'World',
 }

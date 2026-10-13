@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
+import type { EventKind, TimelineEvent } from '$lib/data/events'
 import { buildContemporaries } from '$lib/data/relations'
 import type { Dating, Person } from '$lib/data/schema'
 
@@ -7,7 +8,10 @@ import {
   BAR_GAP_PX,
   MIN_BAR_PX,
   type TimelinePerson,
+  eventLabelWidth,
   formatSpan,
+  formatYear,
+  layoutEvents,
   layoutTimeline,
   packRows,
   scaleFor,
@@ -257,5 +261,60 @@ describe('buildContemporaries', () => {
     expect([...(links.get('elijah') ?? [])]).toEqual(['ahab', 'ahaziah'])
     expect([...(links.get('ahab') ?? [])]).toEqual(['elijah'])
     expect(links.get('elisha')?.size).toBe(0)
+  })
+})
+
+describe('layoutEvents', () => {
+  const scale = { start: 1000, end: 500, pxPerYear: 1 }
+  const event = (id: string, year: number, kind: EventKind = 'world'): TimelineEvent => ({
+    id,
+    kind,
+    name: id,
+    year,
+    approx: false,
+    detail: '',
+  })
+
+  it('places each event at its year, grouped by kind in the order asked for', () => {
+    const laidOut = layoutEvents([event('a', 900), event('b', 700, 'bible')], scale, [
+      'bible',
+      'world',
+    ])
+    expect(laidOut.map(group => group.kind)).toEqual(['bible', 'world'])
+    expect(laidOut[0].markers[0]).toMatchObject({ x: 300, row: 0, side: 'right' })
+    expect(laidOut[1].markers[0]).toMatchObject({ x: 100, row: 0 })
+  })
+
+  it('leaves out kinds not asked for, kinds with no events, and events off the scale', () => {
+    const laidOut = layoutEvents([event('a', 1100), event('b', 400), event('c', 700)], scale, [
+      'world',
+    ])
+    expect(laidOut).toHaveLength(1)
+    expect(laidOut[0].markers.map(marker => marker.event.id)).toEqual(['c'])
+    expect(layoutEvents([event('a', 700)], scale, ['bible'])).toEqual([])
+  })
+
+  it('moves an event down a row rather than let its name run into the next', () => {
+    const name = 'a long event name'
+    const near = 1000 - Math.ceil(eventLabelWidth(name) / 2)
+    const laidOut = layoutEvents(
+      [{ ...event('first', 1000), name }, event('second', near), event('far', 600)],
+      scale,
+      ['world'],
+    )
+    expect(laidOut[0].markers.map(marker => marker.row)).toEqual([0, 1, 0])
+    expect(laidOut[0].rowCount).toBe(2)
+  })
+
+  it('puts the name on the left near the end of the chart', () => {
+    const [group] = layoutEvents([event('late', 505)], scale, ['world'], 20)
+    expect(group.markers[0].side).toBe('left')
+  })
+})
+
+describe('formatYear', () => {
+  it('marks approximate years', () => {
+    expect(formatYear({ year: 966, approx: true })).toBe('c. 966 BC')
+    expect(formatYear({ year: 931, approx: false })).toBe('931 BC')
   })
 })
