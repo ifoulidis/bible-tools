@@ -111,6 +111,40 @@
     @apply text-[1.4em] text-rubric;
   }
 
+  /*
+   * The timeline's event flags. A tag is square where it meets its pole and rounded at the free
+   * end. A banner is cut to a swallowtail there instead, so it has no border (the cut would break
+   * it) and takes its edge and shadow from drop-shadow, which follows the cut
+   */
+  .flag.tag {
+    @apply rounded-r-md border-l-0;
+  }
+  .flag.tag.flag-left {
+    @apply rounded-l-md rounded-r-none border-r-0 border-l;
+  }
+  .flag.banner {
+    @apply pr-3.5;
+    clip-path: polygon(0 0, 100% 0, calc(100% - 6px) 50%, 100% 100%, 0 100%);
+  }
+  .flag.banner.flag-left {
+    @apply pr-1.5 pl-3.5;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%, 6px 50%);
+  }
+  /* On the button rather than the flag, as clip-path would cut off the flag's own shadow */
+  .group:has(> .flag.banner) {
+    filter: drop-shadow(0 0 0.5px var(--color-vellum-edge))
+      drop-shadow(0 1px 1.5px rgb(60 40 20 / 0.3));
+  }
+  .group:has(> .flag.banner):hover,
+  .group:has(> .flag-raised.banner) {
+    filter: drop-shadow(0 0 0.5px var(--color-vellum-edge))
+      drop-shadow(0 3px 4px rgb(60 40 20 / 0.35));
+  }
+  .group:hover > .flag.tag,
+  .flag-raised.tag {
+    @apply shadow-md;
+  }
+
   .eyebrow {
     @apply text-xs font-semibold tracking-[0.2em] text-primary-700 uppercase;
   }

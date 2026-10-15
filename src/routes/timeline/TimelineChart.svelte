@@ -184,12 +184,9 @@
           <section class={LANE_GAP} aria-label={eventLabels[group.kind]}>
             <div class="relative" style:height="{group.rowCount * ROW_PX}px">
               {#each group.markers as marker (marker.event.id)}
-                <!-- The marker is 10px wide, so it starts 5px before the year, or ends 5px after
-                     it when it's drawn to the left of its name -->
                 <EventMarker
                   class="absolute"
-                  style="left: {marker.x + (marker.side === 'right' ? -5 : 5)}px; top: {marker.row *
-                    ROW_PX}px"
+                  style="left: {marker.x}px; top: {marker.row * ROW_PX}px"
                   event={marker.event}
                   side={marker.side}
                   tooltip={details === 'tooltip'}

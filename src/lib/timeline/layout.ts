@@ -210,16 +210,18 @@ export interface LaidOutEvents {
   markers: EventMarker[]
 }
 
-/** Room the marker itself takes either side of its year */
-export const EVENT_MARKER_PX = 6
+/** Room the flag's pole (and the dot at its foot) takes either side of its year */
+export const EVENT_MARKER_PX = 3
+/** The flag's padding and border around its name, with room for a banner's swallowtail */
+const EVENT_FLAG_PX = 20
 /** A rough width per character of an event's name, for packing them without measuring the DOM */
 export const EVENT_CHAR_PX = 6.5
-/** Kept clear between one event's name and the next marker in its row */
-const EVENT_GAP_PX = 10
+/** Kept clear between one flag and the next pole in its row */
+const EVENT_GAP_PX = 8
 
-/** How far an event's name reaches from its year, including the marker */
+/** How far an event's flag reaches from its year, including the pole */
 export const eventLabelWidth = (name: string) =>
-  EVENT_MARKER_PX + 4 + Math.ceil(name.length * EVENT_CHAR_PX)
+  EVENT_MARKER_PX + EVENT_FLAG_PX + Math.ceil(name.length * EVENT_CHAR_PX)
 
 /**
  * Events in the scale, one group per kind in `kinds` that has any, packed into rows so no name

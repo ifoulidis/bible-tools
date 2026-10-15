@@ -54,19 +54,26 @@ export const filterClasses: Record<Filter, string> = {
 }
 
 /**
- * Events stay neutral so they don't read as another kingdom: solid for the Bible's own, hollow for
- * the rest of the world
+ * Each event is a flag on a pole standing on its year. The Bible's are vellum banners with a
+ * swallowtail, a red pole and the manuscript face, like the popovers; the world's are plain white
+ * tags on a grey pole. Neither uses
+ * a lane colour, so they don't read as another kingdom
  */
-export const eventClasses: Record<EventKind, { label: string; stripe: string; marker: string }> = {
+export const eventClasses: Record<
+  EventKind,
+  { label: string; stripe: string; pole: string; flag: string }
+> = {
   bible: {
-    label: 'text-stone-700',
-    stripe: 'bg-stone-700',
-    marker: 'bg-stone-700',
+    label: 'text-rubric',
+    stripe: 'bg-rubric',
+    pole: 'bg-rubric',
+    flag: 'banner bg-vellum font-manuscript text-[0.8rem] text-ink',
   },
   world: {
     label: 'text-stone-500',
     stripe: 'bg-stone-400',
-    marker: 'border-2 border-stone-400 bg-white',
+    pole: 'bg-stone-400',
+    flag: 'tag border border-stone-300 bg-white text-[0.7rem] font-medium text-stone-600 shadow-sm',
   },
 }
 

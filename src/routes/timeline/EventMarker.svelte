@@ -34,6 +34,7 @@
   let focused = $state(false)
   /** Tapped open on a touch screen, until a tap anywhere else */
   let tapped = $state(false)
+  let open = $derived(hovered || focused || tapped)
 
   $effect(() => {
     if (!tapped) return
@@ -46,14 +47,15 @@
   })
 </script>
 
+<!-- A flag on a pole: the pole stands on the event's year (the chart places this at it), with a dot
+     at its foot, and the flag carries the name. Near the end of the chart the flag flies left -->
 <button
   bind:this={marker}
   type="button"
   {style}
   class={[
-    'flex h-7 cursor-default items-center gap-1.5 rounded-sm text-xs leading-none font-medium whitespace-nowrap focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-stone-800',
-    side === 'left' && '-translate-x-full flex-row-reverse',
-    classes.label,
+    'group flex h-7 cursor-default items-start whitespace-nowrap focus-visible:outline-none',
+    side === 'right' ? '-translate-x-px' : '-translate-x-[calc(100%-1px)] flex-row-reverse',
     className,
   ]}
   aria-label="{event.name}, {year}"
@@ -72,13 +74,25 @@
   }}
   onblur={() => (focused = false)}
 >
-  <!-- Centred on the event's year: the marker is 10px wide and placed 5px before it -->
-  <span class="size-2.5 shrink-0 rotate-45 rounded-xs {classes.marker}"></span>
-  {event.name}
+  <span class="relative mt-0.75 h-[calc(100%-0.375rem)] w-0.5 shrink-0 rounded-full {classes.pole}">
+    <span
+      class="absolute -bottom-0.5 left-1/2 size-1.5 -translate-x-1/2 rounded-full {classes.pole}"
+    ></span>
+  </span>
+  <span
+    class={[
+      'flag mt-0.75 flex h-4.5 items-center px-1.5 leading-none transition duration-150 group-hover:-translate-y-px group-focus-visible:outline-2 group-focus-visible:outline-offset-1 group-focus-visible:outline-stone-800',
+      side === 'left' && 'flag-left',
+      open && 'flag-raised -translate-y-px',
+      classes.flag,
+    ]}
+  >
+    {event.name}
+  </span>
 </button>
 
 {#if tooltip}
-  <Popover anchor={marker} {bounds} open={hovered || focused || tapped}>
+  <Popover anchor={marker} {bounds} {open}>
     <Manuscript
       eyebrow={event.kind === 'bible' ? 'In the Bible' : 'In the world'}
       title={event.name}
