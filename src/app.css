@@ -22,6 +22,8 @@
   --font-display: 'Fraunces', ui-serif, Georgia, serif;
   /* An old printer's face, for the manuscript look of the timeline's popovers */
   --font-manuscript: 'IM Fell English', 'Iowan Old Style', Georgia, serif;
+  /* A face made for long reading on screens, for the Bible's text */
+  --font-reading: 'Literata', 'Iowan Old Style', Georgia, serif;
 
   /* Page background, an off-white parchment */
   --color-parchment: #faf7f2;
@@ -143,6 +145,21 @@
   .group:hover > .flag.tag,
   .flag-raised.tag {
     @apply shadow-md;
+  }
+
+  /* The Bible reader's verse numbers, which select their verse when tapped */
+  .verse-number {
+    @apply mr-[0.2em] ml-[0.1em] cursor-pointer scroll-mt-24 rounded-sm align-[0.45em] font-sans text-[0.6em] leading-none font-semibold text-primary-700/80 transition-colors hover:text-stone-900 aria-pressed:text-stone-900;
+  }
+  .verse-number:first-child {
+    @apply ml-0;
+  }
+  /* Where a footnote is called: a raised letter, like a printed Bible's */
+  .footnote-call {
+    @apply mx-[0.05em] cursor-pointer rounded-sm px-[0.1em] align-[0.5em] font-sans text-[0.58em] leading-none font-semibold text-primary-500 italic transition-colors hover:bg-primary-100 hover:text-primary-800 aria-expanded:bg-primary-100 aria-expanded:text-primary-800;
+  }
+  .small-caps {
+    font-variant-caps: small-caps;
   }
 
   .eyebrow {

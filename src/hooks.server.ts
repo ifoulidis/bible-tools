@@ -33,7 +33,7 @@ const handleAuth: Handle = async ({ event, resolve }) => {
 }
 
 /** Paths anyone can view without logging in (the auth pages themselves must be here to avoid a redirect loop) */
-const publicPrefixes = ['/auth', '/timeline', '/kings-timeline', '/people', '/memorise']
+const publicPrefixes = ['/auth', '/bible', '/timeline', '/kings-timeline', '/people', '/memorise']
 
 function isPublic(pathname: string) {
   return (

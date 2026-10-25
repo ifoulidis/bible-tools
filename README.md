@@ -32,6 +32,12 @@ Use `npm run db:generate` rather than `npx prisma generate`: the Zod generator c
 
 `npx prisma db seed` loads the king and prophet data.
 
+## Bible text
+
+The reader at `/bible` shows the Berean Standard Bible (public domain), from one JSON file per book in `src/lib/bible/bsb`. Every chapter is prerendered at build time, so reading needs no server or database.
+
+To regenerate the JSON, download the BSB SWORD module from [CrossWire](https://crosswire.org/sword/modules/ModInfo.jsp?modName=BSB), unzip it into `./BSB` (so there's a `BSB/mods.d/bsb.conf`), and run `npm run bible:import`. The import keeps the headings, paragraphs, poetry and footnotes and leaves out the Strong's numbers.
+
 ## Storybook
 
 Run `npm run storybook` to open Storybook on port 6006.

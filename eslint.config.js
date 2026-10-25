@@ -84,6 +84,8 @@ export default [
       'prisma/generated/',
       'tailwind.config.ts',
       'prisma.config.ts',
+      // Run directly by Node, outside the app's TypeScript project
+      'scripts/',
     ],
   },
   ...storybook.configs['flat/recommended'],

@@ -6,6 +6,7 @@
   let { children } = $props()
 
   const links = [
+    { href: '/bible', label: 'Read' },
     { href: '/timeline', label: 'Timeline' },
     { href: '/memorise', label: 'Memorise' },
     { href: '/people', label: 'People' },
@@ -13,8 +14,12 @@
 
   let menuOpen = $state(false)
 
+  /** On the page, or somewhere within its section, such as a chapter under /bible */
+  const isCurrent = (href: string) =>
+    $page.url.pathname === href || $page.url.pathname.startsWith(`${href}/`)
+
   const linkClass = (href: string) =>
-    $page.url.pathname === href
+    isCurrent(href)
       ? 'text-stone-900 underline decoration-primary-400 decoration-2 underline-offset-8'
       : 'text-stone-600 hover:text-stone-900'
 </script>
@@ -65,7 +70,7 @@
             <a
               {href}
               class="block py-2 transition-colors md:py-0 {linkClass(href)}"
-              aria-current={$page.url.pathname === href ? 'page' : undefined}
+              aria-current={isCurrent(href) ? 'page' : undefined}
               onclick={() => (menuOpen = false)}>{label}</a
             >
           </li>
