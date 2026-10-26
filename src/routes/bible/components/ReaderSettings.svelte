@@ -1,5 +1,6 @@
 <script lang="ts">
-  import { settings, textSizes } from '$lib/bible/settings.svelte'
+  import { appearance, settings, textSizes } from '$lib/bible/settings.svelte'
+  import { themes } from '$lib/bible/theme'
   import SegmentedControl from '$lib/components/SegmentedControl.svelte'
   import ToggleChip from '$lib/components/ToggleChip.svelte'
 
@@ -30,6 +31,33 @@
     <div
       class="card absolute top-full right-0 z-50 mt-2 w-[min(20rem,calc(100vw-2rem))] space-y-5 p-5"
     >
+      <div>
+        <h3 class="eyebrow mb-2.5">Theme</h3>
+        <div class="grid grid-cols-4 gap-2" role="radiogroup" aria-label="Theme">
+          {#each themes as theme (theme.id)}
+            <label class="group flex cursor-pointer flex-col items-center gap-1.5">
+              <input
+                class="pointer-events-none absolute opacity-0"
+                type="radio"
+                name="theme"
+                value={theme.id}
+                bind:group={appearance.theme}
+              />
+              <!-- Drawn in the theme's own colours, so each shows what it looks like -->
+              <span
+                class="grid h-11 w-full place-items-center rounded-xl border border-stone-300 font-reading text-lg shadow-sm transition group-hover:-translate-y-px group-has-checked:ring-2 group-has-checked:ring-primary-500 group-has-checked:ring-offset-2 group-has-checked:ring-offset-white group-has-focus-visible:outline-2 group-has-focus-visible:outline-offset-4 group-has-focus-visible:outline-stone-800"
+                style:background-color={theme.background}
+                style:color={theme.text}
+                aria-hidden="true">Aa</span
+              >
+              <span class="text-xs font-medium text-stone-600 group-has-checked:text-stone-900"
+                >{theme.label}</span
+              >
+            </label>
+          {/each}
+        </div>
+      </div>
+
       <div>
         <h3 class="eyebrow mb-2.5">Text size</h3>
         <div class="flex items-center gap-3">

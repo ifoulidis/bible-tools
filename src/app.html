@@ -13,6 +13,17 @@
       href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500..700&family=IM+Fell+English:ital@0;1&family=Inter:wght@400..700&family=Literata:ital,opsz,wght@0,7..72,400..700;1,7..72,400..700&display=swap"
     />
 
+    <script>
+      // The Bible reader's colour theme, set before the page paints so the default doesn't flash
+      // first. See src/lib/bible/theme.ts
+      ;(function () {
+        var theme = /(?:^|;\s*)bible-theme=(\w+)/.exec(document.cookie)
+        if (theme && /^\/bible(\/|$)/.test(location.pathname)) {
+          document.documentElement.dataset.theme = theme[1]
+        }
+      })()
+    </script>
+
     %sveltekit.head%
   </head>
 

@@ -27,6 +27,9 @@
 
   /* Page background, an off-white parchment */
   --color-parchment: #faf7f2;
+  /* Declared here so utilities read it as a variable, which the Bible reader's themes redefine.
+     Tailwind otherwise writes white out as a fixed #fff */
+  --color-white: #ffffff;
 
   /* Old manuscripts: aged vellum, brown iron-gall ink and red rubrics */
   --color-vellum: #f1e4c6;
@@ -77,6 +80,62 @@
   h1,
   h2 {
     @apply font-display tracking-tight text-stone-900;
+  }
+
+  /*
+   * The Bible reader's colour themes (src/lib/bible/theme.ts), set on <html> only within /bible.
+   * Each redefines the colours the pages are drawn in, so everything on them follows. Paper is the
+   * site's own colours
+   */
+  :root[data-theme='white'] {
+    --color-parchment: #ffffff;
+
+    body {
+      background-image: none;
+    }
+  }
+
+  :root[data-theme='sepia'] {
+    --color-parchment: #f3e9d2;
+    --color-white: #faf4e4;
+    --color-stone-50: #f6eedc;
+    --color-stone-100: #ece0c6;
+    --color-stone-200: #e0d1b2;
+    --color-stone-300: #d0bd98;
+    --color-stone-400: #a8926f;
+    --color-stone-500: #85715a;
+    --color-stone-600: #6e5b45;
+    --color-stone-700: #5c4a35;
+    --color-stone-800: #4a3b2a;
+    --color-stone-900: #3a2d20;
+    --color-gray-200: var(--color-stone-200);
+  }
+
+  /* Dark, with the stone scale turned over so light text sits on dark grounds */
+  :root[data-theme='night'] {
+    color-scheme: dark;
+    --color-parchment: #1a1917;
+    --color-white: #23211f;
+    --color-stone-50: #2a2826;
+    --color-stone-100: #2f2d2a;
+    --color-stone-200: #3a3733;
+    --color-stone-300: #4c4843;
+    --color-stone-400: #75706a;
+    --color-stone-500: #958e84;
+    --color-stone-600: #b5aea3;
+    --color-stone-700: #d0c9be;
+    --color-stone-800: #e7e2da;
+    --color-stone-900: #f3efe8;
+    --color-gray-200: var(--color-stone-200);
+    /* Bronze lightened to read on the dark, and its tints darkened to sit behind text */
+    --color-primary-50: #2e261d;
+    --color-primary-100: #3b2f21;
+    --color-primary-200: #4e3c26;
+    --color-primary-700: #dcbb7d;
+    --color-primary-800: #ead6ae;
+    --color-amber-100: #4a3a1a;
+    --color-rubric: #e48a74;
+    --shadow-card: 0 1px 2px rgb(0 0 0 / 0.3), 0 8px 24px -12px rgb(0 0 0 / 0.6);
   }
 }
 

@@ -1,3 +1,5 @@
+import type { Theme } from './theme'
+
 export type Layout = 'paragraphs' | 'verses'
 export type Typeface = 'serif' | 'sans'
 
@@ -20,6 +22,9 @@ const storageKey = 'bible:settings'
 
 /** How the reader lays out the text, kept in the browser so it's the same next visit */
 export const settings = $state<ReaderSettings>({ ...defaults })
+
+/** The colour theme, kept apart from the rest as it lives in a cookie (see theme.ts) */
+export const appearance = $state<{ theme: Theme }>({ theme: 'paper' })
 
 /** Call once in the browser, before saving anything */
 export function loadSettings() {
